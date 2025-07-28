@@ -134,56 +134,6 @@
       -webkit-box-orient: vertical;
       overflow: hidden;
     }
-    
-    .ribbon {
-      position: absolute;
-      right: -5px;
-      top: -5px;
-      z-index: 1;
-      overflow: hidden;
-      width: 75px;
-      height: 75px;
-      text-align: right;
-    }
-    .ribbon span {
-      font-size: 10px;
-      font-weight: bold;
-      color: #FFF;
-      text-transform: uppercase;
-      text-align: center;
-      line-height: 20px;
-      transform: rotate(45deg);
-      width: 100px;
-      display: block;
-      background: #79A70A;
-      background: linear-gradient(#9BC90D 0%, #79A70A 100%);
-      box-shadow: 0 3px 10px -5px rgba(0, 0, 0, 1);
-      position: absolute;
-      top: 19px;
-      right: -21px;
-    }
-    .ribbon::before {
-      content: "";
-      position: absolute;
-      left: 0px;
-      top: 100%;
-      z-index: -1;
-      border-left: 3px solid #79A70A;
-      border-right: 3px solid transparent;
-      border-bottom: 3px solid transparent;
-      border-top: 3px solid #79A70A;
-    }
-    .ribbon::after {
-      content: "";
-      position: absolute;
-      right: 0px;
-      top: 100%;
-      z-index: -1;
-      border-left: 3px solid transparent;
-      border-right: 3px solid #79A70A;
-      border-bottom: 3px solid transparent;
-      border-top: 3px solid #79A70A;
-  }
   </style>
 </head>
 
@@ -300,448 +250,453 @@
     </div>
   </section>
 
-<!-- International Curriculum Programs Section -->
-<section id="international-programs" class="py-16 bg-gray-50">
+<!-- Enhanced Program Section -->
+<section id="program" class="py-16 bg-white">
   <div class="container mx-auto px-4">
-    <!-- Header Section -->
-    <div class="text-center mb-12">
-      <span class="inline-block px-3 py-1 text-sm font-semibold text-primary bg-primary/10 rounded-full mb-3">Kelas Internasional</span>
-      <h2 class="text-3xl md:text-4xl font-bold mb-4 font-heading text-gray-900">Program Kurikulum Global</h2>
-      <div class="w-20 h-1 bg-primary mx-auto"></div>
+    <div class="text-center mb-12 animate-section" style="animation-delay: 0.1s">
+      <h2 class="text-3xl md:text-4xl font-bold mb-4 font-heading">Program Unggulan Kami</h2>
+      <p class="text-lg text-gray-600 max-w-2xl mx-auto">Pilih program yang sesuai dengan kebutuhan akademik Anda</p>
     </div>
-
-    <!-- Program Tabs -->
-    <div class="flex justify-center mb-10">
-      <div class="inline-flex rounded-xl bg-gray-100 p-1">
-        <button class="curriculum-tab active px-6 py-2 rounded-lg font-medium text-white bg-primary transition-all" data-curriculum="all">
-          Semua
+    
+    <!-- Enhanced Tab Navigation -->
+    <div class="flex overflow-x-auto pb-2 mb-8 animate-section" style="animation-delay: 0.2s">
+      <div class="flex space-x-2 mx-auto">
+        <button class="program-tab active px-6 py-3 rounded-xl font-medium bg-primary text-white transition-all transform hover:scale-105 shadow-md flex items-center" data-category="all">
+          <i class="fas fa-globe mr-2"></i> Semua
         </button>
-        <button class="curriculum-tab px-6 py-2 rounded-lg font-medium text-gray-700 hover:bg-gray-200 transition-all" data-curriculum="cambridge">
-          Cambridge
+        <button class="program-tab px-6 py-3 rounded-xl font-medium bg-gray-100 hover:bg-gray-200 transition-all transform hover:scale-105 flex items-center" data-category="nasional">
+          <i class="fas fa-flag mr-2 text-blue-600"></i> Nasional
         </button>
-        <button class="curriculum-tab px-6 py-2 rounded-lg font-medium text-gray-700 hover:bg-gray-200 transition-all" data-curriculum="ib">
-          IB
+        <button class="program-tab px-6 py-3 rounded-xl font-medium bg-gray-100 hover:bg-gray-200 transition-all transform hover:scale-105 flex items-center" data-category="internasional">
+          <i class="fas fa-star mr-2 text-yellow-500"></i> Internasional
         </button>
-        <button class="curriculum-tab px-6 py-2 rounded-lg font-medium text-gray-700 hover:bg-gray-200 transition-all" data-curriculum="singapore">
-          Singapore
+        <button class="program-tab px-6 py-3 rounded-xl font-medium bg-gray-100 hover:bg-gray-200 transition-all transform hover:scale-105 flex items-center" data-category="khusus">
+          <i class="fas fa-bolt mr-2 text-purple-500"></i> Khusus
         </button>
       </div>
     </div>
-
-    <!-- Program Grid -->
+    
+    <!-- Enhanced Program Cards Grid -->
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
-
-      <!-- ===== CAMBRIDGE PROGRAM ===== -->
-      <!-- Cambridge Primary -->
-      <div class="program-item cambridge group relative bg-white rounded-2xl shadow-lg overflow-hidden border border-gray-200 hover:shadow-xl transition-all duration-300">
-        <div class="absolute top-4 right-4 z-10">
-          <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-bold bg-blue-100 text-blue-800">
-            <i class="fas fa-graduation-cap mr-1"></i> Cambridge
-          </span>
-        </div>
-        <div class="h-40 bg-gradient-to-r from-blue-500 to-blue-600 flex items-end p-6">
-          <h3 class="text-xl font-bold text-white">Cambridge Primary</h3>
+      <!-- Program 1 - Kurikulum Merdeka -->
+      <div class="program-card group bg-white rounded-2xl shadow-lg border border-gray-100 overflow-hidden transition-all duration-500 hover:shadow-2xl hover:-translate-y-2 animate-section" 
+           style="animation-delay: 0.3s" data-category="nasional">
+        <div class="relative h-48 bg-gradient-to-br from-blue-600 to-blue-800 flex items-end p-6">
+          <div class="absolute inset-0 opacity-20 bg-[url('https://images.unsplash.com/photo-1523050854058-8df90110c9f1?q=80&w=1470&auto=format&fit=crop')] bg-cover bg-center"></div>
+          <div class="relative z-10">
+            <h3 class="text-2xl font-bold text-white">Kurikulum Merdeka</h3>
+            <p class="text-blue-100 text-sm">SD - SMA</p>
+          </div>
+          <div class="absolute top-4 right-4 bg-white text-blue-600 px-3 py-1 rounded-full text-xs font-bold shadow-sm">
+            NASIONAL
+          </div>
         </div>
         <div class="p-6">
-          <div class="flex items-center mb-3">
-            <span class="text-gray-500 text-sm mr-2"><i class="fas fa-user-graduate mr-1"></i> Usia 5-11 tahun</span>
-            <span class="text-gray-500 text-sm"><i class="fas fa-clock mr-1"></i> 32 sesi</span>
+          <div class="flex justify-between items-center mb-4">
+            <div>
+              <span class="text-2xl font-bold text-blue-600">Rp125.000</span>
+              <span class="text-gray-500 text-sm">/sesi 90 menit</span>
+            </div>
+            <div class="flex items-center text-yellow-400">
+              <i class="fas fa-star"></i>
+              <span class="ml-1 text-gray-700">4.9</span>
+            </div>
           </div>
-          <p class="text-gray-600 mb-4">Program dasar untuk membangun fondasi kuat dalam Matematika, Sains, dan Bahasa Inggris.</p>
-          <ul class="space-y-2 mb-6">
+          <ul class="space-y-2 mb-6 text-sm">
             <li class="flex items-start">
-              <svg class="h-5 w-5 text-green-500 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
-              </svg>
-              <span>Cambridge Mathematics</span>
+              <i class="fas fa-check-circle text-green-500 mt-1 mr-2 text-xs"></i>
+              <span>Matematika, IPA, Bahasa</span>
             </li>
             <li class="flex items-start">
-              <svg class="h-5 w-5 text-green-500 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
-              </svg>
-              <span>English as First Language</span>
+              <i class="fas fa-check-circle text-green-500 mt-1 mr-2 text-xs"></i>
+              <span>Project Based Learning</span>
             </li>
             <li class="flex items-start">
-              <svg class="h-5 w-5 text-green-500 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
-              </svg>
-              <span>Progres Report Bulanan</span>
+              <i class="fas fa-check-circle text-green-500 mt-1 mr-2 text-xs"></i>
+              <span>Asesmen Formatif</span>
             </li>
           </ul>
-          <div class="flex justify-between items-center">
-            <span class="text-2xl font-bold text-gray-900">Rp175.000<span class="text-sm text-gray-500">/sesi</span></span>
-            <a href="#" class="inline-flex items-center px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-lg transition">
-              Detail <i class="fas fa-chevron-right ml-2 text-xs"></i>
+          <div class="flex space-x-3">
+            <a href="https://wa.me/6282147510780?text=Saya%20tertarik%20program%20Kurikulum%20Merdeka" 
+               class="flex-1 bg-blue-600 hover:bg-blue-700 text-white text-center py-2 rounded-lg text-sm font-medium transition transform hover:scale-[1.02] touch-target">
+              Daftar Sekarang
             </a>
+            <button class="view-detail-btn w-10 h-10 flex items-center justify-center bg-gray-100 hover:bg-gray-200 rounded-lg transition touch-target">
+              <i class="fas fa-chevron-down text-gray-600"></i>
+            </button>
+          </div>
+          <div class="program-detail hidden mt-4 pt-4 border-t border-gray-200">
+            <h4 class="font-bold mb-2 text-sm text-gray-700">Detail Program:</h4>
+            <p class="text-gray-600 text-sm mb-3">Program khusus untuk siswa sekolah nasional dengan pendekatan Kurikulum Merdeka terbaru.</p>
+            <ul class="space-y-1 text-sm text-gray-600">
+              <li class="flex items-start">
+                <i class="fas fa-check text-green-500 mr-2 mt-1 text-xs"></i>
+                <span>Guru berpengalaman di sekolah nasional</span>
+              </li>
+              <li class="flex items-start">
+                <i class="fas fa-check text-green-500 mr-2 mt-1 text-xs"></i>
+                <span>Modul pembelajaran lengkap</span>
+              </li>
+              <li class="flex items-start">
+                <i class="fas fa-check text-green-500 mr-2 mt-1 text-xs"></i>
+                <span>Laporan perkembangan bulanan</span>
+              </li>
+            </ul>
           </div>
         </div>
       </div>
-
-      <!-- IGCSE -->
-      <div class="program-item cambridge group relative bg-white rounded-2xl shadow-lg overflow-hidden border border-gray-200 hover:shadow-xl transition-all duration-300">
-        <div class="ribbon ribbon-top-right"><span>TERLARIS</span></div>
-        <div class="absolute top-4 right-4 z-10">
-          <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-bold bg-blue-100 text-blue-800">
-            <i class="fas fa-graduation-cap mr-1"></i> Cambridge
-          </span>
-        </div>
-        <div class="h-40 bg-gradient-to-r from-blue-600 to-blue-700 flex items-end p-6">
-          <h3 class="text-xl font-bold text-white">IGCSE Preparation</h3>
+      
+      <!-- Program 2 - Cambridge IGCSE -->
+      <div class="program-card group bg-white rounded-2xl shadow-lg border border-gray-100 overflow-hidden transition-all duration-500 hover:shadow-2xl hover:-translate-y-2 animate-section" 
+           style="animation-delay: 0.4s" data-category="internasional">
+        <div class="relative h-48 bg-gradient-to-br from-purple-600 to-purple-800 flex items-end p-6">
+          <div class="absolute inset-0 opacity-20 bg-[url('https://images.unsplash.com/photo-1523050854058-8df90110c9f1?q=80&w=1470&auto=format&fit=crop')] bg-cover bg-center"></div>
+          <div class="relative z-10">
+            <h3 class="text-2xl font-bold text-white">Cambridge IGCSE</h3>
+            <p class="text-purple-100 text-sm">Grade 9-10</p>
+          </div>
+          <div class="absolute top-4 right-4 bg-yellow-500 text-white px-3 py-1 rounded-full text-xs font-bold shadow-sm animate-pulse">
+            POPULER
+          </div>
         </div>
         <div class="p-6">
-          <div class="flex items-center mb-3">
-            <span class="text-gray-500 text-sm mr-2"><i class="fas fa-user-graduate mr-1"></i> Grade 9-10</span>
-            <span class="text-gray-500 text-sm"><i class="fas fa-clock mr-1"></i> 48 sesi</span>
+          <div class="flex justify-between items-center mb-4">
+            <div>
+              <span class="text-2xl font-bold text-purple-600">Rp275.000</span>
+              <span class="text-gray-500 text-sm">/sesi 90 menit</span>
+            </div>
+            <div class="flex items-center text-yellow-400">
+              <i class="fas fa-star"></i>
+              <span class="ml-1 text-gray-700">4.8</span>
+            </div>
           </div>
-          <p class="text-gray-600 mb-4">Persiapan menyeluruh untuk ujian IGCSE dengan pendekatan berbasis soal dan konsep.</p>
-          <ul class="space-y-2 mb-6">
+          <ul class="space-y-2 mb-6 text-sm">
             <li class="flex items-start">
-              <svg class="h-5 w-5 text-green-500 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
-              </svg>
-              <span>Mathematics (0580/0980)</span>
+              <i class="fas fa-check-circle text-green-500 mt-1 mr-2 text-xs"></i>
+              <span>Mathematics, Sciences</span>
             </li>
             <li class="flex items-start">
-              <svg class="h-5 w-5 text-green-500 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
-              </svg>
-              <span>Combined Science</span>
+              <i class="fas fa-check-circle text-green-500 mt-1 mr-2 text-xs"></i>
+              <span>Past Paper Practice</span>
             </li>
             <li class="flex items-start">
-              <svg class="h-5 w-5 text-green-500 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
-              </svg>
-              <span>10+ Tahun Past Papers</span>
+              <i class="fas fa-check-circle text-green-500 mt-1 mr-2 text-xs"></i>
+              <span>Bilingual Tutor</span>
             </li>
           </ul>
-          <div class="flex justify-between items-center">
-            <span class="text-2xl font-bold text-gray-900">Rp275.000<span class="text-sm text-gray-500">/sesi</span></span>
-            <a href="#" class="inline-flex items-center px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-lg transition">
-              Detail <i class="fas fa-chevron-right ml-2 text-xs"></i>
+          <div class="flex space-x-3">
+            <a href="https://wa.me/6282147510780?text=Saya%20tertarik%20program%20Cambridge%20IGCSE" 
+               class="flex-1 bg-purple-600 hover:bg-purple-700 text-white text-center py-2 rounded-lg text-sm font-medium transition transform hover:scale-[1.02] touch-target">
+              Pilihan Terbaik
             </a>
+            <button class="view-detail-btn w-10 h-10 flex items-center justify-center bg-gray-100 hover:bg-gray-200 rounded-lg transition touch-target">
+              <i class="fas fa-chevron-down text-gray-600"></i>
+            </button>
+          </div>
+          <div class="program-detail hidden mt-4 pt-4 border-t border-gray-200">
+            <h4 class="font-bold mb-2 text-sm text-gray-700">Detail Program:</h4>
+            <p class="text-gray-600 text-sm mb-3">Persiapan ujian Cambridge IGCSE dengan pengajar bersertifikasi dan materi terkini.</p>
+            <ul class="space-y-1 text-sm text-gray-600">
+              <li class="flex items-start">
+                <i class="fas fa-check text-green-500 mr-2 mt-1 text-xs"></i>
+                <span>10+ tahun arsip soal ujian</span>
+              </li>
+              <li class="flex items-start">
+                <i class="fas fa-check text-green-500 mr-2 mt-1 text-xs"></i>
+                <span>Prediksi nilai berdasarkan mock exam</span>
+              </li>
+              <li class="flex items-start">
+                <i class="fas fa-check text-green-500 mr-2 mt-1 text-xs"></i>
+                <span>Konsultasi pemilihan mata pelajaran</span>
+              </li>
+            </ul>
           </div>
         </div>
       </div>
-
-      <!-- A-Level -->
-      <div class="program-item cambridge group relative bg-white rounded-2xl shadow-lg overflow-hidden border border-gray-200 hover:shadow-xl transition-all duration-300">
-        <div class="absolute top-4 right-4 z-10">
-          <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-bold bg-blue-100 text-blue-800">
-            <i class="fas fa-graduation-cap mr-1"></i> Cambridge
-          </span>
-        </div>
-        <div class="h-40 bg-gradient-to-r from-blue-700 to-blue-800 flex items-end p-6">
-          <h3 class="text-xl font-bold text-white">A-Level Intensive</h3>
+      
+      <!-- Program 3 - IB Diploma -->
+      <div class="program-card group bg-white rounded-2xl shadow-lg border border-gray-100 overflow-hidden transition-all duration-500 hover:shadow-2xl hover:-translate-y-2 animate-section" 
+           style="animation-delay: 0.5s" data-category="internasional">
+        <div class="relative h-48 bg-gradient-to-br from-red-600 to-red-800 flex items-end p-6">
+          <div class="absolute inset-0 opacity-20 bg-[url('https://images.unsplash.com/photo-1523050854058-8df90110c9f1?q=80&w=1470&auto=format&fit=crop')] bg-cover bg-center"></div>
+          <div class="relative z-10">
+            <h3 class="text-2xl font-bold text-white">IB Diploma Program</h3>
+            <p class="text-red-100 text-sm">Grade 11-12</p>
+          </div>
+          <div class="absolute top-4 right-4 bg-white text-red-600 px-3 py-1 rounded-full text-xs font-bold shadow-sm">
+            PREMIUM
+          </div>
         </div>
         <div class="p-6">
-          <div class="flex items-center mb-3">
-            <span class="text-gray-500 text-sm mr-2"><i class="fas fa-user-graduate mr-1"></i> Grade 11-12</span>
-            <span class="text-gray-500 text-sm"><i class="fas fa-clock mr-1"></i> 60 sesi</span>
+          <div class="flex justify-between items-center mb-4">
+            <div>
+              <span class="text-2xl font-bold text-red-600">Rp350.000</span>
+              <span class="text-gray-500 text-sm">/sesi 90 menit</span>
+            </div>
+            <div class="flex items-center text-yellow-400">
+              <i class="fas fa-star"></i>
+              <span class="ml-1 text-gray-700">4.9</span>
+            </div>
           </div>
-          <p class="text-gray-600 mb-4">Program intensif untuk persiapan ujian A-Level dengan pengajar bersertifikasi Cambridge.</p>
-          <ul class="space-y-2 mb-6">
+          <ul class="space-y-2 mb-6 text-sm">
             <li class="flex items-start">
-              <svg class="h-5 w-5 text-green-500 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
-              </svg>
-              <span>Matematika (9709)</span>
+              <i class="fas fa-check-circle text-green-500 mt-1 mr-2 text-xs"></i>
+              <span>HL/SL Subjects</span>
             </li>
             <li class="flex items-start">
-              <svg class="h-5 w-5 text-green-500 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
-              </svg>
-              <span>Fisika/Kimia/Biologi</span>
+              <i class="fas fa-check-circle text-green-500 mt-1 mr-2 text-xs"></i>
+              <span>EE & TOK Support</span>
             </li>
             <li class="flex items-start">
-              <svg class="h-5 w-5 text-green-500 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
-              </svg>
-              <span>Predicted Grade Report</span>
-            </li>
-          </ul>
-          <div class="flex justify-between items-center">
-            <span class="text-2xl font-bold text-gray-900">Rp350.000<span class="text-sm text-gray-500">/sesi</span></span>
-            <a href="#" class="inline-flex items-center px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-lg transition">
-              Detail <i class="fas fa-chevron-right ml-2 text-xs"></i>
-            </a>
-          </div>
-        </div>
-      </div>
-
-      <!-- ===== IB PROGRAM ===== -->
-      <!-- PYP -->
-      <div class="program-item ib group relative bg-white rounded-2xl shadow-lg overflow-hidden border border-gray-200 hover:shadow-xl transition-all duration-300">
-        <div class="absolute top-4 right-4 z-10">
-          <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-bold bg-red-100 text-red-800">
-            <i class="fas fa-globe mr-1"></i> IB
-          </span>
-        </div>
-        <div class="h-40 bg-gradient-to-r from-red-500 to-red-600 flex items-end p-6">
-          <h3 class="text-xl font-bold text-white">IB Primary Years</h3>
-        </div>
-        <div class="p-6">
-          <div class="flex items-center mb-3">
-            <span class="text-gray-500 text-sm mr-2"><i class="fas fa-user-graduate mr-1"></i> Usia 3-12 tahun</span>
-            <span class="text-gray-500 text-sm"><i class="fas fa-clock mr-1"></i> 28 sesi</span>
-          </div>
-          <p class="text-gray-600 mb-4">Pembelajaran tematik berbasis inquiry untuk mengembangkan keterampilan dasar.</p>
-          <ul class="space-y-2 mb-6">
-            <li class="flex items-start">
-              <svg class="h-5 w-5 text-green-500 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
-              </svg>
-              <span>Unit of Inquiry</span>
-            </li>
-            <li class="flex items-start">
-              <svg class="h-5 w-5 text-green-500 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
-              </svg>
-              <span>Multilingual Approach</span>
-            </li>
-            <li class="flex items-start">
-              <svg class="h-5 w-5 text-green-500 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
-              </svg>
-              <span>Portfolio Development</span>
-            </li>
-          </ul>
-          <div class="flex justify-between items-center">
-            <span class="text-2xl font-bold text-gray-900">Rp225.000<span class="text-sm text-gray-500">/sesi</span></span>
-            <a href="#" class="inline-flex items-center px-4 py-2 bg-red-600 hover:bg-red-700 text-white rounded-lg transition">
-              Detail <i class="fas fa-chevron-right ml-2 text-xs"></i>
-            </a>
-          </div>
-        </div>
-      </div>
-
-      <!-- MYP -->
-      <div class="program-item ib group relative bg-white rounded-2xl shadow-lg overflow-hidden border border-gray-200 hover:shadow-xl transition-all duration-300">
-        <div class="absolute top-4 right-4 z-10">
-          <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-bold bg-red-100 text-red-800">
-            <i class="fas fa-globe mr-1"></i> IB
-          </span>
-        </div>
-        <div class="h-40 bg-gradient-to-r from-red-600 to-red-700 flex items-end p-6">
-          <h3 class="text-xl font-bold text-white">IB Middle Years</h3>
-        </div>
-        <div class="p-6">
-          <div class="flex items-center mb-3">
-            <span class="text-gray-500 text-sm mr-2"><i class="fas fa-user-graduate mr-1"></i> Usia 11-16 tahun</span>
-            <span class="text-gray-500 text-sm"><i class="fas fa-clock mr-1"></i> 36 sesi</span>
-          </div>
-          <p class="text-gray-600 mb-4">Program menengah dengan pendekatan interdisipliner dan projek komunitas.</p>
-          <ul class="space-y-2 mb-6">
-            <li class="flex items-start">
-              <svg class="h-5 w-5 text-green-500 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
-              </svg>
-              <span>8 Subject Groups</span>
-            </li>
-            <li class="flex items-start">
-              <svg class="h-5 w-5 text-green-500 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
-              </svg>
-              <span>Community Project</span>
-            </li>
-            <li class="flex items-start">
-              <svg class="h-5 w-5 text-green-500 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
-              </svg>
-              <span>Approaches to Learning</span>
-            </li>
-          </ul>
-          <div class="flex justify-between items-center">
-            <span class="text-2xl font-bold text-gray-900">Rp300.000<span class="text-sm text-gray-500">/sesi</span></span>
-            <a href="#" class="inline-flex items-center px-4 py-2 bg-red-600 hover:bg-red-700 text-white rounded-lg transition">
-              Detail <i class="fas fa-chevron-right ml-2 text-xs"></i>
-            </a>
-          </div>
-        </div>
-      </div>
-
-      <!-- DP -->
-      <div class="program-item ib group relative bg-white rounded-2xl shadow-lg overflow-hidden border border-gray-200 hover:shadow-xl transition-all duration-300">
-        <div class="ribbon ribbon-top-right"><span>PREMIUM</span></div>
-        <div class="absolute top-4 right-4 z-10">
-          <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-bold bg-red-100 text-red-800">
-            <i class="fas fa-globe mr-1"></i> IB
-          </span>
-        </div>
-        <div class="h-40 bg-gradient-to-r from-red-700 to-red-800 flex items-end p-6">
-          <h3 class="text-xl font-bold text-white">IB Diploma Program</h3>
-        </div>
-        <div class="p-6">
-          <div class="flex items-center mb-3">
-            <span class="text-gray-500 text-sm mr-2"><i class="fas fa-user-graduate mr-1"></i> Usia 16-19 tahun</span>
-            <span class="text-gray-500 text-sm"><i class="fas fa-clock mr-1"></i> 72 sesi</span>
-          </div>
-          <p class="text-gray-600 mb-4">Program komprehensif untuk persiapan IB DP dengan dukungan penuh EE, TOK, dan CAS.</p>
-          <ul class="space-y-2 mb-6">
-            <li class="flex items-start">
-              <svg class="h-5 w-5 text-green-500 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
-              </svg>
-              <span>6 Subject Groups</span>
-            </li>
-            <li class="flex items-start">
-              <svg class="h-5 w-5 text-green-500 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
-              </svg>
-              <span>Extended Essay Mentoring</span>
-            </li>
-            <li class="flex items-start">
-              <svg class="h-5 w-5 text-green-500 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
-              </svg>
+              <i class="fas fa-check-circle text-green-500 mt-1 mr-2 text-xs"></i>
               <span>Examiner Feedback</span>
             </li>
           </ul>
-          <div class="flex justify-between items-center">
-            <span class="text-2xl font-bold text-gray-900">Rp400.000<span class="text-sm text-gray-500">/sesi</span></span>
-            <a href="#" class="inline-flex items-center px-4 py-2 bg-red-600 hover:bg-red-700 text-white rounded-lg transition">
-              Detail <i class="fas fa-chevron-right ml-2 text-xs"></i>
+          <div class="flex space-x-3">
+            <a href="https://wa.me/6282147510780?text=Saya%20tertarik%20program%20IB%20Diploma" 
+               class="flex-1 bg-red-600 hover:bg-red-700 text-white text-center py-2 rounded-lg text-sm font-medium transition transform hover:scale-[1.02] touch-target">
+              Daftar Sekarang
             </a>
+            <button class="view-detail-btn w-10 h-10 flex items-center justify-center bg-gray-100 hover:bg-gray-200 rounded-lg transition touch-target">
+              <i class="fas fa-chevron-down text-gray-600"></i>
+            </button>
+          </div>
+          <div class="program-detail hidden mt-4 pt-4 border-t border-gray-200">
+            <h4 class="font-bold mb-2 text-sm text-gray-700">Detail Program:</h4>
+            <p class="text-gray-600 text-sm mb-3">Program komprehensif untuk IB Diploma dengan dukungan penuh Extended Essay dan TOK.</p>
+            <ul class="space-y-1 text-sm text-gray-600">
+              <li class="flex items-start">
+                <i class="fas fa-check text-green-500 mr-2 mt-1 text-xs"></i>
+                <span>Pengajar berpengalaman sebagai IB Examiner</span>
+              </li>
+              <li class="flex items-start">
+                <i class="fas fa-check text-green-500 mr-2 mt-1 text-xs"></i>
+                <span>Bimbingan Extended Essay step-by-step</span>
+              </li>
+              <li class="flex items-start">
+                <i class="fas fa-check text-green-500 mr-2 mt-1 text-xs"></i>
+                <span>CAS project mentoring</span>
+              </li>
+            </ul>
           </div>
         </div>
       </div>
-
-      <!-- ===== SINGAPORE PROGRAM ===== -->
-      <!-- Primary Math -->
-      <div class="program-item singapore group relative bg-white rounded-2xl shadow-lg overflow-hidden border border-gray-200 hover:shadow-xl transition-all duration-300">
-        <div class="absolute top-4 right-4 z-10">
-          <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-bold bg-green-100 text-green-800">
-            <i class="fas fa-square-root-alt mr-1"></i> Singapore
-          </span>
-        </div>
-        <div class="h-40 bg-gradient-to-r from-green-500 to-green-600 flex items-end p-6">
-          <h3 class="text-xl font-bold text-white">Primary Math</h3>
+      
+      <!-- Program 4 - UTBK -->
+      <div class="program-card group bg-white rounded-2xl shadow-lg border border-gray-100 overflow-hidden transition-all duration-500 hover:shadow-2xl hover:-translate-y-2 animate-section" 
+           style="animation-delay: 0.3s" data-category="khusus">
+        <div class="relative h-48 bg-gradient-to-br from-green-600 to-green-800 flex items-end p-6">
+          <div class="absolute inset-0 opacity-20 bg-[url('https://images.unsplash.com/photo-1523050854058-8df90110c9f1?q=80&w=1470&auto=format&fit=crop')] bg-cover bg-center"></div>
+          <div class="relative z-10">
+            <h3 class="text-2xl font-bold text-white">Supercamp UTBK</h3>
+            <p class="text-green-100 text-sm">Persiapan PTN</p>
+          </div>
+          <div class="absolute top-4 right-4 bg-white text-green-600 px-3 py-1 rounded-full text-xs font-bold shadow-sm">
+            INTENSIF
+          </div>
         </div>
         <div class="p-6">
-          <div class="flex items-center mb-3">
-            <span class="text-gray-500 text-sm mr-2"><i class="fas fa-user-graduate mr-1"></i> Usia 6-12 tahun</span>
-            <span class="text-gray-500 text-sm"><i class="fas fa-clock mr-1"></i> 24 sesi</span>
+          <div class="flex justify-between items-center mb-4">
+            <div>
+              <span class="text-2xl font-bold text-green-600">Rp200.000</span>
+              <span class="text-gray-500 text-sm">/sesi 120 menit</span>
+            </div>
+            <div class="flex items-center text-yellow-400">
+              <i class="fas fa-star"></i>
+              <span class="ml-1 text-gray-700">4.7</span>
+            </div>
           </div>
-          <p class="text-gray-600 mb-4">Metode CPA untuk membangun pemahaman matematika yang kuat sejak dini.</p>
-          <ul class="space-y-2 mb-6">
+          <ul class="space-y-2 mb-6 text-sm">
             <li class="flex items-start">
-              <svg class="h-5 w-5 text-green-500 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
-              </svg>
-              <span>Concrete-Pictorial-Abstract</span>
+              <i class="fas fa-check-circle text-green-500 mt-1 mr-2 text-xs"></i>
+              <span>TPA & Literasi</span>
             </li>
             <li class="flex items-start">
-              <svg class="h-5 w-5 text-green-500 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
-              </svg>
-              <span>Problem Solving Heuristics</span>
+              <i class="fas fa-check-circle text-green-500 mt-1 mr-2 text-xs"></i>
+              <span>Try Out Berkala</span>
             </li>
             <li class="flex items-start">
-              <svg class="h-5 w-5 text-green-500 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
-              </svg>
-              <span>Math Olympiad Prep</span>
+              <i class="fas fa-check-circle text-green-500 mt-1 mr-2 text-xs"></i>
+              <span>Strategi Mengerjakan</span>
             </li>
           </ul>
-          <div class="flex justify-between items-center">
-            <span class="text-2xl font-bold text-gray-900">Rp200.000<span class="text-sm text-gray-500">/sesi</span></span>
-            <a href="#" class="inline-flex items-center px-4 py-2 bg-green-600 hover:bg-green-700 text-white rounded-lg transition">
-              Detail <i class="fas fa-chevron-right ml-2 text-xs"></i>
+          <div class="flex space-x-3">
+            <a href="https://wa.me/6282147510780?text=Saya%20tertarik%20program%20Supercamp%20UTBK" 
+               class="flex-1 bg-green-600 hover:bg-green-700 text-white text-center py-2 rounded-lg text-sm font-medium transition transform hover:scale-[1.02] touch-target">
+              Daftar Sekarang
             </a>
+            <button class="view-detail-btn w-10 h-10 flex items-center justify-center bg-gray-100 hover:bg-gray-200 rounded-lg transition touch-target">
+              <i class="fas fa-chevron-down text-gray-600"></i>
+            </button>
+          </div>
+          <div class="program-detail hidden mt-4 pt-4 border-t border-gray-200">
+            <h4 class="font-bold mb-2 text-sm text-gray-700">Detail Program:</h4>
+            <p class="text-gray-600 text-sm mb-3">Program intensif persiapan UTBK dengan sistem try out berkala dan pembahasan mendalam.</p>
+            <ul class="space-y-1 text-sm text-gray-600">
+              <li class="flex items-start">
+                <i class="fas fa-check text-green-500 mr-2 mt-1 text-xs"></i>
+                <span>10x try out lengkap dengan pembahasan</span>
+              </li>
+              <li class="flex items-start">
+                <i class="fas fa-check text-green-500 mr-2 mt-1 text-xs"></i>
+                <span>Analisis kekuatan dan kelemahan</span>
+              </li>
+              <li class="flex items-start">
+                <i class="fas fa-check text-green-500 mr-2 mt-1 text-xs"></i>
+                <span>Strategi mengerjakan soal cepat</span>
+              </li>
+            </ul>
           </div>
         </div>
       </div>
-
-      <!-- Secondary Science -->
-      <div class="program-item singapore group relative bg-white rounded-2xl shadow-lg overflow-hidden border border-gray-200 hover:shadow-xl transition-all duration-300">
-        <div class="absolute top-4 right-4 z-10">
-          <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-bold bg-green-100 text-green-800">
-            <i class="fas fa-square-root-alt mr-1"></i> Singapore
-          </span>
-        </div>
-        <div class="h-40 bg-gradient-to-r from-green-600 to-green-700 flex items-end p-6">
-          <h3 class="text-xl font-bold text-white">Secondary Science</h3>
+      
+      <!-- Program 5 - Singapore Math -->
+      <div class="program-card group bg-white rounded-2xl shadow-lg border border-gray-100 overflow-hidden transition-all duration-500 hover:shadow-2xl hover:-translate-y-2 animate-section" 
+           style="animation-delay: 0.4s" data-category="internasional">
+        <div class="relative h-48 bg-gradient-to-br from-orange-600 to-orange-800 flex items-end p-6">
+          <div class="absolute inset-0 opacity-20 bg-[url('https://images.unsplash.com/photo-1523050854058-8df90110c9f1?q=80&w=1470&auto=format&fit=crop')] bg-cover bg-center"></div>
+          <div class="relative z-10">
+            <h3 class="text-2xl font-bold text-white">Singapore Math</h3>
+            <p class="text-orange-100 text-sm">Primary 1-6</p>
+          </div>
+          <div class="absolute top-4 right-4 bg-white text-orange-600 px-3 py-1 rounded-full text-xs font-bold shadow-sm">
+            BARU
+          </div>
         </div>
         <div class="p-6">
-          <div class="flex items-center mb-3">
-            <span class="text-gray-500 text-sm mr-2"><i class="fas fa-user-graduate mr-1"></i> Usia 12-16 tahun</span>
-            <span class="text-gray-500 text-sm"><i class="fas fa-clock mr-1"></i> 30 sesi</span>
+          <div class="flex justify-between items-center mb-4">
+            <div>
+              <span class="text-2xl font-bold text-orange-600">Rp225.000</span>
+              <span class="text-gray-500 text-sm">/sesi 90 menit</span>
+            </div>
+            <div class="flex items-center text-yellow-400">
+              <i class="fas fa-star"></i>
+              <span class="ml-1 text-gray-700">4.8</span>
+            </div>
           </div>
-          <p class="text-gray-600 mb-4">Pembelajaran sains berbasis inquiry dengan pendekatan Singapore MOE syllabus.</p>
-          <ul class="space-y-2 mb-6">
+          <ul class="space-y-2 mb-6 text-sm">
             <li class="flex items-start">
-              <svg class="h-5 w-5 text-green-500 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
-              </svg>
-              <span>Physics/Chemistry/Biology</span>
+              <i class="fas fa-check-circle text-green-500 mt-1 mr-2 text-xs"></i>
+              <span>CPA Approach</span>
             </li>
             <li class="flex items-start">
-              <svg class="h-5 w-5 text-green-500 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
-              </svg>
-              <span>Hands-on Experiments</span>
+              <i class="fas fa-check-circle text-green-500 mt-1 mr-2 text-xs"></i>
+              <span>Problem Solving</span>
             </li>
             <li class="flex items-start">
-              <svg class="h-5 w-5 text-green-500 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
-              </svg>
-              <span>Data Analysis Skills</span>
+              <i class="fas fa-check-circle text-green-500 mt-1 mr-2 text-xs"></i>
+              <span>Heuristic Skills</span>
             </li>
           </ul>
-          <div class="flex justify-between items-center">
-            <span class="text-2xl font-bold text-gray-900">Rp250.000<span class="text-sm text-gray-500">/sesi</span></span>
-            <a href="#" class="inline-flex items-center px-4 py-2 bg-green-600 hover:bg-green-700 text-white rounded-lg transition">
-              Detail <i class="fas fa-chevron-right ml-2 text-xs"></i>
+          <div class="flex space-x-3">
+            <a href="https://wa.me/6282147510780?text=Saya%20tertarik%20program%20Singapore%20Math" 
+               class="flex-1 bg-orange-600 hover:bg-orange-700 text-white text-center py-2 rounded-lg text-sm font-medium transition transform hover:scale-[1.02] touch-target">
+              Daftar Sekarang
             </a>
+            <button class="view-detail-btn w-10 h-10 flex items-center justify-center bg-gray-100 hover:bg-gray-200 rounded-lg transition touch-target">
+              <i class="fas fa-chevron-down text-gray-600"></i>
+            </button>
+          </div>
+          <div class="program-detail hidden mt-4 pt-4 border-t border-gray-200">
+            <h4 class="font-bold mb-2 text-sm text-gray-700">Detail Program:</h4>
+            <p class="text-gray-600 text-sm mb-3">Program matematika dengan metode Singapore yang terkenal efektif untuk anak usia SD.</p>
+            <ul class="space-y-1 text-sm text-gray-600">
+              <li class="flex items-start">
+                <i class="fas fa-check text-green-500 mr-2 mt-1 text-xs"></i>
+                <span>Metode Concrete-Pictorial-Abstract</span>
+              </li>
+              <li class="flex items-start">
+                <i class="fas fa-check text-green-500 mr-2 mt-1 text-xs"></i>
+                <span>Pengajar dari Singapore dan Indonesia</span>
+              </li>
+              <li class="flex items-start">
+                <i class="fas fa-check text-green-500 mr-2 mt-1 text-xs"></i>
+                <span>Persiapan kompetisi matematika</span>
+              </li>
+            </ul>
           </div>
         </div>
       </div>
-
-      <!-- Math Olympiad -->
-      <div class="program-item singapore group relative bg-white rounded-2xl shadow-lg overflow-hidden border border-gray-200 hover:shadow-xl transition-all duration-300">
-        <div class="ribbon ribbon-top-right"><span>NEW</span></div>
-        <div class="absolute top-4 right-4 z-10">
-          <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-bold bg-green-100 text-green-800">
-            <i class="fas fa-square-root-alt mr-1"></i> Singapore
-          </span>
-        </div>
-        <div class="h-40 bg-gradient-to-r from-green-700 to-green-800 flex items-end p-6">
-          <h3 class="text-xl font-bold text-white">Math Olympiad</h3>
+      
+      <!-- Program 6 - Homeschool Support -->
+      <div class="program-card group bg-white rounded-2xl shadow-lg border border-gray-100 overflow-hidden transition-all duration-500 hover:shadow-2xl hover:-translate-y-2 animate-section" 
+           style="animation-delay: 0.5s" data-category="khusus">
+        <div class="relative h-48 bg-gradient-to-br from-indigo-600 to-indigo-800 flex items-end p-6">
+          <div class="absolute inset-0 opacity-20 bg-[url('https://images.unsplash.com/photo-1523050854058-8df90110c9f1?q=80&w=1470&auto=format&fit=crop')] bg-cover bg-center"></div>
+          <div class="relative z-10">
+            <h3 class="text-2xl font-bold text-white">Homeschool Support</h3>
+            <p class="text-indigo-100 text-sm">Custom Curriculum</p>
+          </div>
+          <div class="absolute top-4 right-4 bg-white text-indigo-600 px-3 py-1 rounded-full text-xs font-bold shadow-sm">
+            FLEKSIBEL
+          </div>
         </div>
         <div class="p-6">
-          <div class="flex items-center mb-3">
-            <span class="text-gray-500 text-sm mr-2"><i class="fas fa-user-graduate mr-1"></i> Usia 9-16 tahun</span>
-            <span class="text-gray-500 text-sm"><i class="fas fa-clock mr-1"></i> 20 sesi</span>
+          <div class="flex justify-between items-center mb-4">
+            <div>
+              <span class="text-2xl font-bold text-indigo-600">Rp250.000</span>
+              <span class="text-gray-500 text-sm">/sesi 90 menit</span>
+            </div>
+            <div class="flex items-center text-yellow-400">
+              <i class="fas fa-star"></i>
+              <span class="ml-1 text-gray-700">4.9</span>
+            </div>
           </div>
-          <p class="text-gray-600 mb-4">Pelatihan khusus untuk kompetisi matematika tingkat nasional dan internasional.</p>
-          <ul class="space-y-2 mb-6">
+          <ul class="space-y-2 mb-6 text-sm">
             <li class="flex items-start">
-              <svg class="h-5 w-5 text-green-500 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
-              </svg>
-              <span>SMOPS, NMOS, RIPMWC</span>
+              <i class="fas fa-check-circle text-green-500 mt-1 mr-2 text-xs"></i>
+              <span>Personalized Learning</span>
             </li>
             <li class="flex items-start">
-              <svg class="h-5 w-5 text-green-500 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
-              </svg>
-              <span>Advanced Problem Solving</span>
+              <i class="fas fa-check-circle text-green-500 mt-1 mr-2 text-xs"></i>
+              <span>Portfolio Assistance</span>
             </li>
             <li class="flex items-start">
-              <svg class="h-5 w-5 text-green-500 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
-              </svg>
-              <span>Competition Simulation</span>
+              <i class="fas fa-check-circle text-green-500 mt-1 mr-2 text-xs"></i>
+              <span>Flexible Schedule</span>
             </li>
           </ul>
-          <div class="flex justify-between items-center">
-            <span class="text-2xl font-bold text-gray-900">Rp300.000<span class="text-sm text-gray-500">/sesi</span></span>
-            <a href="#" class="inline-flex items-center px-4 py-2 bg-green-600 hover:bg-green-700 text-white rounded-lg transition">
-              Detail <i class="fas fa-chevron-right ml-2 text-xs"></i>
+          <div class="flex space-x-3">
+            <a href="https://wa.me/6282147510780?text=Saya%20tertarik%20program%20Homeschool%20Support" 
+               class="flex-1 bg-indigo-600 hover:bg-indigo-700 text-white text-center py-2 rounded-lg text-sm font-medium transition transform hover:scale-[1.02] touch-target">
+              Konsultasi Gratis
             </a>
+            <button class="view-detail-btn w-10 h-10 flex items-center justify-center bg-gray-100 hover:bg-gray-200 rounded-lg transition touch-target">
+              <i class="fas fa-chevron-down text-gray-600"></i>
+            </button>
+          </div>
+          <div class="program-detail hidden mt-4 pt-4 border-t border-gray-200">
+            <h4 class="font-bold mb-2 text-sm text-gray-700">Detail Program:</h4>
+            <p class="text-gray-600 text-sm mb-3">Program khusus untuk siswa homeschool dengan kurikulum yang disesuaikan kebutuhan.</p>
+            <ul class="space-y-1 text-sm text-gray-600">
+              <li class="flex items-start">
+                <i class="fas fa-check text-green-500 mr-2 mt-1 text-xs"></i>
+                <span>Kurikulum disesuaikan dengan kebutuhan</span>
+              </li>
+              <li class="flex items-start">
+                <i class="fas fa-check text-green-500 mr-2 mt-1 text-xs"></i>
+                <span>Bantuan pembuatan portofolio belajar</span>
+              </li>
+              <li class="flex items-start">
+                <i class="fas fa-check text-green-500 mr-2 mt-1 text-xs"></i>
+                <span>Jadwal fleksibel sesuai kebutuhan</span>
+              </li>
+            </ul>
           </div>
         </div>
       </div>
     </div>
+    
+    <!-- Toggle untuk lihat lebih banyak -->
+    <div class="text-center mt-10 animate-section" style="animation-delay: 0.6s">
+      <button id="load-more-programs" class="text-primary font-medium hover:text-primary/80 transition touch-target inline-flex items-center">
+        <span>Lihat Program Lainnya (+10)</span>
+        <i class="fas fa-chevron-down ml-2 text-xs transition-transform transform group-hover:translate-y-1"></i>
+      </button>
+    </div>
+  </div>
+</section>
+
  <!-- Keunggulan Section -->
 <section id="keunggulan" class="py-20 bg-gradient-to-b from-gray-50 to-white">
   <div class="container mx-auto px-4">
@@ -990,38 +945,6 @@
 
   <!-- Scripts -->
   <script>
-    // Tab Filtering Functionality
-  document.querySelectorAll('.curriculum-tab').forEach(tab => {
-    tab.addEventListener('click', function() {
-      // Remove active class from all tabs
-      document.querySelectorAll('.curriculum-tab').forEach(t => t.classList.remove('active', 'bg-primary', 'text-white'));
-      document.querySelectorAll('.curriculum-tab').forEach(t => t.classList.add('text-gray-700', 'hover:bg-gray-200'));
-      
-      // Add active class to clicked tab
-      this.classList.add('active', 'bg-primary', 'text-white');
-      this.classList.remove('text-gray-700', 'hover:bg-gray-200');
-      
-      const curriculum = this.dataset.curriculum;
-      
-      // Show all programs if 'all' is selected
-      if(curriculum === 'all') {
-        document.querySelectorAll('.program-item').forEach(item => {
-          item.style.display = 'block';
-        });
-      } else {
-        // Hide all programs first
-        document.querySelectorAll('.program-item').forEach(item => {
-          item.style.display = 'none';
-        });
-        
-        // Show only selected curriculum
-        document.querySelectorAll(`.program-item.${curriculum}`).forEach(item => {
-          item.style.display = 'block';
-        });
-      }
-    });
-  });
-    
     document.addEventListener('DOMContentLoaded', function() {
       // Mobile Menu Toggle
       const menuButton = document.getElementById('mobile-menu-button');
@@ -1067,50 +990,73 @@
       };
       
       preloadImages();
-    });
 
-<!-- Script untuk Filter dan Load More -->
-  document.addEventListener('DOMContentLoaded', function() {
-    // Filter Program
-    const programTabs = document.querySelectorAll('.program-tab');
-    const programCards = document.querySelectorAll('.program-card');
-    
-    programTabs.forEach(tab => {
-      tab.addEventListener('click', function() {
-        // Update active tab
-        programTabs.forEach(t => t.classList.remove('active', 'bg-primary', 'text-white'));
-        this.classList.add('active', 'bg-primary', 'text-white');
-        this.classList.remove('bg-gray-100', 'hover:bg-gray-200');
-        
-        // Filter cards
-        const category = this.dataset.category;
-        programCards.forEach(card => {
-          if (category === 'all' || card.dataset.category === category) {
-            card.style.display = 'block';
+      // Program Filter Functionality
+      const programTabs = document.querySelectorAll('.program-tab');
+      const programCards = document.querySelectorAll('.program-card');
+      
+      programTabs.forEach(tab => {
+        tab.addEventListener('click', function() {
+          // Remove active class from all tabs
+          programTabs.forEach(t => {
+            t.classList.remove('active', 'bg-primary', 'text-white');
+            t.classList.add('bg-gray-100', 'hover:bg-gray-200');
+          });
+          
+          // Add active class to clicked tab
+          this.classList.add('active', 'bg-primary', 'text-white');
+          this.classList.remove('bg-gray-100', 'hover:bg-gray-200');
+          
+          const category = this.dataset.category;
+          
+          // Show all programs if 'all' is selected
+          if(category === 'all') {
+            programCards.forEach(card => {
+              card.style.display = 'block';
+            });
           } else {
-            card.style.display = 'none';
+            // Hide all programs first
+            programCards.forEach(card => {
+              card.style.display = 'none';
+            });
+            
+            // Show selected category
+            document.querySelectorAll(`.program-card[data-category="${category}"]`).forEach(card => {
+              card.style.display = 'block';
+            });
           }
         });
       });
+
+      // Program Detail Toggle
+      document.querySelectorAll('.view-detail-btn').forEach(btn => {
+        btn.addEventListener('click', function() {
+          const card = this.closest('.program-card');
+          const detail = card.querySelector('.program-detail');
+          const icon = this.querySelector('i');
+          
+          detail.classList.toggle('hidden');
+          
+          if(detail.classList.contains('hidden')) {
+            icon.classList.remove('fa-chevron-up');
+            icon.classList.add('fa-chevron-down');
+          } else {
+            icon.classList.remove('fa-chevron-down');
+            icon.classList.add('fa-chevron-up');
+          }
+        });
+      });
+
+      // Load More Programs
+      const loadMoreBtn = document.getElementById('load-more-programs');
+      if(loadMoreBtn) {
+        loadMoreBtn.addEventListener('click', function() {
+          // In a real implementation, you would fetch more programs via AJAX
+          this.textContent = 'Tidak ada program lainnya';
+          this.disabled = true;
+        });
+      }
     });
-    
-    // Load More Programs
-    const loadMoreBtn = document.getElementById('load-more-programs');
-    loadMoreBtn.addEventListener('click', function() {
-      // Simulasi load data (bisa diganti dengan AJAX)
-      this.textContent = 'Memuat...';
-      
-      setTimeout(() => {
-        // Tambahkan card baru (contoh)
-        const programsContainer = document.querySelector('.grid.grid-cols-1');
-        const newPrograms = `
-          <!-- Program tambahan akan muncul di sini -->
-        `;
-        programsContainer.insertAdjacentHTML('beforeend', newPrograms);
-        this.style.display = 'none';
-      }, 1000);
-    });
-  });
   </script>
 </body>
 </html>
