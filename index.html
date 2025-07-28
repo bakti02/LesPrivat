@@ -130,6 +130,46 @@
       background: linear-gradient(45deg, #f59e0b, #ef4444);
       clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%, 10px 50%);
     }
+
+    /* Sub-filter styles */
+    #subfilter {
+      transition: all 0.3s ease;
+    }
+    
+    .subfilter-btn {
+      transition: all 0.2s ease;
+    }
+    
+    .subfilter-btn:hover {
+      transform: translateY(-2px);
+    }
+    
+    .subfilter-btn.active {
+      background-color: #2563EB !important;
+      color: white !important;
+      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+    }
+    
+    /* Program counter */
+    #program-counter {
+      font-size: 0.875rem;
+      color: #4B5563;
+      margin-top: 1rem;
+    }
+    
+    /* Loading state */
+    .loading-spinner {
+      animation: spin 1s linear infinite;
+      display: none;
+    }
+    
+    .btn-loading:hover .loading-spinner {
+      display: inline-block;
+    }
+    
+    @keyframes spin {
+      100% { transform: rotate(360deg); }
+    }
   </style>
 </head>
 
@@ -1350,120 +1390,194 @@
     <i class="fab fa-whatsapp text-2xl"></i>
   </a>
 
-  <!-- Scripts -->
-  <script>
-    document.addEventListener('DOMContentLoaded', function() {
-      // Mobile Menu Toggle
-      const menuButton = document.getElementById('mobile-menu-button');
-      const mobileMenu = document.getElementById('mobile-menu');
-      
-      menuButton.addEventListener('click', function() {
-        mobileMenu.classList.toggle('hidden');
-        const icon = this.querySelector('i');
-        icon.classList.toggle('fa-bars');
-        icon.classList.toggle('fa-times');
-      });
-      
-      // Animasi Scroll
-      const animateOnScroll = () => {
-        const sections = document.querySelectorAll('.animate-section');
-        const windowHeight = window.innerHeight;
-        
-        sections.forEach(section => {
-          const sectionTop = section.getBoundingClientRect().top;
-          const sectionVisible = 150;
-          
-          if (sectionTop < windowHeight - sectionVisible) {
-            section.style.opacity = '1';
-          }
-        });
-      };
-      
-      // Jalankan saat load dan scroll
-      window.addEventListener('load', animateOnScroll);
-      window.addEventListener('scroll', animateOnScroll);
-      
-      // Preload gambar penting
-      const preloadImages = () => {
-        const images = [
-          'https://images.unsplash.com/photo-1588072432836-e10032774350?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80',
-          'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=200&q=80',
-          'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=200&q=80'
-        ];
-        
-        images.forEach(img => {
-          new Image().src = img;
-        });
-      };
-      
-      preloadImages();
-
-      // Program Filter Functionality
-      const programTabs = document.querySelectorAll('.program-tab');
-      const programCards = document.querySelectorAll('.program-card');
-      
-      programTabs.forEach(tab => {
-        tab.addEventListener('click', function() {
-          // Remove active class from all tabs
-          programTabs.forEach(t => {
-            t.classList.remove('active', 'bg-primary', 'text-white');
-            t.classList.add('bg-gray-100', 'hover:bg-gray-200');
-          });
-          
-          // Add active class to clicked tab
-          this.classList.add('active', 'bg-primary', 'text-white');
-          this.classList.remove('bg-gray-100', 'hover:bg-gray-200');
-          
-          const category = this.dataset.category;
-          
-          // Show all programs if 'all' is selected
-          if(category === 'all') {
-            programCards.forEach(card => {
-              card.style.display = 'block';
-            });
-          } else {
-            // Hide all programs first
-            programCards.forEach(card => {
-              card.style.display = 'none';
-            });
-            
-            // Show selected category
-            document.querySelectorAll(`.program-card[data-category="${category}"]`).forEach(card => {
-              card.style.display = 'block';
-            });
-          }
-        });
-      });
-
-      // Program Detail Toggle
-      document.querySelectorAll('.view-detail-btn').forEach(btn => {
-        btn.addEventListener('click', function() {
-          const card = this.closest('.program-card');
-          const detail = card.querySelector('.program-detail');
-          const icon = this.querySelector('i');
-          
-          detail.classList.toggle('hidden');
-          
-          if(detail.classList.contains('hidden')) {
-            icon.classList.remove('fa-chevron-up');
-            icon.classList.add('fa-chevron-down');
-          } else {
-            icon.classList.remove('fa-chevron-down');
-            icon.classList.add('fa-chevron-up');
-          }
-        });
-      });
-
-      // Load More Programs
-      const loadMoreBtn = document.getElementById('load-more-programs');
-      if(loadMoreBtn) {
-        loadMoreBtn.addEventListener('click', function() {
-          // In a real implementation, you would fetch more programs via AJAX
-          this.textContent = 'Tidak ada program lainnya';
-          this.disabled = true;
-        });
-      }
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    // Mobile Menu Toggle
+    const menuButton = document.getElementById('mobile-menu-button');
+    const mobileMenu = document.getElementById('mobile-menu');
+    
+    menuButton.addEventListener('click', function() {
+      mobileMenu.classList.toggle('hidden');
+      const icon = this.querySelector('i');
+      icon.classList.toggle('fa-bars');
+      icon.classList.toggle('fa-times');
     });
-  </script>
+    
+    // Animasi Scroll
+    const animateOnScroll = () => {
+      const sections = document.querySelectorAll('.animate-section');
+      const windowHeight = window.innerHeight;
+      
+      sections.forEach(section => {
+        const sectionTop = section.getBoundingClientRect().top;
+        const sectionVisible = 150;
+        
+        if (sectionTop < windowHeight - sectionVisible) {
+          section.style.opacity = '1';
+        }
+      });
+    };
+    
+    // Jalankan saat load dan scroll
+    window.addEventListener('load', animateOnScroll);
+    window.addEventListener('scroll', animateOnScroll);
+    
+    // Preload gambar penting
+    const preloadImages = () => {
+      const images = [
+        'https://images.unsplash.com/photo-1588072432836-e10032774350?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80',
+        'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=200&q=80',
+        'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=200&q=80'
+      ];
+      
+      images.forEach(img => {
+        new Image().src = img;
+      });
+    };
+    
+    preloadImages();
+
+    // Variabel untuk sistem filter
+    let currentCategory = 'all';
+    let currentSubcategories = [];
+    let visiblePrograms = 6; // Jumlah program awal yang ditampilkan
+
+    // Program Filter Functionality
+    const programTabs = document.querySelectorAll('.program-tab');
+    const programCards = document.querySelectorAll('.program-card');
+    
+    programTabs.forEach(tab => {
+      tab.addEventListener('click', function() {
+        // Update kategori aktif
+        currentCategory = this.dataset.category;
+        currentSubcategories = []; // Reset subfilter
+        
+        // Update UI tab
+        programTabs.forEach(t => {
+          t.classList.remove('active', 'bg-primary', 'text-white');
+          t.classList.add('bg-gray-100', 'hover:bg-gray-200');
+        });
+        
+        this.classList.add('active', 'bg-primary', 'text-white');
+        this.classList.remove('bg-gray-100', 'hover:bg-gray-200');
+        
+        // Toggle sub-filter untuk kategori internasional
+        const subfilter = document.getElementById('subfilter');
+        if (currentCategory === 'internasional') {
+          subfilter.classList.remove('hidden');
+        } else {
+          subfilter.classList.add('hidden');
+        }
+        
+        // Reset sub-filter buttons
+        document.querySelectorAll('.subfilter-btn').forEach(btn => {
+          btn.classList.remove('bg-primary', 'text-white');
+          btn.classList.add('bg-gray-100', 'text-gray-800');
+        });
+        
+        // Terapkan filter
+        applyFilters();
+      });
+    });
+
+    // Sub-filter Functionality
+    document.querySelectorAll('.subfilter-btn').forEach(btn => {
+      btn.addEventListener('click', function() {
+        const subcategory = this.dataset.subcategory;
+        
+        // Toggle subkategori aktif
+        if (currentSubcategories.includes(subcategory)) {
+          currentSubcategories = currentSubcategories.filter(item => item !== subcategory);
+          this.classList.remove('bg-primary', 'text-white');
+          this.classList.add('bg-gray-100', 'text-gray-800');
+        } else {
+          currentSubcategories.push(subcategory);
+          this.classList.add('bg-primary', 'text-white');
+          this.classList.remove('bg-gray-100', 'text-gray-800');
+        }
+        
+        // Terapkan filter
+        applyFilters();
+      });
+    });
+
+    // Fungsi untuk menerapkan filter
+    function applyFilters() {
+      let visibleCount = 0;
+      
+      programCards.forEach((card, index) => {
+        const programCategory = card.dataset.category;
+        const programSubcategory = card.dataset.subcategory;
+        
+        // Filter berdasarkan kategori dan subkategori
+        const categoryMatch = currentCategory === 'all' || programCategory === currentCategory;
+        const subcategoryMatch = currentSubcategories.length === 0 || 
+                               (programSubcategory && currentSubcategories.includes(programSubcategory));
+        
+        // Filter berdasarkan jumlah yang ditampilkan
+        const withinVisibleRange = index < visiblePrograms;
+        
+        if (categoryMatch && subcategoryMatch && withinVisibleRange) {
+          card.style.display = 'block';
+          visibleCount++;
+        } else {
+          card.style.display = 'none';
+        }
+      });
+      
+      // Update tombol load more
+      updateLoadMoreButton(visibleCount);
+    }
+
+    // Update tombol load more
+    function updateLoadMoreButton(visibleCount) {
+      const loadMoreBtn = document.getElementById('load-more-programs');
+      if (!loadMoreBtn) return;
+      
+      const totalFiltered = document.querySelectorAll(
+        `.program-card[data-category="${currentCategory}"]` + 
+        (currentSubcategories.length ? `[data-subcategory="${currentSubcategories.join('"],[data-subcategory="')}"]` : '')
+      ).length;
+      
+      if (visibleCount >= totalFiltered || visibleCount >= programCards.length) {
+        loadMoreBtn.style.display = 'none';
+      } else {
+        loadMoreBtn.style.display = 'inline-flex';
+        loadMoreBtn.innerHTML = `Lihat Program Lainnya (+${totalFiltered - visibleCount})`;
+      }
+    }
+
+    // Load More Programs
+    const loadMoreBtn = document.getElementById('load-more-programs');
+    if (loadMoreBtn) {
+      loadMoreBtn.addEventListener('click', function() {
+        visiblePrograms += 6;
+        applyFilters();
+      });
+    }
+
+    // Program Detail Toggle
+    document.querySelectorAll('.view-detail-btn').forEach(btn => {
+      btn.addEventListener('click', function() {
+        const card = this.closest('.program-card');
+        const detail = card.querySelector('.program-detail');
+        const icon = this.querySelector('i');
+        
+        detail.classList.toggle('hidden');
+        
+        if (detail.classList.contains('hidden')) {
+          icon.classList.remove('fa-chevron-up');
+          icon.classList.add('fa-chevron-down');
+        } else {
+          icon.classList.remove('fa-chevron-down');
+          icon.classList.add('fa-chevron-up');
+        }
+      });
+    });
+
+    // Inisialisasi filter pertama kali
+    applyFilters();
+  });
+</script>
 </body>
 </html>
