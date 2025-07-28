@@ -1,0 +1,602 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>Karir di Lumos Course | Bergabung Sebagai Guru Privat</title>
+  <meta name="description" content="Bergabunglah sebagai guru privat di Lumos Course. Kesempatan mengajar kurikulum nasional & internasional dengan fleksibilitas tinggi.">
+  
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: '#2563EB',
+            secondary: '#10B981',
+            dark: '#1E293B',
+            accent: '#7C3AED'
+          },
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+            heading: ['Poppins', 'sans-serif']
+          },
+          animation: {
+            'float': 'float 3s ease-in-out infinite',
+            'pulse-slow': 'pulse 5s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+            'bounce-slow': 'bounce 3s infinite'
+          }
+        }
+      }
+    }
+  </script>
+  
+  <!-- Font & Icons -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@600;700;800&display=swap" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+  
+  <style>
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+    }
+    
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    
+    .gradient-text {
+      background-clip: text;
+      -webkit-background-clip: text;
+      color: transparent;
+      background-image: linear-gradient(90deg, #2563EB, #10B981);
+    }
+    
+    .hero-pattern {
+      background-image: radial-gradient(circle at 25% 50%, rgba(37, 99, 235, 0.1) 0%, transparent 50%);
+    }
+    
+    .benefit-card {
+      transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.1);
+    }
+    
+    .benefit-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
+    }
+    
+    .animate-section {
+      animation: fadeInUp 1s ease-out forwards;
+      opacity: 0;
+    }
+    
+    .timeline-item:not(:last-child):after {
+      content: '';
+      position: absolute;
+      left: 7px;
+      top: 24px;
+      height: 100%;
+      width: 2px;
+      background: #E5E7EB;
+    }
+    
+    .job-card {
+      transition: all 0.3s ease;
+      border-left: 4px solid transparent;
+    }
+    
+    .job-card:hover {
+      transform: translateX(5px);
+      border-left-color: #2563EB;
+    }
+  </style>
+</head>
+
+<body class="font-sans bg-gray-50 text-gray-800 antialiased">
+  <!-- Navigation -->
+  <nav class="sticky top-0 z-50 bg-white shadow-sm">
+    <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+      <a href="index.html" class="flex items-center">
+        <div class="w-10 h-10 bg-primary rounded-lg flex items-center justify-center text-white font-bold text-xl">LC</div>
+        <span class="ml-2 text-xl font-bold text-primary hidden sm:inline">Lumos Course</span>
+      </a>
+      
+      <div class="hidden md:flex space-x-8">
+        <a href="index.html" class="font-semibold text-gray-800 hover:text-primary transition">Beranda</a>
+        <a href="index.html#program" class="font-semibold text-gray-800 hover:text-primary transition">Program</a>
+        <a href="#why-join" class="font-semibold text-gray-800 hover:text-primary transition">Keuntungan</a>
+        <a href="#open-positions" class="font-semibold text-gray-800 hover:text-primary transition">Lowongan</a>
+      </div>
+      
+      <div class="flex items-center space-x-3">
+        <a href="https://wa.me/6282147510780" class="hidden xs:inline-flex items-center bg-primary hover:bg-primary/90 text-white px-4 py-2 rounded-lg font-medium transition shadow-md touch-target">
+          <i class="fab fa-whatsapp mr-1"></i> <span class="hidden sm:inline">Hubungi Kami</span>
+        </a>
+        <button class="md:hidden text-gray-600 touch-target" id="mobile-menu-button" aria-label="Toggle menu">
+          <i class="fas fa-bars text-xl"></i>
+        </button>
+      </div>
+    </div>
+    
+    <!-- Mobile Menu -->
+    <div class="md:hidden hidden bg-white shadow-lg" id="mobile-menu">
+      <div class="container mx-auto px-4 py-3 flex flex-col space-y-2">
+        <a href="index.html" class="px-4 py-2 font-medium text-gray-800 hover:bg-gray-100 rounded-lg transition touch-target">Beranda</a>
+        <a href="index.html#program" class="px-4 py-2 font-medium text-gray-800 hover:bg-gray-100 rounded-lg transition touch-target">Program</a>
+        <a href="#why-join" class="px-4 py-2 font-medium text-gray-800 hover:bg-gray-100 rounded-lg transition touch-target">Keuntungan</a>
+        <a href="#open-positions" class="px-4 py-2 font-medium text-gray-800 hover:bg-gray-100 rounded-lg transition touch-target">Lowongan</a>
+        <div class="pt-2 border-t border-gray-100 mt-2">
+          <a href="https://wa.me/6282147510780" class="w-full flex items-center justify-center bg-primary hover:bg-primary/90 text-white px-4 py-2 rounded-lg font-medium transition touch-target">
+            <i class="fab fa-whatsapp mr-2"></i> WhatsApp
+          </a>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="relative overflow-hidden hero-pattern bg-gradient-to-br from-primary/5 to-white">
+    <div class="container mx-auto px-4 py-20 md:py-28 text-center">
+      <div class="max-w-4xl mx-auto animate-section" style="animation-delay: 0.1s">
+        <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 font-heading">
+          <span class="gradient-text">Karir di Lumos Course</span><br>
+          Jadilah Bagian dari Tim Guru Terbaik
+        </h1>
+        
+        <p class="text-xl text-gray-600 mb-8 max-w-2xl mx-auto">
+          Bergabunglah dengan jaringan guru privat profesional kami dan bantu siswa meraih prestasi akademik terbaik.
+        </p>
+        
+        <div class="flex flex-col sm:flex-row justify-center space-y-3 sm:space-y-0 sm:space-x-4">
+          <a href="#open-positions" class="bg-primary hover:bg-primary/90 text-white px-8 py-3 rounded-lg font-bold shadow-lg transition transform hover:scale-105 touch-target">
+            Lihat Lowongan
+          </a>
+          <a href="#why-join" class="bg-white hover:bg-gray-50 text-primary border-2 border-primary px-8 py-3 rounded-lg font-bold shadow-lg transition transform hover:scale-105 touch-target">
+            Keuntungan Bergabung
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Stats Section -->
+  <section class="py-12 bg-white">
+    <div class="container mx-auto px-4">
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
+        <div class="bg-gray-50 p-6 rounded-xl animate-section" style="animation-delay: 0.2s">
+          <div class="text-4xl font-bold text-primary mb-2">500+</div>
+          <div class="text-gray-600">Siswa Aktif</div>
+        </div>
+        <div class="bg-gray-50 p-6 rounded-xl animate-section" style="animation-delay: 0.3s">
+          <div class="text-4xl font-bold text-primary mb-2">50+</div>
+          <div class="text-gray-600">Guru Profesional</div>
+        </div>
+        <div class="bg-gray-50 p-6 rounded-xl animate-section" style="animation-delay: 0.4s">
+          <div class="text-4xl font-bold text-primary mb-2">10+</div>
+          <div class="text-gray-600">Negara Asal Guru</div>
+        </div>
+        <div class="bg-gray-50 p-6 rounded-xl animate-section" style="animation-delay: 0.5s">
+          <div class="text-4xl font-bold text-primary mb-2">98%</div>
+          <div class="text-gray-600">Kepuasan Siswa</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Why Join Section -->
+  <section id="why-join" class="py-16 bg-gray-50">
+    <div class="container mx-auto px-4">
+      <div class="text-center mb-12 animate-section" style="animation-delay: 0.1s">
+        <h2 class="text-3xl md:text-4xl font-bold mb-4 font-heading">Mengapa Bergabung dengan Kami?</h2>
+        <p class="text-lg text-gray-600 max-w-2xl mx-auto">Kami menawarkan lingkungan kerja yang mendukung dan fleksibel untuk pengajar profesional</p>
+      </div>
+      
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+        <!-- Benefit 1 -->
+        <div class="benefit-card bg-white p-8 rounded-xl shadow-sm border border-gray-200 animate-section" style="animation-delay: 0.2s">
+          <div class="w-14 h-14 bg-blue-100 text-blue-600 rounded-lg flex items-center justify-center text-2xl mb-6">
+            <i class="fas fa-money-bill-wave"></i>
+          </div>
+          <h3 class="text-xl font-bold mb-3">Penghasilan Kompetitif</h3>
+          <p class="text-gray-600">Dapatkan penghasilan hingga Rp10 juta/bulan dengan sistem pembayaran yang transparan</p>
+        </div>
+        
+        <!-- Benefit 2 -->
+        <div class="benefit-card bg-white p-8 rounded-xl shadow-sm border border-gray-200 animate-section" style="animation-delay: 0.3s">
+          <div class="w-14 h-14 bg-green-100 text-green-600 rounded-lg flex items-center justify-center text-2xl mb-6">
+            <i class="fas fa-calendar-alt"></i>
+          </div>
+          <h3 class="text-xl font-bold mb-3">Jadwal Fleksibel</h3>
+          <p class="text-gray-600">Atur jadwal mengajar sesuai ketersediaan waktu Anda</p>
+        </div>
+        
+        <!-- Benefit 3 -->
+        <div class="benefit-card bg-white p-8 rounded-xl shadow-sm border border-gray-200 animate-section" style="animation-delay: 0.4s">
+          <div class="w-14 h-14 bg-purple-100 text-purple-600 rounded-lg flex items-center justify-center text-2xl mb-6">
+            <i class="fas fa-globe"></i>
+          </div>
+          <h3 class="text-xl font-bold mb-3">Jaringan Internasional</h3>
+          <p class="text-gray-600">Berinteraksi dengan guru dari berbagai negara dan tingkatkan kompetensi global</p>
+        </div>
+        
+        <!-- Benefit 4 -->
+        <div class="benefit-card bg-white p-8 rounded-xl shadow-sm border border-gray-200 animate-section" style="animation-delay: 0.5s">
+          <div class="w-14 h-14 bg-yellow-100 text-yellow-600 rounded-lg flex items-center justify-center text-2xl mb-6">
+            <i class="fas fa-chart-line"></i>
+          </div>
+          <h3 class="text-xl font-bold mb-3">Pengembangan Karir</h3>
+          <p class="text-gray-600">Akses pelatihan berkala dan kesempatan promosi</p>
+        </div>
+        
+        <!-- Benefit 5 -->
+        <div class="benefit-card bg-white p-8 rounded-xl shadow-sm border border-gray-200 animate-section" style="animation-delay: 0.6s">
+          <div class="w-14 h-14 bg-red-100 text-red-600 rounded-lg flex items-center justify-center text-2xl mb-6">
+            <i class="fas fa-laptop"></i>
+          </div>
+          <h3 class="text-xl font-bold mb-3">Sistem Digital</h3>
+          <p class="text-gray-600">Dukungan platform modern untuk manajemen mengajar yang efisien</p>
+        </div>
+        
+        <!-- Benefit 6 -->
+        <div class="benefit-card bg-white p-8 rounded-xl shadow-sm border border-gray-200 animate-section" style="animation-delay: 0.7s">
+          <div class="w-14 h-14 bg-indigo-100 text-indigo-600 rounded-lg flex items-center justify-center text-2xl mb-6">
+            <i class="fas fa-award"></i>
+          </div>
+          <h3 class="text-xl font-bold mb-3">Penghargaan</h3>
+          <p class="text-gray-600">Program apresiasi untuk guru berprestasi</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- How to Apply Section -->
+  <section class="py-16 bg-white">
+    <div class="container mx-auto px-4">
+      <div class="max-w-4xl mx-auto">
+        <div class="text-center mb-12 animate-section" style="animation-delay: 0.1s">
+          <h2 class="text-3xl md:text-4xl font-bold mb-4 font-heading">Proses Bergabung</h2>
+          <p class="text-lg text-gray-600 max-w-2xl mx-auto">Hanya 4 langkah mudah untuk menjadi bagian dari tim kami</p>
+        </div>
+        
+        <div class="relative">
+          <!-- Timeline -->
+          <div class="space-y-8">
+            <!-- Step 1 -->
+            <div class="flex items-start animate-section" style="animation-delay: 0.2s">
+              <div class="flex-shrink-0 relative">
+                <div class="w-16 h-16 bg-primary/10 text-primary rounded-full flex items-center justify-center text-xl font-bold">
+                  1
+                </div>
+              </div>
+              <div class="ml-6 pt-1">
+                <h3 class="text-xl font-bold mb-2">Isi Formulir Pendaftaran</h3>
+                <p class="text-gray-600">Lengkapi data diri dan unggah dokumen pendukung (CV, sertifikat, dll)</p>
+              </div>
+            </div>
+            
+            <!-- Step 2 -->
+            <div class="flex items-start animate-section timeline-item" style="animation-delay: 0.3s">
+              <div class="flex-shrink-0 relative">
+                <div class="w-16 h-16 bg-primary/10 text-primary rounded-full flex items-center justify-center text-xl font-bold">
+                  2
+                </div>
+              </div>
+              <div class="ml-6 pt-1">
+                <h3 class="text-xl font-bold mb-2">Tes Kemampuan</h3>
+                <p class="text-gray-600">Anda akan mengikuti tes kompetensi sesuai bidang yang dipilih</p>
+              </div>
+            </div>
+            
+            <!-- Step 3 -->
+            <div class="flex items-start animate-section timeline-item" style="animation-delay: 0.4s">
+              <div class="flex-shrink-0 relative">
+                <div class="w-16 h-16 bg-primary/10 text-primary rounded-full flex items-center justify-center text-xl font-bold">
+                  3
+                </div>
+              </div>
+              <div class="ml-6 pt-1">
+                <h3 class="text-xl font-bold mb-2">Wawancara</h3>
+                <p class="text-gray-600">Sesi wawancara online untuk mengenal Anda lebih baik</p>
+              </div>
+            </div>
+            
+            <!-- Step 4 -->
+            <div class="flex items-start animate-section timeline-item" style="animation-delay: 0.5s">
+              <div class="flex-shrink-0 relative">
+                <div class="w-16 h-16 bg-primary/10 text-primary rounded-full flex items-center justify-center text-xl font-bold">
+                  4
+                </div>
+              </div>
+              <div class="ml-6 pt-1">
+                <h3 class="text-xl font-bold mb-2">Pelatihan & Mulai Mengajar</h3>
+                <p class="text-gray-600">Ikuti orientasi singkat dan mulai jadwalkan sesi mengajar pertama</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Open Positions -->
+  <section id="open-positions" class="py-16 bg-gray-50">
+    <div class="container mx-auto px-4">
+      <div class="text-center mb-12 animate-section" style="animation-delay: 0.1s">
+        <h2 class="text-3xl md:text-4xl font-bold mb-4 font-heading">Lowongan Tersedia</h2>
+        <p class="text-lg text-gray-600 max-w-2xl mx-auto">Pilih posisi yang sesuai dengan keahlian Anda</p>
+      </div>
+      
+      <div class="max-w-4xl mx-auto space-y-6">
+        <!-- Job 1 -->
+        <div class="job-card bg-white p-6 rounded-xl shadow-sm border border-gray-200 animate-section" style="animation-delay: 0.2s">
+          <div class="flex flex-col md:flex-row md:justify-between md:items-center">
+            <div class="mb-4 md:mb-0">
+              <h3 class="text-xl font-bold">Guru Matematika (Kurikulum Internasional)</h3>
+              <div class="flex flex-wrap gap-2 mt-2">
+                <span class="px-3 py-1 bg-blue-100 text-blue-800 rounded-full text-xs font-medium">Full-time</span>
+                <span class="px-3 py-1 bg-green-100 text-green-800 rounded-full text-xs font-medium">Remote</span>
+              </div>
+            </div>
+            <a href="daftar-guru.html?posisi=Guru+Matematika" class="inline-flex items-center justify-center bg-primary hover:bg-primary/90 text-white px-6 py-2 rounded-lg font-medium transition whitespace-nowrap touch-target">
+              Lamar Sekarang
+            </a>
+          </div>
+        </div>
+        
+        <!-- Job 2 -->
+        <div class="job-card bg-white p-6 rounded-xl shadow-sm border border-gray-200 animate-section" style="animation-delay: 0.3s">
+          <div class="flex flex-col md:flex-row md:justify-between md:items-center">
+            <div class="mb-4 md:mb-0">
+              <h3 class="text-xl font-bold">Guru IPA (Kurikulum Nasional)</h3>
+              <div class="flex flex-wrap gap-2 mt-2">
+                <span class="px-3 py-1 bg-purple-100 text-purple-800 rounded-full text-xs font-medium">Part-time</span>
+                <span class="px-3 py-1 bg-green-100 text-green-800 rounded-full text-xs font-medium">Remote</span>
+              </div>
+            </div>
+            <a href="daftar-guru.html?posisi=Guru+IPA" class="inline-flex items-center justify-center bg-primary hover:bg-primary/90 text-white px-6 py-2 rounded-lg font-medium transition whitespace-nowrap touch-target">
+              Lamar Sekarang
+            </a>
+          </div>
+        </div>
+        
+        <!-- Job 3 -->
+        <div class="job-card bg-white p-6 rounded-xl shadow-sm border border-gray-200 animate-section" style="animation-delay: 0.4s">
+          <div class="flex flex-col md:flex-row md:justify-between md:items-center">
+            <div class="mb-4 md:mb-0">
+              <h3 class="text-xl font-bold">Guru Bahasa Inggris (Native Speaker)</h3>
+              <div class="flex flex-wrap gap-2 mt-2">
+                <span class="px-3 py-1 bg-blue-100 text-blue-800 rounded-full text-xs font-medium">Full-time</span>
+                <span class="px-3 py-1 bg-green-100 text-green-800 rounded-full text-xs font-medium">Remote</span>
+                <span class="px-3 py-1 bg-yellow-100 text-yellow-800 rounded-full text-xs font-medium">Native</span>
+              </div>
+            </div>
+            <a href="daftar-guru.html?posisi=Guru+Bahasa+Inggris" class="inline-flex items-center justify-center bg-primary hover:bg-primary/90 text-white px-6 py-2 rounded-lg font-medium transition whitespace-nowrap touch-target">
+              Lamar Sekarang
+            </a>
+          </div>
+        </div>
+        
+        <!-- Job 4 -->
+        <div class="job-card bg-white p-6 rounded-xl shadow-sm border border-gray-200 animate-section" style="animation-delay: 0.5s">
+          <div class="flex flex-col md:flex-row md:justify-between md:items-center">
+            <div class="mb-4 md:mb-0">
+              <h3 class="text-xl font-bold">Guru IB Diploma (Physics/Chemistry)</h3>
+              <div class="flex flex-wrap gap-2 mt-2">
+                <span class="px-3 py-1 bg-blue-100 text-blue-800 rounded-full text-xs font-medium">Full-time</span>
+                <span class="px-3 py-1 bg-green-100 text-green-800 rounded-full text-xs font-medium">Remote</span>
+              </div>
+            </div>
+            <a href="daftar-guru.html?posisi=Guru+IB+Diploma" class="inline-flex items-center justify-center bg-primary hover:bg-primary/90 text-white px-6 py-2 rounded-lg font-medium transition whitespace-nowrap touch-target">
+              Lamar Sekarang
+            </a>
+          </div>
+        </div>
+        
+        <!-- Job 5 -->
+        <div class="job-card bg-white p-6 rounded-xl shadow-sm border border-gray-200 animate-section" style="animation-delay: 0.6s">
+          <div class="flex flex-col md:flex-row md:justify-between md:items-center">
+            <div class="mb-4 md:mb-0">
+              <h3 class="text-xl font-bold">Guru Singapore Math (Primary)</h3>
+              <div class="flex flex-wrap gap-2 mt-2">
+                <span class="px-3 py-1 bg-purple-100 text-purple-800 rounded-full text-xs font-medium">Part-time</span>
+                <span class="px-3 py-1 bg-green-100 text-green-800 rounded-full text-xs font-medium">Remote</span>
+              </div>
+            </div>
+            <a href="daftar-guru.html?posisi=Guru+Singapore+Math" class="inline-flex items-center justify-center bg-primary hover:bg-primary/90 text-white px-6 py-2 rounded-lg font-medium transition whitespace-nowrap touch-target">
+              Lamar Sekarang
+            </a>
+          </div>
+        </div>
+      </div>
+      
+      <div class="text-center mt-12 animate-section" style="animation-delay: 0.7s">
+        <p class="text-gray-600 mb-4">Tidak menemukan posisi yang sesuai?</p>
+        <a href="https://wa.me/6282147510780?text=Saya%20ingin%20bergabung%20sebagai%20guru%20di%20Lumos%20Course" 
+           class="inline-flex items-center bg-secondary hover:bg-secondary/90 text-white px-6 py-3 rounded-lg font-medium transition shadow-md touch-target">
+          <i class="fab fa-whatsapp mr-2"></i> Hubungi Kami
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonials from Teachers -->
+  <section class="py-16 bg-white">
+    <div class="container mx-auto px-4">
+      <div class="text-center mb-12 animate-section" style="animation-delay: 0.1s">
+        <h2 class="text-3xl md:text-4xl font-bold mb-4 font-heading">Apa Kata Guru Kami</h2>
+        <p class="text-lg text-gray-600 max-w-2xl mx-auto">Pengalaman mengajar bersama Lumos Course</p>
+      </div>
+      
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+        <!-- Testimonial 1 -->
+        <div class="bg-gray-50 p-6 rounded-xl shadow-sm border border-gray-200 animate-section" style="animation-delay: 0.2s">
+          <div class="flex items-center mb-4">
+            <img src="https://randomuser.me/api/portraits/women/32.jpg" class="w-12 h-12 rounded-full mr-4" alt="Guru">
+            <div>
+              <h4 class="font-bold">Sarah Johnson</h4>
+              <p class="text-sm text-gray-500">Guru Matematika IB</p>
+            </div>
+          </div>
+          <p class="text-gray-600 italic">"Mengajar di Lumos Course memberi saya fleksibilitas waktu yang sangat membantu. Sistem pembayaran tepat waktu dan dukungan admin sangat baik."</p>
+          <div class="flex mt-4 text-yellow-400">
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+          </div>
+        </div>
+        
+        <!-- Testimonial 2 -->
+        <div class="bg-gray-50 p-6 rounded-xl shadow-sm border border-gray-200 animate-section" style="animation-delay: 0.3s">
+          <div class="flex items-center mb-4">
+            <img src="https://randomuser.me/api/portraits/men/45.jpg" class="w-12 h-12 rounded-full mr-4" alt="Guru">
+            <div>
+              <h4 class="font-bold">Ahmad Fauzi</h4>
+              <p class="text-sm text-gray-500">Guru Fisika Cambridge</p>
+            </div>
+          </div>
+          <p class="text-gray-600 italic">"Platform yang sangat profesional. Saya bisa fokus mengajar karena semua administrasi sudah diurus oleh tim Lumos. Siswa-siswanya juga sangat termotivasi."</p>
+          <div class="flex mt-4 text-yellow-400">
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star-half-alt"></i>
+          </div>
+        </div>
+        
+        <!-- Testimonial 3 -->
+        <div class="bg-gray-50 p-6 rounded-xl shadow-sm border border-gray-200 animate-section" style="animation-delay: 0.4s">
+          <div class="flex items-center mb-4">
+            <img src="https://randomuser.me/api/portraits/women/68.jpg" class="w-12 h-12 rounded-full mr-4" alt="Guru">
+            <div>
+              <h4 class="font-bold">Priya Patel</h4>
+              <p class="text-sm text-gray-500">Guru Kimia dari India</p>
+            </div>
+          </div>
+          <p class="text-gray-600 italic">"Sebagai guru internasional, saya sangat menghargai sistem kerja Lumos yang transparan. Pembayaran dalam USD dan langsung ke rekening saya di India."</p>
+          <div class="flex mt-4 text-yellow-400">
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="py-16 bg-gradient-to-r from-primary to-secondary text-white">
+    <div class="container mx-auto px-4 text-center">
+      <h2 class="text-3xl md:text-4xl font-bold mb-6 font-heading animate-section" style="animation-delay: 0.1s">Siap Bergabung dengan Tim Kami?</h2>
+      <p class="text-xl mb-8 max-w-2xl mx-auto animate-section" style="animation-delay: 0.2s">Daftarkan diri Anda sekarang dan mulai perjalanan mengajar yang menyenangkan</p>
+      <div class="flex flex-col sm:flex-row justify-center space-y-3 sm:space-y-0 sm:space-x-4 animate-section" style="animation-delay: 0.3s">
+        <a href="#open-positions" class="bg-white text-primary hover:bg-gray-100 px-8 py-4 rounded-lg font-bold shadow-lg transition transform hover:scale-105 touch-target">
+          Lihat Lowongan
+        </a>
+        <a href="https://wa.me/6282147510780" class="bg-transparent border-2 border-white text-white hover:bg-white/10 px-8 py-4 rounded-lg font-bold shadow-lg transition transform hover:scale-105 touch-target">
+          Tanya Lebih Lanjut
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-gray-900 text-gray-400 py-12">
+    <div class="container mx-auto px-4">
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+        <div class="md:col-span-2">
+          <div class="flex items-center mb-4">
+            <div class="w-10 h-10 bg-primary rounded-lg flex items-center justify-center text-white font-bold text-xl">LC</div>
+            <span class="ml-2 text-xl font-bold text-white">Lumos Course</span>
+          </div>
+          <p class="text-sm mb-4">Les privat profesional untuk kurikulum nasional dan internasional.</p>
+          <div class="flex space-x-4">
+            <a href="#" class="text-gray-400 hover:text-white transition touch-target">
+              <i class="fab fa-instagram text-xl"></i>
+            </a>
+            <a href="#" class="text-gray-400 hover:text-white transition touch-target">
+              <i class="fab fa-facebook text-xl"></i>
+            </a>
+            <a href="#" class="text-gray-400 hover:text-white transition touch-target">
+              <i class="fab fa-youtube text-xl"></i>
+            </a>
+          </div>
+        </div>
+        
+        <div>
+          <h3 class="text-white font-bold mb-4 text-lg">Karir</h3>
+          <ul class="space-y-2">
+            <li><a href="#why-join" class="hover:text-white transition text-sm touch-target">Keuntungan</a></li>
+            <li><a href="#open-positions" class="hover:text-white transition text-sm touch-target">Lowongan</a></li>
+            <li><a href="daftar-guru.html" class="hover:text-white transition text-sm touch-target">Daftar Guru</a></li>
+          </ul>
+        </div>
+        
+        <div>
+          <h3 class="text-white font-bold mb-4 text-lg">Kontak</h3>
+          <ul class="space-y-2">
+            <li class="flex items-center">
+              <i class="fas fa-phone-alt mr-2 text-sm"></i>
+              <span class="text-sm">+62 821-4751-0780</span>
+            </li>
+            <li class="flex items-center">
+              <i class="fas fa-envelope mr-2 text-sm"></i>
+              <span class="text-sm">career@lumoscourse.com</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+      
+      <div class="border-t border-gray-800 mt-8 pt-8 text-sm text-center">
+        <p>&copy; 2025 Lumos Course. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Floating WhatsApp Button -->
+  <a href="https://wa.me/6282147510780" class="fixed bottom-6 right-6 bg-green-500 hover:bg-green-600 text-white w-14 h-14 rounded-full flex items-center justify-center shadow-xl transition transform hover:scale-110 z-50 touch-target">
+    <i class="fab fa-whatsapp text-2xl"></i>
+  </a>
+
+  <!-- Scripts -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      // Mobile Menu Toggle
+      const menuButton = document.getElementById('mobile-menu-button');
+      const mobileMenu = document.getElementById('mobile-menu');
+      
+      menuButton.addEventListener('click', function() {
+        mobileMenu.classList.toggle('hidden');
+        const icon = this.querySelector('i');
+        icon.classList.toggle('fa-bars');
+        icon.classList.toggle('fa-times');
+      });
+      
+      // Animasi Scroll
+      const animateOnScroll = () => {
+        const sections = document.querySelectorAll('.animate-section');
+        const windowHeight = window.innerHeight;
+        
+        sections.forEach(section => {
+          const sectionTop = section.getBoundingClientRect().top;
+          const sectionVisible = 150;
+          
+          if (sectionTop < windowHeight - sectionVisible) {
+            section.style.opacity = '1';
+          }
+        });
+      };
+      
+      // Jalankan saat load dan scroll
+      window.addEventListener('load', animateOnScroll);
+      window.addEventListener('scroll', animateOnScroll);
+    });
+  </script>
+</body>
+</html>
