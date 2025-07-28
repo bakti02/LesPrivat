@@ -170,6 +170,20 @@
     @keyframes spin {
       100% { transform: rotate(360deg); }
     }
+
+    .language-switcher a {
+      transition: all 0.3s ease;
+      font-weight: 500;
+    }
+    
+    .language-switcher a.active {
+      background-color: #2563EB;
+      color: white;
+    }
+    
+    .language-switcher a:not(.active):hover {
+      background-color: #f3f4f6;
+    }
   </style>
 </head>
 
@@ -180,6 +194,23 @@
       <a href="index.html" class="flex items-center">
         <div class="w-10 h-10 bg-primary rounded-lg flex items-center justify-center text-white font-bold text-xl">LC</div>
         <span class="ml-2 text-xl font-bold text-primary hidden sm:inline">Lumos Course</span>
+      </a>
+
+      <div class="language-switcher flex items-center space-x-2">
+        <a href="/LesPrivat/index.html" 
+           class="px-3 py-1 rounded-md bg-primary text-white text-sm">
+          ID
+        </a>
+        <a href="/LesPrivat/en/index.html" 
+           class="px-3 py-1 rounded-md border border-gray-300 text-sm">
+          EN
+        </a>
+      </div>
+
+      <!-- Tambahkan bendera kecil -->
+      <a href="/index.html" class="flex items-center">
+        <img src="https://flagcdn.com/w20/id.png" alt="ID" class="w-4 h-4 mr-1">
+        <span>ID</span>
       </a>
       
       <div class="hidden md:flex space-x-8">
@@ -1622,6 +1653,13 @@ document.addEventListener('DOMContentLoaded', function() {
     // Inisialisasi filter pertama kali
     applyFilters();
 });
+  
+  // Simpan preferensi bahasa di localStorage
+  document.querySelectorAll('.language-switcher a').forEach(link => {
+    link.addEventListener('click', () => {
+      localStorage.setItem('lang', link.getAttribute('href').includes('/en/') ? 'en' : 'id');
+    });
+  });
 </script>
 </body>
 </html>
