@@ -1391,7 +1391,7 @@
   </a>
 
 <script>
-  document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function() {
     // Mobile Menu Toggle
     const menuButton = document.getElementById('mobile-menu-button');
     const mobileMenu = document.getElementById('mobile-menu');
@@ -1418,7 +1418,6 @@
       });
     };
     
-    // Jalankan saat load dan scroll
     window.addEventListener('load', animateOnScroll);
     window.addEventListener('scroll', animateOnScroll);
     
@@ -1467,13 +1466,14 @@
           subfilter.classList.remove('hidden');
         } else {
           subfilter.classList.add('hidden');
+          // Reset sub-filter buttons ketika kategori bukan internasional
+          document.querySelectorAll('.subfilter-btn').forEach(btn => {
+            btn.classList.remove('active');
+          });
         }
         
-        // Reset sub-filter buttons
-        document.querySelectorAll('.subfilter-btn').forEach(btn => {
-          btn.classList.remove('bg-primary', 'text-white');
-          btn.classList.add('bg-gray-100', 'text-gray-800');
-        });
+        // Reset visible programs ketika mengganti kategori
+        visiblePrograms = 6;
         
         // Terapkan filter
         applyFilters();
@@ -1488,13 +1488,14 @@
         // Toggle subkategori aktif
         if (currentSubcategories.includes(subcategory)) {
           currentSubcategories = currentSubcategories.filter(item => item !== subcategory);
-          this.classList.remove('bg-primary', 'text-white');
-          this.classList.add('bg-gray-100', 'text-gray-800');
+          this.classList.remove('active');
         } else {
           currentSubcategories.push(subcategory);
-          this.classList.add('bg-primary', 'text-white');
-          this.classList.remove('bg-gray-100', 'text-gray-800');
+          this.classList.add('active');
         }
+        
+        // Reset visible programs ketika mengganti subfilter
+        visiblePrograms = 6;
         
         // Terapkan filter
         applyFilters();
@@ -1504,46 +1505,88 @@
     // Fungsi untuk menerapkan filter
     function applyFilters() {
       let visibleCount = 0;
+      let hasVisiblePrograms = false;
       
       programCards.forEach((card, index) => {
         const programCategory = card.dataset.category;
-        const programSubcategory = card.dataset.subcategory;
+        const programSubcategory = card.dataset.subcategory || '';
         
         // Filter berdasarkan kategori dan subkategori
         const categoryMatch = currentCategory === 'all' || programCategory === currentCategory;
         const subcategoryMatch = currentSubcategories.length === 0 || 
                                (programSubcategory && currentSubcategories.includes(programSubcategory));
         
-        // Filter berdasarkan jumlah yang ditampilkan
-        const withinVisibleRange = index < visiblePrograms;
+        // Tentukan apakah program harus ditampilkan berdasarkan filter
+        const shouldShow = categoryMatch && subcategoryMatch;
         
-        if (categoryMatch && subcategoryMatch && withinVisibleRange) {
+        // Tentukan apakah program dalam range yang terlihat
+        const withinVisibleRange = visibleCount < visiblePrograms;
+        
+        if (shouldShow && withinVisibleRange) {
           card.style.display = 'block';
           visibleCount++;
+          hasVisiblePrograms = true;
         } else {
           card.style.display = 'none';
         }
       });
       
       // Update tombol load more
-      updateLoadMoreButton(visibleCount);
+      updateLoadMoreButton();
+      
+      // Jika tidak ada program yang terlihat, tampilkan pesan
+      if (!hasVisiblePrograms) {
+        showNoProgramsMessage();
+      } else {
+        hideNoProgramsMessage();
+      }
+    }
+
+    // Fungsi untuk menampilkan pesan ketika tidak ada program yang sesuai
+    function showNoProgramsMessage() {
+      let message = document.getElementById('no-programs-message');
+      if (!message) {
+        message = document.createElement('div');
+        message.id = 'no-programs-message';
+        message.className = 'text-center py-8 text-gray-500';
+        message.textContent = 'Tidak ada program yang sesuai dengan filter yang dipilih.';
+        document.querySelector('.grid').appendChild(message);
+      }
+    }
+    
+    function hideNoProgramsMessage() {
+      const message = document.getElementById('no-programs-message');
+      if (message) {
+        message.remove();
+      }
     }
 
     // Update tombol load more
-    function updateLoadMoreButton(visibleCount) {
+    function updateLoadMoreButton() {
       const loadMoreBtn = document.getElementById('load-more-programs');
       if (!loadMoreBtn) return;
       
-      const totalFiltered = document.querySelectorAll(
-        `.program-card[data-category="${currentCategory}"]` + 
-        (currentSubcategories.length ? `[data-subcategory="${currentSubcategories.join('"],[data-subcategory="')}"]` : '')
-      ).length;
+      // Hitung total program yang sesuai dengan filter
+      let totalFiltered = 0;
+      programCards.forEach(card => {
+        const programCategory = card.dataset.category;
+        const programSubcategory = card.dataset.subcategory || '';
+        
+        const categoryMatch = currentCategory === 'all' || programCategory === currentCategory;
+        const subcategoryMatch = currentSubcategories.length === 0 || 
+                               (programSubcategory && currentSubcategories.includes(programSubcategory));
+        
+        if (categoryMatch && subcategoryMatch) {
+          totalFiltered++;
+        }
+      });
       
-      if (visibleCount >= totalFiltered || visibleCount >= programCards.length) {
+      if (visiblePrograms >= totalFiltered) {
         loadMoreBtn.style.display = 'none';
       } else {
         loadMoreBtn.style.display = 'inline-flex';
-        loadMoreBtn.innerHTML = `Lihat Program Lainnya (+${totalFiltered - visibleCount})`;
+        const remaining = totalFiltered - visiblePrograms;
+        loadMoreBtn.innerHTML = `<span>Lihat Program Lainnya (+${remaining})</span><i class="fas fa-chevron-down ml-2 text-xs"></i>`;
       }
     }
 
@@ -1553,6 +1596,10 @@
       loadMoreBtn.addEventListener('click', function() {
         visiblePrograms += 6;
         applyFilters();
+        
+        // Scroll ke bagian bawah grid program
+        const programGrid = document.querySelector('.grid');
+        programGrid.scrollIntoView({ behavior: 'smooth', block: 'end' });
       });
     }
 
@@ -1577,7 +1624,7 @@
 
     // Inisialisasi filter pertama kali
     applyFilters();
-  });
+});
 </script>
 </body>
 </html>
