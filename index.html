@@ -1,3 +1,7 @@
+**SOLUSI FINAL**  
+Berikut implementasi lengkap semua revisi yang kita diskusikan dalam satu kode terpadu:
+
+```html
 <!DOCTYPE html>
 <html lang="id" class="scroll-smooth">
 <head>
@@ -90,24 +94,6 @@
     }
 
     @keyframes marquee {
-      0% {
-        transform: translateX(0);
-      }
-      100% {
-        transform: translateX(-50%);
-      }
-    }
-    
-    .animate-marquee {
-      animation: marquee 20s linear infinite;
-      display: inline-block;
-    }
-    
-    .animate-marquee:hover {
-      animation-play-state: paused;
-    }
-
-    @keyframes marquee {
       0% { transform: translateX(0); }
       100% { transform: translateX(-50%); }
     }
@@ -120,6 +106,7 @@
     .animate-marquee:hover {
       animation-play-state: paused;
     }
+    
     /* Line clamp utilities */
     .line-clamp-1 {
       display: -webkit-box;
@@ -128,11 +115,24 @@
       overflow: hidden;
     }
     
-    .line-clamp-5 {
+    .line-clamp-2 {
       display: -webkit-box;
-      -webkit-line-clamp: 5;
+      -webkit-line-clamp: 2;
       -webkit-box-orient: vertical;
       overflow: hidden;
+    }
+    
+    /* Custom Badge Ribbon */
+    .ribbon {
+      position: absolute;
+      top: 10px;
+      right: -10px;
+      padding: 0.25rem 1rem;
+      font-size: 0.75rem;
+      font-weight: bold;
+      color: white;
+      background: linear-gradient(45deg, #f59e0b, #ef4444);
+      clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%, 10px 50%);
     }
   </style>
 </head>
@@ -250,687 +250,894 @@
     </div>
   </section>
 
-<!-- Enhanced Program Section -->
-<section id="program" class="py-16 bg-white">
-  <div class="container mx-auto px-4">
-    <div class="text-center mb-12 animate-section" style="animation-delay: 0.1s">
-      <h2 class="text-3xl md:text-4xl font-bold mb-4 font-heading">Program Unggulan Kami</h2>
-      <p class="text-lg text-gray-600 max-w-2xl mx-auto">Pilih program yang sesuai dengan kebutuhan akademik Anda</p>
-    </div>
-    
-    <!-- Enhanced Tab Navigation -->
-    <div class="flex overflow-x-auto pb-2 mb-8 animate-section" style="animation-delay: 0.2s">
-      <div class="flex space-x-2 mx-auto">
-        <button class="program-tab active px-6 py-3 rounded-xl font-medium bg-primary text-white transition-all transform hover:scale-105 shadow-md flex items-center" data-category="all">
-          <i class="fas fa-globe mr-2"></i> Semua
-        </button>
-        <button class="program-tab px-6 py-3 rounded-xl font-medium bg-gray-100 hover:bg-gray-200 transition-all transform hover:scale-105 flex items-center" data-category="nasional">
-          <i class="fas fa-flag mr-2 text-blue-600"></i> Nasional
-        </button>
-        <button class="program-tab px-6 py-3 rounded-xl font-medium bg-gray-100 hover:bg-gray-200 transition-all transform hover:scale-105 flex items-center" data-category="internasional">
-          <i class="fas fa-star mr-2 text-yellow-500"></i> Internasional
-        </button>
-        <button class="program-tab px-6 py-3 rounded-xl font-medium bg-gray-100 hover:bg-gray-200 transition-all transform hover:scale-105 flex items-center" data-category="khusus">
-          <i class="fas fa-bolt mr-2 text-purple-500"></i> Khusus
-        </button>
-      </div>
-    </div>
-    
-    <!-- Enhanced Program Cards Grid -->
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
-      <!-- Program 1 - Kurikulum Merdeka -->
-      <div class="program-card group bg-white rounded-2xl shadow-lg border border-gray-100 overflow-hidden transition-all duration-500 hover:shadow-2xl hover:-translate-y-2 animate-section" 
-           style="animation-delay: 0.3s" data-category="nasional">
-        <div class="relative h-48 bg-gradient-to-br from-blue-600 to-blue-800 flex items-end p-6">
-          <div class="absolute inset-0 opacity-20 bg-[url('https://images.unsplash.com/photo-1523050854058-8df90110c9f1?q=80&w=1470&auto=format&fit=crop')] bg-cover bg-center"></div>
-          <div class="relative z-10">
-            <h3 class="text-2xl font-bold text-white">Kurikulum Merdeka</h3>
-            <p class="text-blue-100 text-sm">SD - SMA</p>
-          </div>
-          <div class="absolute top-4 right-4 bg-white text-blue-600 px-3 py-1 rounded-full text-xs font-bold shadow-sm">
-            NASIONAL
-          </div>
-        </div>
-        <div class="p-6">
-          <div class="flex justify-between items-center mb-4">
-            <div>
-              <span class="text-2xl font-bold text-blue-600">Rp125.000</span>
-              <span class="text-gray-500 text-sm">/sesi 90 menit</span>
-            </div>
-            <div class="flex items-center text-yellow-400">
-              <i class="fas fa-star"></i>
-              <span class="ml-1 text-gray-700">4.9</span>
-            </div>
-          </div>
-          <ul class="space-y-2 mb-6 text-sm">
-            <li class="flex items-start">
-              <i class="fas fa-check-circle text-green-500 mt-1 mr-2 text-xs"></i>
-              <span>Matematika, IPA, Bahasa</span>
-            </li>
-            <li class="flex items-start">
-              <i class="fas fa-check-circle text-green-500 mt-1 mr-2 text-xs"></i>
-              <span>Project Based Learning</span>
-            </li>
-            <li class="flex items-start">
-              <i class="fas fa-check-circle text-green-500 mt-1 mr-2 text-xs"></i>
-              <span>Asesmen Formatif</span>
-            </li>
-          </ul>
-          <div class="flex space-x-3">
-            <a href="https://wa.me/6282147510780?text=Saya%20tertarik%20program%20Kurikulum%20Merdeka" 
-               class="flex-1 bg-blue-600 hover:bg-blue-700 text-white text-center py-2 rounded-lg text-sm font-medium transition transform hover:scale-[1.02] touch-target">
-              Daftar Sekarang
-            </a>
-            <button class="view-detail-btn w-10 h-10 flex items-center justify-center bg-gray-100 hover:bg-gray-200 rounded-lg transition touch-target">
-              <i class="fas fa-chevron-down text-gray-600"></i>
-            </button>
-          </div>
-          <div class="program-detail hidden mt-4 pt-4 border-t border-gray-200">
-            <h4 class="font-bold mb-2 text-sm text-gray-700">Detail Program:</h4>
-            <p class="text-gray-600 text-sm mb-3">Program khusus untuk siswa sekolah nasional dengan pendekatan Kurikulum Merdeka terbaru.</p>
-            <ul class="space-y-1 text-sm text-gray-600">
-              <li class="flex items-start">
-                <i class="fas fa-check text-green-500 mr-2 mt-1 text-xs"></i>
-                <span>Guru berpengalaman di sekolah nasional</span>
-              </li>
-              <li class="flex items-start">
-                <i class="fas fa-check text-green-500 mr-2 mt-1 text-xs"></i>
-                <span>Modul pembelajaran lengkap</span>
-              </li>
-              <li class="flex items-start">
-                <i class="fas fa-check text-green-500 mr-2 mt-1 text-xs"></i>
-                <span>Laporan perkembangan bulanan</span>
-              </li>
-            </ul>
-          </div>
-        </div>
+  <!-- Enhanced Program Section -->
+  <section id="program" class="py-16 bg-white">
+    <div class="container mx-auto px-4">
+      <div class="text-center mb-12 animate-section" style="animation-delay: 0.1s">
+        <h2 class="text-3xl md:text-4xl font-bold mb-4 font-heading">Program Unggulan Kami</h2>
+        <p class="text-lg text-gray-600 max-w-2xl mx-auto">Pilih program yang sesuai dengan kebutuhan akademik Anda</p>
       </div>
       
-      <!-- Program 2 - Cambridge IGCSE -->
-      <div class="program-card group bg-white rounded-2xl shadow-lg border border-gray-100 overflow-hidden transition-all duration-500 hover:shadow-2xl hover:-translate-y-2 animate-section" 
-           style="animation-delay: 0.4s" data-category="internasional">
-        <div class="relative h-48 bg-gradient-to-br from-purple-600 to-purple-800 flex items-end p-6">
-          <div class="absolute inset-0 opacity-20 bg-[url('https://images.unsplash.com/photo-1523050854058-8df90110c9f1?q=80&w=1470&auto=format&fit=crop')] bg-cover bg-center"></div>
-          <div class="relative z-10">
-            <h3 class="text-2xl font-bold text-white">Cambridge IGCSE</h3>
-            <p class="text-purple-100 text-sm">Grade 9-10</p>
-          </div>
-          <div class="absolute top-4 right-4 bg-yellow-500 text-white px-3 py-1 rounded-full text-xs font-bold shadow-sm animate-pulse">
-            POPULER
-          </div>
-        </div>
-        <div class="p-6">
-          <div class="flex justify-between items-center mb-4">
-            <div>
-              <span class="text-2xl font-bold text-purple-600">Rp275.000</span>
-              <span class="text-gray-500 text-sm">/sesi 90 menit</span>
-            </div>
-            <div class="flex items-center text-yellow-400">
-              <i class="fas fa-star"></i>
-              <span class="ml-1 text-gray-700">4.8</span>
-            </div>
-          </div>
-          <ul class="space-y-2 mb-6 text-sm">
-            <li class="flex items-start">
-              <i class="fas fa-check-circle text-green-500 mt-1 mr-2 text-xs"></i>
-              <span>Mathematics, Sciences</span>
-            </li>
-            <li class="flex items-start">
-              <i class="fas fa-check-circle text-green-500 mt-1 mr-2 text-xs"></i>
-              <span>Past Paper Practice</span>
-            </li>
-            <li class="flex items-start">
-              <i class="fas fa-check-circle text-green-500 mt-1 mr-2 text-xs"></i>
-              <span>Bilingual Tutor</span>
-            </li>
-          </ul>
-          <div class="flex space-x-3">
-            <a href="https://wa.me/6282147510780?text=Saya%20tertarik%20program%20Cambridge%20IGCSE" 
-               class="flex-1 bg-purple-600 hover:bg-purple-700 text-white text-center py-2 rounded-lg text-sm font-medium transition transform hover:scale-[1.02] touch-target">
-              Pilihan Terbaik
-            </a>
-            <button class="view-detail-btn w-10 h-10 flex items-center justify-center bg-gray-100 hover:bg-gray-200 rounded-lg transition touch-target">
-              <i class="fas fa-chevron-down text-gray-600"></i>
+      <!-- Enhanced Tab Navigation -->
+      <div class="filter-container mb-8">
+        <!-- Main Filter -->
+        <div class="flex overflow-x-auto pb-2 animate-section" style="animation-delay: 0.2s">
+          <div class="flex space-x-2 mx-auto">
+            <button class="program-tab active px-6 py-3 rounded-xl font-medium bg-primary text-white transition-all transform hover:scale-105 shadow-md flex items-center" data-category="all">
+              <i class="fas fa-globe mr-2"></i> Semua
+            </button>
+            <button class="program-tab px-6 py-3 rounded-xl font-medium bg-gray-100 hover:bg-gray-200 transition-all transform hover:scale-105 flex items-center" data-category="nasional">
+              <i class="fas fa-flag mr-2 text-blue-600"></i> Nasional
+            </button>
+            <button class="program-tab px-6 py-3 rounded-xl font-medium bg-gray-100 hover:bg-gray-200 transition-all transform hover:scale-105 flex items-center" data-category="internasional" id="internasional-btn">
+              <i class="fas fa-star mr-2 text-yellow-500"></i> Internasional
+            </button>
+            <button class="program-tab px-6 py-3 rounded-xl font-medium bg-gray-100 hover:bg-gray-200 transition-all transform hover:scale-105 flex items-center" data-category="khusus">
+              <i class="fas fa-bolt mr-2 text-purple-500"></i> Khusus
             </button>
           </div>
-          <div class="program-detail hidden mt-4 pt-4 border-t border-gray-200">
-            <h4 class="font-bold mb-2 text-sm text-gray-700">Detail Program:</h4>
-            <p class="text-gray-600 text-sm mb-3">Persiapan ujian Cambridge IGCSE dengan pengajar bersertifikasi dan materi terkini.</p>
-            <ul class="space-y-1 text-sm text-gray-600">
-              <li class="flex items-start">
-                <i class="fas fa-check text-green-500 mr-2 mt-1 text-xs"></i>
-                <span>10+ tahun arsip soal ujian</span>
-              </li>
-              <li class="flex items-start">
-                <i class="fas fa-check text-green-500 mr-2 mt-1 text-xs"></i>
-                <span>Prediksi nilai berdasarkan mock exam</span>
-              </li>
-              <li class="flex items-start">
-                <i class="fas fa-check text-green-500 mr-2 mt-1 text-xs"></i>
-                <span>Konsultasi pemilihan mata pelajaran</span>
-              </li>
-            </ul>
-          </div>
         </div>
-      </div>
-      
-      <!-- Program 3 - IB Diploma -->
-      <div class="program-card group bg-white rounded-2xl shadow-lg border border-gray-100 overflow-hidden transition-all duration-500 hover:shadow-2xl hover:-translate-y-2 animate-section" 
-           style="animation-delay: 0.5s" data-category="internasional">
-        <div class="relative h-48 bg-gradient-to-br from-red-600 to-red-800 flex items-end p-6">
-          <div class="absolute inset-0 opacity-20 bg-[url('https://images.unsplash.com/photo-1523050854058-8df90110c9f1?q=80&w=1470&auto=format&fit=crop')] bg-cover bg-center"></div>
-          <div class="relative z-10">
-            <h3 class="text-2xl font-bold text-white">IB Diploma Program</h3>
-            <p class="text-red-100 text-sm">Grade 11-12</p>
-          </div>
-          <div class="absolute top-4 right-4 bg-white text-red-600 px-3 py-1 rounded-full text-xs font-bold shadow-sm">
-            PREMIUM
-          </div>
-        </div>
-        <div class="p-6">
-          <div class="flex justify-between items-center mb-4">
-            <div>
-              <span class="text-2xl font-bold text-red-600">Rp350.000</span>
-              <span class="text-gray-500 text-sm">/sesi 90 menit</span>
-            </div>
-            <div class="flex items-center text-yellow-400">
-              <i class="fas fa-star"></i>
-              <span class="ml-1 text-gray-700">4.9</span>
-            </div>
-          </div>
-          <ul class="space-y-2 mb-6 text-sm">
-            <li class="flex items-start">
-              <i class="fas fa-check-circle text-green-500 mt-1 mr-2 text-xs"></i>
-              <span>HL/SL Subjects</span>
-            </li>
-            <li class="flex items-start">
-              <i class="fas fa-check-circle text-green-500 mt-1 mr-2 text-xs"></i>
-              <span>EE & TOK Support</span>
-            </li>
-            <li class="flex items-start">
-              <i class="fas fa-check-circle text-green-500 mt-1 mr-2 text-xs"></i>
-              <span>Examiner Feedback</span>
-            </li>
-          </ul>
-          <div class="flex space-x-3">
-            <a href="https://wa.me/6282147510780?text=Saya%20tertarik%20program%20IB%20Diploma" 
-               class="flex-1 bg-red-600 hover:bg-red-700 text-white text-center py-2 rounded-lg text-sm font-medium transition transform hover:scale-[1.02] touch-target">
-              Daftar Sekarang
-            </a>
-            <button class="view-detail-btn w-10 h-10 flex items-center justify-center bg-gray-100 hover:bg-gray-200 rounded-lg transition touch-target">
-              <i class="fas fa-chevron-down text-gray-600"></i>
-            </button>
-          </div>
-          <div class="program-detail hidden mt-4 pt-4 border-t border-gray-200">
-            <h4 class="font-bold mb-2 text-sm text-gray-700">Detail Program:</h4>
-            <p class="text-gray-600 text-sm mb-3">Program komprehensif untuk IB Diploma dengan dukungan penuh Extended Essay dan TOK.</p>
-            <ul class="space-y-1 text-sm text-gray-600">
-              <li class="flex items-start">
-                <i class="fas fa-check text-green-500 mr-2 mt-1 text-xs"></i>
-                <span>Pengajar berpengalaman sebagai IB Examiner</span>
-              </li>
-              <li class="flex items-start">
-                <i class="fas fa-check text-green-500 mr-2 mt-1 text-xs"></i>
-                <span>Bimbingan Extended Essay step-by-step</span>
-              </li>
-              <li class="flex items-start">
-                <i class="fas fa-check text-green-500 mr-2 mt-1 text-xs"></i>
-                <span>CAS project mentoring</span>
-              </li>
-            </ul>
-          </div>
-        </div>
-      </div>
-      
-      <!-- Program 4 - UTBK -->
-      <div class="program-card group bg-white rounded-2xl shadow-lg border border-gray-100 overflow-hidden transition-all duration-500 hover:shadow-2xl hover:-translate-y-2 animate-section" 
-           style="animation-delay: 0.3s" data-category="khusus">
-        <div class="relative h-48 bg-gradient-to-br from-green-600 to-green-800 flex items-end p-6">
-          <div class="absolute inset-0 opacity-20 bg-[url('https://images.unsplash.com/photo-1523050854058-8df90110c9f1?q=80&w=1470&auto=format&fit=crop')] bg-cover bg-center"></div>
-          <div class="relative z-10">
-            <h3 class="text-2xl font-bold text-white">Supercamp UTBK</h3>
-            <p class="text-green-100 text-sm">Persiapan PTN</p>
-          </div>
-          <div class="absolute top-4 right-4 bg-white text-green-600 px-3 py-1 rounded-full text-xs font-bold shadow-sm">
-            INTENSIF
-          </div>
-        </div>
-        <div class="p-6">
-          <div class="flex justify-between items-center mb-4">
-            <div>
-              <span class="text-2xl font-bold text-green-600">Rp200.000</span>
-              <span class="text-gray-500 text-sm">/sesi 120 menit</span>
-            </div>
-            <div class="flex items-center text-yellow-400">
-              <i class="fas fa-star"></i>
-              <span class="ml-1 text-gray-700">4.7</span>
-            </div>
-          </div>
-          <ul class="space-y-2 mb-6 text-sm">
-            <li class="flex items-start">
-              <i class="fas fa-check-circle text-green-500 mt-1 mr-2 text-xs"></i>
-              <span>TPA & Literasi</span>
-            </li>
-            <li class="flex items-start">
-              <i class="fas fa-check-circle text-green-500 mt-1 mr-2 text-xs"></i>
-              <span>Try Out Berkala</span>
-            </li>
-            <li class="flex items-start">
-              <i class="fas fa-check-circle text-green-500 mt-1 mr-2 text-xs"></i>
-              <span>Strategi Mengerjakan</span>
-            </li>
-          </ul>
-          <div class="flex space-x-3">
-            <a href="https://wa.me/6282147510780?text=Saya%20tertarik%20program%20Supercamp%20UTBK" 
-               class="flex-1 bg-green-600 hover:bg-green-700 text-white text-center py-2 rounded-lg text-sm font-medium transition transform hover:scale-[1.02] touch-target">
-              Daftar Sekarang
-            </a>
-            <button class="view-detail-btn w-10 h-10 flex items-center justify-center bg-gray-100 hover:bg-gray-200 rounded-lg transition touch-target">
-              <i class="fas fa-chevron-down text-gray-600"></i>
-            </button>
-          </div>
-          <div class="program-detail hidden mt-4 pt-4 border-t border-gray-200">
-            <h4 class="font-bold mb-2 text-sm text-gray-700">Detail Program:</h4>
-            <p class="text-gray-600 text-sm mb-3">Program intensif persiapan UTBK dengan sistem try out berkala dan pembahasan mendalam.</p>
-            <ul class="space-y-1 text-sm text-gray-600">
-              <li class="flex items-start">
-                <i class="fas fa-check text-green-500 mr-2 mt-1 text-xs"></i>
-                <span>10x try out lengkap dengan pembahasan</span>
-              </li>
-              <li class="flex items-start">
-                <i class="fas fa-check text-green-500 mr-2 mt-1 text-xs"></i>
-                <span>Analisis kekuatan dan kelemahan</span>
-              </li>
-              <li class="flex items-start">
-                <i class="fas fa-check text-green-500 mr-2 mt-1 text-xs"></i>
-                <span>Strategi mengerjakan soal cepat</span>
-              </li>
-            </ul>
-          </div>
-        </div>
-      </div>
-      
-      <!-- Program 5 - Singapore Math -->
-      <div class="program-card group bg-white rounded-2xl shadow-lg border border-gray-100 overflow-hidden transition-all duration-500 hover:shadow-2xl hover:-translate-y-2 animate-section" 
-           style="animation-delay: 0.4s" data-category="internasional">
-        <div class="relative h-48 bg-gradient-to-br from-orange-600 to-orange-800 flex items-end p-6">
-          <div class="absolute inset-0 opacity-20 bg-[url('https://images.unsplash.com/photo-1523050854058-8df90110c9f1?q=80&w=1470&auto=format&fit=crop')] bg-cover bg-center"></div>
-          <div class="relative z-10">
-            <h3 class="text-2xl font-bold text-white">Singapore Math</h3>
-            <p class="text-orange-100 text-sm">Primary 1-6</p>
-          </div>
-          <div class="absolute top-4 right-4 bg-white text-orange-600 px-3 py-1 rounded-full text-xs font-bold shadow-sm">
-            BARU
-          </div>
-        </div>
-        <div class="p-6">
-          <div class="flex justify-between items-center mb-4">
-            <div>
-              <span class="text-2xl font-bold text-orange-600">Rp225.000</span>
-              <span class="text-gray-500 text-sm">/sesi 90 menit</span>
-            </div>
-            <div class="flex items-center text-yellow-400">
-              <i class="fas fa-star"></i>
-              <span class="ml-1 text-gray-700">4.8</span>
-            </div>
-          </div>
-          <ul class="space-y-2 mb-6 text-sm">
-            <li class="flex items-start">
-              <i class="fas fa-check-circle text-green-500 mt-1 mr-2 text-xs"></i>
-              <span>CPA Approach</span>
-            </li>
-            <li class="flex items-start">
-              <i class="fas fa-check-circle text-green-500 mt-1 mr-2 text-xs"></i>
-              <span>Problem Solving</span>
-            </li>
-            <li class="flex items-start">
-              <i class="fas fa-check-circle text-green-500 mt-1 mr-2 text-xs"></i>
-              <span>Heuristic Skills</span>
-            </li>
-          </ul>
-          <div class="flex space-x-3">
-            <a href="https://wa.me/6282147510780?text=Saya%20tertarik%20program%20Singapore%20Math" 
-               class="flex-1 bg-orange-600 hover:bg-orange-700 text-white text-center py-2 rounded-lg text-sm font-medium transition transform hover:scale-[1.02] touch-target">
-              Daftar Sekarang
-            </a>
-            <button class="view-detail-btn w-10 h-10 flex items-center justify-center bg-gray-100 hover:bg-gray-200 rounded-lg transition touch-target">
-              <i class="fas fa-chevron-down text-gray-600"></i>
-            </button>
-          </div>
-          <div class="program-detail hidden mt-4 pt-4 border-t border-gray-200">
-            <h4 class="font-bold mb-2 text-sm text-gray-700">Detail Program:</h4>
-            <p class="text-gray-600 text-sm mb-3">Program matematika dengan metode Singapore yang terkenal efektif untuk anak usia SD.</p>
-            <ul class="space-y-1 text-sm text-gray-600">
-              <li class="flex items-start">
-                <i class="fas fa-check text-green-500 mr-2 mt-1 text-xs"></i>
-                <span>Metode Concrete-Pictorial-Abstract</span>
-              </li>
-              <li class="flex items-start">
-                <i class="fas fa-check text-green-500 mr-2 mt-1 text-xs"></i>
-                <span>Pengajar dari Singapore dan Indonesia</span>
-              </li>
-              <li class="flex items-start">
-                <i class="fas fa-check text-green-500 mr-2 mt-1 text-xs"></i>
-                <span>Persiapan kompetisi matematika</span>
-              </li>
-            </ul>
-          </div>
-        </div>
-      </div>
-      
-      <!-- Program 6 - Homeschool Support -->
-      <div class="program-card group bg-white rounded-2xl shadow-lg border border-gray-100 overflow-hidden transition-all duration-500 hover:shadow-2xl hover:-translate-y-2 animate-section" 
-           style="animation-delay: 0.5s" data-category="khusus">
-        <div class="relative h-48 bg-gradient-to-br from-indigo-600 to-indigo-800 flex items-end p-6">
-          <div class="absolute inset-0 opacity-20 bg-[url('https://images.unsplash.com/photo-1523050854058-8df90110c9f1?q=80&w=1470&auto=format&fit=crop')] bg-cover bg-center"></div>
-          <div class="relative z-10">
-            <h3 class="text-2xl font-bold text-white">Homeschool Support</h3>
-            <p class="text-indigo-100 text-sm">Custom Curriculum</p>
-          </div>
-          <div class="absolute top-4 right-4 bg-white text-indigo-600 px-3 py-1 rounded-full text-xs font-bold shadow-sm">
-            FLEKSIBEL
-          </div>
-        </div>
-        <div class="p-6">
-          <div class="flex justify-between items-center mb-4">
-            <div>
-              <span class="text-2xl font-bold text-indigo-600">Rp250.000</span>
-              <span class="text-gray-500 text-sm">/sesi 90 menit</span>
-            </div>
-            <div class="flex items-center text-yellow-400">
-              <i class="fas fa-star"></i>
-              <span class="ml-1 text-gray-700">4.9</span>
-            </div>
-          </div>
-          <ul class="space-y-2 mb-6 text-sm">
-            <li class="flex items-start">
-              <i class="fas fa-check-circle text-green-500 mt-1 mr-2 text-xs"></i>
-              <span>Personalized Learning</span>
-            </li>
-            <li class="flex items-start">
-              <i class="fas fa-check-circle text-green-500 mt-1 mr-2 text-xs"></i>
-              <span>Portfolio Assistance</span>
-            </li>
-            <li class="flex items-start">
-              <i class="fas fa-check-circle text-green-500 mt-1 mr-2 text-xs"></i>
-              <span>Flexible Schedule</span>
-            </li>
-          </ul>
-          <div class="flex space-x-3">
-            <a href="https://wa.me/6282147510780?text=Saya%20tertarik%20program%20Homeschool%20Support" 
-               class="flex-1 bg-indigo-600 hover:bg-indigo-700 text-white text-center py-2 rounded-lg text-sm font-medium transition transform hover:scale-[1.02] touch-target">
-              Konsultasi Gratis
-            </a>
-            <button class="view-detail-btn w-10 h-10 flex items-center justify-center bg-gray-100 hover:bg-gray-200 rounded-lg transition touch-target">
-              <i class="fas fa-chevron-down text-gray-600"></i>
-            </button>
-          </div>
-          <div class="program-detail hidden mt-4 pt-4 border-t border-gray-200">
-            <h4 class="font-bold mb-2 text-sm text-gray-700">Detail Program:</h4>
-            <p class="text-gray-600 text-sm mb-3">Program khusus untuk siswa homeschool dengan kurikulum yang disesuaikan kebutuhan.</p>
-            <ul class="space-y-1 text-sm text-gray-600">
-              <li class="flex items-start">
-                <i class="fas fa-check text-green-500 mr-2 mt-1 text-xs"></i>
-                <span>Kurikulum disesuaikan dengan kebutuhan</span>
-              </li>
-              <li class="flex items-start">
-                <i class="fas fa-check text-green-500 mr-2 mt-1 text-xs"></i>
-                <span>Bantuan pembuatan portofolio belajar</span>
-              </li>
-              <li class="flex items-start">
-                <i class="fas fa-check text-green-500 mr-2 mt-1 text-xs"></i>
-                <span>Jadwal fleksibel sesuai kebutuhan</span>
-              </li>
-            </ul>
-          </div>
-        </div>
-      </div>
 
-      <!-- Program 7 - Cambridge Primary -->
-      <div class="program-card group bg-white rounded-2xl shadow-lg border border-gray-100 overflow-hidden transition-all duration-500 hover:shadow-2xl hover:-translate-y-2 animate-section" 
-           style="animation-delay: 0.3s" data-category="internasional">
-        <div class="relative h-48 bg-gradient-to-br from-blue-500 to-blue-600 flex items-end p-6">
-          <div class="absolute inset-0 opacity-20 bg-[url('https://images.unsplash.com/photo-1523050854058-8df90110c9f1?q=80&w=1470&auto=format&fit=crop')] bg-cover bg-center"></div>
-          <div class="relative z-10">
-            <h3 class="text-2xl font-bold text-white">Cambridge Primary</h3>
-            <p class="text-blue-100 text-sm">Usia 5-11 tahun</p>
-          </div>
-          <div class="absolute top-4 right-4 bg-white text-blue-600 px-3 py-1 rounded-full text-xs font-bold shadow-sm">
-            INTERNASIONAL
-          </div>
-        </div>
-        <div class="p-6">
-          <div class="flex justify-between items-center mb-4">
-            <div>
-              <span class="text-2xl font-bold text-blue-600">Rp175.000</span>
-              <span class="text-gray-500 text-sm">/sesi 90 menit</span>
-            </div>
-            <div class="flex items-center text-yellow-400">
-              <i class="fas fa-star"></i>
-              <span class="ml-1 text-gray-700">4.8</span>
-            </div>
-          </div>
-          <ul class="space-y-2 mb-6 text-sm">
-            <li class="flex items-start">
-              <i class="fas fa-check-circle text-green-500 mt-1 mr-2 text-xs"></i>
-              <span>Cambridge Mathematics</span>
-            </li>
-            <li class="flex items-start">
-              <i class="fas fa-check-circle text-green-500 mt-1 mr-2 text-xs"></i>
-              <span>English as First Language</span>
-            </li>
-            <li class="flex items-start">
-              <i class="fas fa-check-circle text-green-500 mt-1 mr-2 text-xs"></i>
-              <span>Progres Report Bulanan</span>
-            </li>
-          </ul>
-          <div class="flex space-x-3">
-            <a href="https://wa.me/6282147510780?text=Saya%20tertarik%20program%20Cambridge%20Primary" 
-               class="flex-1 bg-blue-600 hover:bg-blue-700 text-white text-center py-2 rounded-lg text-sm font-medium transition transform hover:scale-[1.02] touch-target">
-              Daftar Sekarang
-            </a>
-            <button class="view-detail-btn w-10 h-10 flex items-center justify-center bg-gray-100 hover:bg-gray-200 rounded-lg transition touch-target">
-              <i class="fas fa-chevron-down text-gray-600"></i>
+        <!-- Sub-Filter (Hidden by Default) -->
+        <div id="subfilter" class="hidden mt-4 animate-section" style="animation-delay: 0.3s">
+          <div class="text-center text-gray-600 mb-2 text-sm">Filter Kurikulum:</div>
+          <div class="flex flex-wrap justify-center gap-2 max-w-2xl mx-auto">
+            <button class="subfilter-btn px-4 py-2 rounded-lg bg-blue-100 text-blue-800 text-sm font-medium transition transform hover:scale-105" data-subcategory="cambridge">
+              <i class="fas fa-graduation-cap mr-1"></i> Cambridge
             </button>
-          </div>
-          <div class="program-detail hidden mt-4 pt-4 border-t border-gray-200">
-            <h4 class="font-bold mb-2 text-sm text-gray-700">Detail Program:</h4>
-            <p class="text-gray-600 text-sm mb-3">Program dasar untuk membangun fondasi kuat dalam Matematika, Sains, dan Bahasa Inggris.</p>
-            <ul class="space-y-1 text-sm text-gray-600">
-              <li class="flex items-start">
-                <i class="fas fa-check text-green-500 mr-2 mt-1 text-xs"></i>
-                <span>Pengajar bersertifikasi Cambridge</span>
-              </li>
-              <li class="flex items-start">
-                <i class="fas fa-check text-green-500 mr-2 mt-1 text-xs"></i>
-                <span>Materi sesuai standar internasional</span>
-              </li>
-              <li class="flex items-start">
-                <i class="fas fa-check text-green-500 mr-2 mt-1 text-xs"></i>
-                <span>Laporan perkembangan berkala</span>
-              </li>
-            </ul>
+            <button class="subfilter-btn px-4 py-2 rounded-lg bg-red-100 text-red-800 text-sm font-medium transition transform hover:scale-105" data-subcategory="ib">
+              <i class="fas fa-globe-asia mr-1"></i> IB
+            </button>
+            <button class="subfilter-btn px-4 py-2 rounded-lg bg-green-100 text-green-800 text-sm font-medium transition transform hover:scale-105" data-subcategory="singapore">
+              <i class="fas fa-square-root-alt mr-1"></i> Singapore
+            </button>
+            <button class="subfilter-btn px-4 py-2 rounded-lg bg-purple-100 text-purple-800 text-sm font-medium transition transform hover:scale-105" data-subcategory="alevel">
+              <i class="fas fa-award mr-1"></i> A-Level
+            </button>
           </div>
         </div>
       </div>
-
-      <!-- Program 8 - IB Middle Years -->
-      <div class="program-card group bg-white rounded-2xl shadow-lg border border-gray-100 overflow-hidden transition-all duration-500 hover:shadow-2xl hover:-translate-y-2 animate-section" 
-           style="animation-delay: 0.4s" data-category="internasional">
-        <div class="relative h-48 bg-gradient-to-br from-red-600 to-red-700 flex items-end p-6">
-          <div class="absolute inset-0 opacity-20 bg-[url('https://images.unsplash.com/photo-1523050854058-8df90110c9f1?q=80&w=1470&auto=format&fit=crop')] bg-cover bg-center"></div>
-          <div class="relative z-10">
-            <h3 class="text-2xl font-bold text-white">IB Middle Years</h3>
-            <p class="text-red-100 text-sm">Usia 11-16 tahun</p>
-          </div>
-          <div class="absolute top-4 right-4 bg-white text-red-600 px-3 py-1 rounded-full text-xs font-bold shadow-sm">
-            INTERNASIONAL
-          </div>
-        </div>
-        <div class="p-6">
-          <div class="flex justify-between items-center mb-4">
-            <div>
-              <span class="text-2xl font-bold text-red-600">Rp300.000</span>
-              <span class="text-gray-500 text-sm">/sesi 90 menit</span>
+      
+      <!-- Enhanced Program Cards Grid -->
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
+        <!-- Program 1 - Kurikulum Merdeka -->
+        <div class="program-card group bg-white rounded-2xl shadow-lg border border-gray-100 overflow-hidden transition-all duration-500 hover:shadow-2xl hover:-translate-y-2 animate-section" 
+             style="animation-delay: 0.3s" data-category="nasional">
+          <div class="relative h-40 bg-gradient-to-br from-blue-600 to-blue-800 flex items-end p-5">
+            <div class="absolute inset-0 opacity-20 bg-[url('https://images.unsplash.com/photo-1523050854058-8df90110c9f1?q=80&w=1470&auto=format&fit=crop')] bg-cover bg-center"></div>
+            <div class="relative z-10 space-y-1">
+              <h3 class="text-xl font-bold text-white line-clamp-2">Kurikulum Merdeka</h3>
+              <p class="text-blue-100 text-sm">SD - SMA</p>
             </div>
-            <div class="flex items-center text-yellow-400">
-              <i class="fas fa-star"></i>
-              <span class="ml-1 text-gray-700">4.7</span>
+            <div class="absolute top-4 right-4 bg-white text-blue-600 px-3 py-1 rounded-full text-xs font-bold shadow-sm">
+              NASIONAL
             </div>
           </div>
-          <ul class="space-y-2 mb-6 text-sm">
-            <li class="flex items-start">
-              <i class="fas fa-check-circle text-green-500 mt-1 mr-2 text-xs"></i>
-              <span>8 Subject Groups</span>
-            </li>
-            <li class="flex items-start">
-              <i class="fas fa-check-circle text-green-500 mt-1 mr-2 text-xs"></i>
-              <span>Community Project</span>
-            </li>
-            <li class="flex items-start">
-              <i class="fas fa-check-circle text-green-500 mt-1 mr-2 text-xs"></i>
-              <span>Approaches to Learning</span>
-            </li>
-          </ul>
-          <div class="flex space-x-3">
-            <a href="https://wa.me/6282147510780?text=Saya%20tertarik%20program%20IB%20Middle%20Years" 
-               class="flex-1 bg-red-600 hover:bg-red-700 text-white text-center py-2 rounded-lg text-sm font-medium transition transform hover:scale-[1.02] touch-target">
-              Daftar Sekarang
-            </a>
-            <button class="view-detail-btn w-10 h-10 flex items-center justify-center bg-gray-100 hover:bg-gray-200 rounded-lg transition touch-target">
-              <i class="fas fa-chevron-down text-gray-600"></i>
-            </button>
-          </div>
-          <div class="program-detail hidden mt-4 pt-4 border-t border-gray-200">
-            <h4 class="font-bold mb-2 text-sm text-gray-700">Detail Program:</h4>
-            <p class="text-gray-600 text-sm mb-3">Program menengah dengan pendekatan interdisipliner dan projek komunitas.</p>
-            <ul class="space-y-1 text-sm text-gray-600">
+          <div class="p-6">
+            <div class="flex justify-between items-center mb-4">
+              <div>
+                <span class="text-2xl font-bold text-blue-600">Rp125.000</span>
+                <span class="text-gray-500 text-sm">/sesi 90 menit</span>
+              </div>
+              <div class="flex items-center text-yellow-400">
+                <i class="fas fa-star"></i>
+                <span class="ml-1 text-gray-700">4.9</span>
+              </div>
+            </div>
+            <ul class="space-y-2 mb-6 text-sm">
               <li class="flex items-start">
-                <i class="fas fa-check text-green-500 mr-2 mt-1 text-xs"></i>
-                <span>Kurikulum IB MYP lengkap</span>
+                <i class="fas fa-check-circle text-green-500 mt-1 mr-2 text-xs"></i>
+                <span>Matematika, IPA, Bahasa</span>
               </li>
               <li class="flex items-start">
-                <i class="fas fa-check text-green-500 mr-2 mt-1 text-xs"></i>
-                <span>Bimbingan projek komunitas</span>
+                <i class="fas fa-check-circle text-green-500 mt-1 mr-2 text-xs"></i>
+                <span>Project Based Learning</span>
               </li>
               <li class="flex items-start">
-                <i class="fas fa-check text-green-500 mr-2 mt-1 text-xs"></i>
-                <span>Pengembangan keterampilan belajar</span>
+                <i class="fas fa-check-circle text-green-500 mt-1 mr-2 text-xs"></i>
+                <span>Asesmen Formatif</span>
               </li>
             </ul>
+            <div class="flex space-x-3">
+              <a href="https://wa.me/6282147510780?text=Saya%20tertarik%20program%20Kurikulum%20Merdeka" 
+                 class="flex-1 bg-blue-600 hover:bg-blue-700 text-white text-center py-2 rounded-lg text-sm font-medium transition transform hover:scale-[1.02] touch-target">
+                Daftar Sekarang
+              </a>
+              <button class="view-detail-btn w-10 h-10 flex items-center justify-center bg-gray-100 hover:bg-gray-200 rounded-lg transition touch-target">
+                <i class="fas fa-chevron-down text-gray-600"></i>
+              </button>
+            </div>
+            <div class="program-detail hidden mt-4 pt-4 border-t border-gray-200">
+              <h4 class="font-bold mb-2 text-sm text-gray-700">Detail Program:</h4>
+              <p class="text-gray-600 text-sm mb-3">Program khusus untuk siswa sekolah nasional dengan pendekatan Kurikulum Merdeka terbaru.</p>
+              <ul class="space-y-1 text-sm text-gray-600">
+                <li class="flex items-start">
+                  <i class="fas fa-check text-green-500 mr-2 mt-1 text-xs"></i>
+                  <span>Guru berpengalaman di sekolah nasional</span>
+                </li>
+                <li class="flex items-start">
+                  <i class="fas fa-check text-green-500 mr-2 mt-1 text-xs"></i>
+                  <span>Modul pembelajaran lengkap</span>
+                </li>
+                <li class="flex items-start">
+                  <i class="fas fa-check text-green-500 mr-2 mt-1 text-xs"></i>
+                  <span>Laporan perkembangan bulanan</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Program 2 - Cambridge IGCSE -->
+        <div class="program-card group bg-white rounded-2xl shadow-lg border border-gray-100 overflow-hidden transition-all duration-500 hover:shadow-2xl hover:-translate-y-2 animate-section" 
+             style="animation-delay: 0.4s" data-category="internasional" data-subcategory="cambridge">
+          <div class="relative h-40 bg-gradient-to-br from-purple-600 to-purple-800 flex items-end p-5">
+            <div class="absolute inset-0 opacity-20 bg-[url('https://images.unsplash.com/photo-1523050854058-8df90110c9f1?q=80&w=1470&auto=format&fit=crop')] bg-cover bg-center"></div>
+            <div class="relative z-10 space-y-1">
+              <h3 class="text-xl font-bold text-white line-clamp-2">Cambridge IGCSE</h3>
+              <p class="text-purple-100 text-sm">Grade 9-10</p>
+            </div>
+            <div class="ribbon">POPULER</div>
+          </div>
+          <div class="p-6">
+            <div class="flex justify-between items-center mb-4">
+              <div>
+                <span class="text-2xl font-bold text-purple-600">Rp275.000</span>
+                <span class="text-gray-500 text-sm">/sesi 90 menit</span>
+              </div>
+              <div class="flex items-center text-yellow-400">
+                <i class="fas fa-star"></i>
+                <span class="ml-1 text-gray-700">4.8</span>
+              </div>
+            </div>
+            <ul class="space-y-2 mb-6 text-sm">
+              <li class="flex items-start">
+                <i class="fas fa-check-circle text-green-500 mt-1 mr-2 text-xs"></i>
+                <span>Mathematics, Sciences</span>
+              </li>
+              <li class="flex items-start">
+                <i class="fas fa-check-circle text-green-500 mt-1 mr-2 text-xs"></i>
+                <span>Past Paper Practice</span>
+              </li>
+              <li class="flex items-start">
+                <i class="fas fa-check-circle text-green-500 mt-1 mr-2 text-xs"></i>
+                <span>Bilingual Tutor</span>
+              </li>
+            </ul>
+            <div class="flex space-x-3">
+              <a href="https://wa.me/6282147510780?text=Saya%20tertarik%20program%20Cambridge%20IGCSE" 
+                 class="flex-1 bg-purple-600 hover:bg-purple-700 text-white text-center py-2 rounded-lg text-sm font-medium transition transform hover:scale-[1.02] touch-target">
+                Pilihan Terbaik
+              </a>
+              <button class="view-detail-btn w-10 h-10 flex items-center justify-center bg-gray-100 hover:bg-gray-200 rounded-lg transition touch-target">
+                <i class="fas fa-chevron-down text-gray-600"></i>
+              </button>
+            </div>
+            <div class="program-detail hidden mt-4 pt-4 border-t border-gray-200">
+              <h4 class="font-bold mb-2 text-sm text-gray-700">Detail Program:</h4>
+              <p class="text-gray-600 text-sm mb-3">Persiapan ujian Cambridge IGCSE dengan pengajar bersertifikasi dan materi terkini.</p>
+              <ul class="space-y-1 text-sm text-gray-600">
+                <li class="flex items-start">
+                  <i class="fas fa-check text-green-500 mr-2 mt-1 text-xs"></i>
+                  <span>10+ tahun arsip soal ujian</span>
+                </li>
+                <li class="flex items-start">
+                  <i class="fas fa-check text-green-500 mr-2 mt-1 text-xs"></i>
+                  <span>Prediksi nilai berdasarkan mock exam</span>
+                </li>
+                <li class="flex items-start">
+                  <i class="fas fa-check text-green-500 mr-2 mt-1 text-xs"></i>
+                  <span>Konsultasi pemilihan mata pelajaran</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Program 3 - IB Diploma -->
+        <div class="program-card group bg-white rounded-2xl shadow-lg border border-gray-100 overflow-hidden transition-all duration-500 hover:shadow-2xl hover:-translate-y-2 animate-section" 
+             style="animation-delay: 0.5s" data-category="internasional" data-subcategory="ib">
+          <div class="relative h-40 bg-gradient-to-br from-red-600 to-red-800 flex items-end p-5">
+            <div class="absolute inset-0 opacity-20 bg-[url('https://images.unsplash.com/photo-1523050854058-8df90110c9f1?q=80&w=1470&auto=format&fit=crop')] bg-cover bg-center"></div>
+            <div class="relative z-10 space-y-1">
+              <h3 class="text-xl font-bold text-white line-clamp-2">IB Diploma Program</h3>
+              <p class="text-red-100 text-sm">Grade 11-12</p>
+            </div>
+            <div class="absolute top-4 right-4 bg-white text-red-600 px-3 py-1 rounded-full text-xs font-bold shadow-sm">
+              PREMIUM
+            </div>
+          </div>
+          <div class="p-6">
+            <div class="flex justify-between items-center mb-4">
+              <div>
+                <span class="text-2xl font-bold text-red-600">Rp350.000</span>
+                <span class="text-gray-500 text-sm">/sesi 90 menit</span>
+              </div>
+              <div class="flex items-center text-yellow-400">
+                <i class="fas fa-star"></i>
+                <span class="ml-1 text-gray-700">4.9</span>
+              </div>
+            </div>
+            <ul class="space-y-2 mb-6 text-sm">
+              <li class="flex items-start">
+                <i class="fas fa-check-circle text-green-500 mt-1 mr-2 text-xs"></i>
+                <span>HL/SL Subjects</span>
+              </li>
+              <li class="flex items-start">
+                <i class="fas fa-check-circle text-green-500 mt-1 mr-2 text-xs"></i>
+                <span>EE & TOK Support</span>
+              </li>
+              <li class="flex items-start">
+                <i class="fas fa-check-circle text-green-500 mt-1 mr-2 text-xs"></i>
+                <span>Examiner Feedback</span>
+              </li>
+            </ul>
+            <div class="flex space-x-3">
+              <a href="https://wa.me/6282147510780?text=Saya%20tertarik%20program%20IB%20Diploma" 
+                 class="flex-1 bg-red-600 hover:bg-red-700 text-white text-center py-2 rounded-lg text-sm font-medium transition transform hover:scale-[1.02] touch-target">
+                Daftar Sekarang
+              </a>
+              <button class="view-detail-btn w-10 h-10 flex items-center justify-center bg-gray-100 hover:bg-gray-200 rounded-lg transition touch-target">
+                <i class="fas fa-chevron-down text-gray-600"></i>
+              </button>
+            </div>
+            <div class="program-detail hidden mt-4 pt-4 border-t border-gray-200">
+              <h4 class="font-bold mb-2 text-sm text-gray-700">Detail Program:</h4>
+              <p class="text-gray-600 text-sm mb-3">Program komprehensif untuk IB Diploma dengan dukungan penuh Extended Essay dan TOK.</p>
+              <ul class="space-y-1 text-sm text-gray-600">
+                <li class="flex items-start">
+                  <i class="fas fa-check text-green-500 mr-2 mt-1 text-xs"></i>
+                  <span>Pengajar berpengalaman sebagai IB Examiner</span>
+                </li>
+                <li class="flex items-start">
+                  <i class="fas fa-check text-green-500 mr-2 mt-1 text-xs"></i>
+                  <span>Bimbingan Extended Essay step-by-step</span>
+                </li>
+                <li class="flex items-start">
+                  <i class="fas fa-check text-green-500 mr-2 mt-1 text-xs"></i>
+                  <span>CAS project mentoring</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Program 4 - UTBK -->
+        <div class="program-card group bg-white rounded-2xl shadow-lg border border-gray-100 overflow-hidden transition-all duration-500 hover:shadow-2xl hover:-translate-y-2 animate-section" 
+             style="animation-delay: 0.3s" data-category="khusus">
+          <div class="relative h-40 bg-gradient-to-br from-green-600 to-green-800 flex items-end p-5">
+            <div class="absolute inset-0 opacity-20 bg-[url('https://images.unsplash.com/photo-1523050854058-8df90110c9f1?q=80&w=1470&auto=format&fit=crop')] bg-cover bg-center"></div>
+            <div class="relative z-10 space-y-1">
+              <h3 class="text-xl font-bold text-white line-clamp-2">Supercamp UTBK</h3>
+              <p class="text-green-100 text-sm">Persiapan PTN</p>
+            </div>
+            <div class="absolute top-4 right-4 bg-white text-green-600 px-3 py-1 rounded-full text-xs font-bold shadow-sm">
+              INTENSIF
+            </div>
+          </div>
+          <div class="p-6">
+            <div class="flex justify-between items-center mb-4">
+              <div>
+                <span class="text-2xl font-bold text-green-600">Rp200.000</span>
+                <span class="text-gray-500 text-sm">/sesi 120 menit</span>
+              </div>
+              <div class="flex items-center text-yellow-400">
+                <i class="fas fa-star"></i>
+                <span class="ml-1 text-gray-700">4.7</span>
+              </div>
+            </div>
+            <ul class="space-y-2 mb-6 text-sm">
+              <li class="flex items-start">
+                <i class="fas fa-check-circle text-green-500 mt-1 mr-2 text-xs"></i>
+                <span>TPA & Literasi</span>
+              </li>
+              <li class="flex items-start">
+                <i class="fas fa-check-circle text-green-500 mt-1 mr-2 text-xs"></i>
+                <span>Try Out Berkala</span>
+              </li>
+              <li class="flex items-start">
+                <i class="fas fa-check-circle text-green-500 mt-1 mr-2 text-xs"></i>
+                <span>Strategi Mengerjakan</span>
+              </li>
+            </ul>
+            <div class="flex space-x-3">
+              <a href="https://wa.me/6282147510780?text=Saya%20tertarik%20program%20Supercamp%20UTBK" 
+                 class="flex-1 bg-green-600 hover:bg-green-700 text-white text-center py-2 rounded-lg text-sm font-medium transition transform hover:scale-[1.02] touch-target">
+                Daftar Sekarang
+              </a>
+              <button class="view-detail-btn w-10 h-10 flex items-center justify-center bg-gray-100 hover:bg-gray-200 rounded-lg transition touch-target">
+                <i class="fas fa-chevron-down text-gray-600"></i>
+              </button>
+            </div>
+            <div class="program-detail hidden mt-4 pt-4 border-t border-gray-200">
+              <h4 class="font-bold mb-2 text-sm text-gray-700">Detail Program:</h4>
+              <p class="text-gray-600 text-sm mb-3">Program intensif persiapan UTBK dengan sistem try out berkala dan pembahasan mendalam.</p>
+              <ul class="space-y-1 text-sm text-gray-600">
+                <li class="flex items-start">
+                  <i class="fas fa-check text-green-500 mr-2 mt-1 text-xs"></i>
+                  <span>10x try out lengkap dengan pembahasan</span>
+                </li>
+                <li class="flex items-start">
+                  <i class="fas fa-check text-green-500 mr-2 mt-1 text-xs"></i>
+                  <span>Analisis kekuatan dan kelemahan</span>
+                </li>
+                <li class="flex items-start">
+                  <i class="fas fa-check text-green-500 mr-2 mt-1 text-xs"></i>
+                  <span>Strategi mengerjakan soal cepat</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Program 5 - Singapore Math -->
+        <div class="program-card group bg-white rounded-2xl shadow-lg border border-gray-100 overflow-hidden transition-all duration-500 hover:shadow-2xl hover:-translate-y-2 animate-section" 
+             style="animation-delay: 0.4s" data-category="internasional" data-subcategory="singapore">
+          <div class="relative h-40 bg-gradient-to-br from-orange-600 to-orange-800 flex items-end p-5">
+            <div class="absolute inset-0 opacity-20 bg-[url('https://images.unsplash.com/photo-1523050854058-8df90110c9f1?q=80&w=1470&auto=format&fit=crop')] bg-cover bg-center"></div>
+            <div class="relative z-10 space-y-1">
+              <h3 class="text-xl font-bold text-white line-clamp-2">Singapore Math</h3>
+              <p class="text-orange-100 text-sm">Primary 1-6</p>
+            </div>
+            <div class="absolute top-4 right-4 bg-white text-orange-600 px-3 py-1 rounded-full text-xs font-bold shadow-sm">
+              BARU
+            </div>
+          </div>
+          <div class="p-6">
+            <div class="flex justify-between items-center mb-4">
+              <div>
+                <span class="text-2xl font-bold text-orange-600">Rp225.000</span>
+                <span class="text-gray-500 text-sm">/sesi 90 menit</span>
+              </div>
+              <div class="flex items-center text-yellow-400">
+                <i class="fas fa-star"></i>
+                <span class="ml-1 text-gray-700">4.8</span>
+              </div>
+            </div>
+            <ul class="space-y-2 mb-6 text-sm">
+              <li class="flex items-start">
+                <i class="fas fa-check-circle text-green-500 mt-1 mr-2 text-xs"></i>
+                <span>CPA Approach</span>
+              </li>
+              <li class="flex items-start">
+                <i class="fas fa-check-circle text-green-500 mt-1 mr-2 text-xs"></i>
+                <span>Problem Solving</span>
+              </li>
+              <li class="flex items-start">
+                <i class="fas fa-check-circle text-green-500 mt-1 mr-2 text-xs"></i>
+                <span>Heuristic Skills</span>
+              </li>
+            </ul>
+            <div class="flex space-x-3">
+              <a href="https://wa.me/6282147510780?text=Saya%20tertarik%20program%20Singapore%20Math" 
+                 class="flex-1 bg-orange-600 hover:bg-orange-700 text-white text-center py-2 rounded-lg text-sm font-medium transition transform hover:scale-[1.02] touch-target">
+                Daftar Sekarang
+              </a>
+              <button class="view-detail-btn w-10 h-10 flex items-center justify-center bg-gray-100 hover:bg-gray-200 rounded-lg transition touch-target">
+                <i class="fas fa-chevron-down text-gray-600"></i>
+              </button>
+            </div>
+            <div class="program-detail hidden mt-4 pt-4 border-t border-gray-200">
+              <h4 class="font-bold mb-2 text-sm text-gray-700">Detail Program:</h4>
+              <p class="text-gray-600 text-sm mb-3">Program matematika dengan metode Singapore yang terkenal efektif untuk anak usia SD.</p>
+              <ul class="space-y-1 text-sm text-gray-600">
+                <li class="flex items-start">
+                  <i class="fas fa-check text-green-500 mr-2 mt-1 text-xs"></i>
+                  <span>Metode Concrete-Pictorial-Abstract</span>
+                </li>
+                <li class="flex items-start">
+                  <i class="fas fa-check text-green-500 mr-2 mt-1 text-xs"></i>
+                  <span>Pengajar dari Singapore dan Indonesia</span>
+                </li>
+                <li class="flex items-start">
+                  <i class="fas fa-check text-green-500 mr-2 mt-1 text-xs"></i>
+                  <span>Persiapan kompetisi matematika</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Program 6 - Homeschool Support -->
+        <div class="program-card group bg-white rounded-2xl shadow-lg border border-gray-100 overflow-hidden transition-all duration-500 hover:shadow-2xl hover:-translate-y-2 animate-section" 
+             style="animation-delay: 0.5s" data-category="khusus">
+          <div class="relative h-40 bg-gradient-to-br from-indigo-600 to-indigo-800 flex items-end p-5">
+            <div class="absolute inset-0 opacity-20 bg-[url('https://images.unsplash.com/photo-1523050854058-8df90110c9f1?q=80&w=1470&auto=format&fit=crop')] bg-cover bg-center"></div>
+            <div class="relative z-10 space-y-1">
+              <h3 class="text-xl font-bold text-white line-clamp-2">Homeschool Support</h3>
+              <p class="text-indigo-100 text-sm">Custom Curriculum</p>
+            </div>
+            <div class="absolute top-4 right-4 bg-white text-indigo-600 px-3 py-1 rounded-full text-xs font-bold shadow-sm">
+              FLEKSIBEL
+            </div>
+          </div>
+          <div class="p-6">
+            <div class="flex justify-between items-center mb-4">
+              <div>
+                <span class="text-2xl font-bold text-indigo-600">Rp250.000</span>
+                <span class="text-gray-500 text-sm">/sesi 90 menit</span>
+              </div>
+              <div class="flex items-center text-yellow-400">
+                <i class="fas fa-star"></i>
+                <span class="ml-1 text-gray-700">4.9</span>
+              </div>
+            </div>
+            <ul class="space-y-2 mb-6 text-sm">
+              <li class="flex items-start">
+                <i class="fas fa-check-circle text-green-500 mt-1 mr-2 text-xs"></i>
+                <span>Personalized Learning</span>
+              </li>
+              <li class="flex items-start">
+                <i class="fas fa-check-circle text-green-500 mt-1 mr-2 text-xs"></i>
+                <span>Portfolio Assistance</span>
+              </li>
+              <li class="flex items-start">
+                <i class="fas fa-check-circle text-green-500 mt-1 mr-2 text-xs"></i>
+                <span>Flexible Schedule</span>
+              </li>
+            </ul>
+            <div class="flex space-x-3">
+              <a href="https://wa.me/6282147510780?text=Saya%20tertarik%20program%20Homeschool%20Support" 
+                 class="flex-1 bg-indigo-600 hover:bg-indigo-700 text-white text-center py-2 rounded-lg text-sm font-medium transition transform hover:scale-[1.02] touch-target">
+                Konsultasi Gratis
+              </a>
+              <button class="view-detail-btn w-10 h-10 flex items-center justify-center bg-gray-100 hover:bg-gray-200 rounded-lg transition touch-target">
+                <i class="fas fa-chevron-down text-gray-600"></i>
+              </button>
+            </div>
+            <div class="program-detail hidden mt-4 pt-4 border-t border-gray-200">
+              <h4 class="font-bold mb-2 text-sm text-gray-700">Detail Program:</h4>
+              <p class="text-gray-600 text-sm mb-3">Program khusus untuk siswa homeschool dengan kurikulum yang disesuaikan kebutuhan.</p>
+              <ul class="space-y-1 text-sm text-gray-600">
+                <li class="flex items-start">
+                  <i class="fas fa-check text-green-500 mr-2 mt-1 text-xs"></i>
+                  <span>Kurikulum disesuaikan dengan kebutuhan</span>
+                </li>
+                <li class="flex items-start">
+                  <i class="fas fa-check text-green-500 mr-2 mt-1 text-xs"></i>
+                  <span>Bantuan pembuatan portofolio belajar</span>
+                </li>
+                <li class="flex items-start">
+                  <i class="fas fa-check text-green-500 mr-2 mt-1 text-xs"></i>
+                  <span>Jadwal fleksibel sesuai kebutuhan</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <!-- Program 7 - Cambridge Primary (Baru) -->
+        <div class="program-card group bg-white rounded-2xl shadow-lg border border-gray-100 overflow-hidden transition-all duration-500 hover:shadow-2xl hover:-translate-y-2 hidden" 
+             data-category="internasional" data-subcategory="cambridge">
+          <div class="relative h-40 bg-gradient-to-br from-blue-500 to-blue-600 flex items-end p-5">
+            <div class="absolute inset-0 opacity-20 bg-[url('https://images.unsplash.com/photo-1523050854058-8df90110c9f1?q=80&w=1470&auto=format&fit=crop')] bg-cover bg-center"></div>
+            <div class="relative z-10 space-y-1">
+              <h3 class="text-xl font-bold text-white line-clamp-2">Cambridge Primary</h3>
+              <p class="text-blue-100 text-sm">Usia 5-11 tahun</p>
+            </div>
+          </div>
+          <div class="p-6">
+            <div class="flex justify-between items-center mb-4">
+              <div>
+                <span class="text-2xl font-bold text-blue-600">Rp175.000</span>
+                <span class="text-gray-500 text-sm">/sesi 90 menit</span>
+              </div>
+              <div class="flex items-center text-yellow-400">
+                <i class="fas fa-star"></i>
+                <span class="ml-1 text-gray-700">4.8</span>
+              </div>
+            </div>
+            <ul class="space-y-2 mb-6 text-sm">
+              <li class="flex items-start">
+                <i class="fas fa-check-circle text-green-500 mt-1 mr-2 text-xs"></i>
+                <span>Cambridge Mathematics</span>
+              </li>
+              <li class="flex items-start">
+                <i class="fas fa-check-circle text-green-500 mt-1 mr-2 text-xs"></i>
+                <span>English as First Language</span>
+              </li>
+              <li class="flex items-start">
+                <i class="fas fa-check-circle text-green-500 mt-1 mr-2 text-xs"></i>
+                <span>Progres Report Bulanan</span>
+              </li>
+            </ul>
+            <div class="flex space-x-3">
+              <a href="https://wa.me/6282147510780?text=Saya%20tertarik%20program%20Cambridge%20Primary" 
+                 class="flex-1 bg-blue-600 hover:bg-blue-700 text-white text-center py-2 rounded-lg text-sm font-medium transition transform hover:scale-[1.02] touch-target">
+                Daftar Sekarang
+              </a>
+              <button class="view-detail-btn w-10 h-10 flex items-center justify-center bg-gray-100 hover:bg-gray-200 rounded-lg transition touch-target">
+                <i class="fas fa-chevron-down text-gray-600"></i>
+              </button>
+            </div>
+            <div class="program-detail hidden mt-4 pt-4 border-t border-gray-200">
+              <h4 class="font-bold mb-2 text-sm text-gray-700">Detail Program:</h4>
+              <p class="text-gray-600 text-sm mb-3">Program dasar untuk membangun fondasi kuat dalam Matematika, Sains, dan Bahasa Inggris.</p>
+              <ul class="space-y-1 text-sm text-gray-600">
+                <li class="flex items-start">
+                  <i class="fas fa-check text-green-500 mr-2 mt-1 text-xs"></i>
+                  <span>Pengajar bersertifikasi Cambridge</span>
+                </li>
+                <li class="flex items-start">
+                  <i class="fas fa-check text-green-500 mr-2 mt-1 text-xs"></i>
+                  <span>Materi sesuai standar internasional</span>
+                </li>
+                <li class="flex items-start">
+                  <i class="fas fa-check text-green-500 mr-2 mt-1 text-xs"></i>
+                  <span>Laporan perkembangan berkala</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <!-- Program 8 - IB Middle Years (Baru) -->
+        <div class="program-card group bg-white rounded-2xl shadow-lg border border-gray-100 overflow-hidden transition-all duration-500 hover:shadow-2xl hover:-translate-y-2 hidden" 
+             data-category="internasional" data-subcategory="ib">
+          <div class="relative h-40 bg-gradient-to-br from-red-600 to-red-700 flex items-end p-5">
+            <div class="absolute inset-0 opacity-20 bg-[url('https://images.unsplash.com/photo-1523050854058-8df90110c9f1?q=80&w=1470&auto=format&fit=crop')] bg-cover bg-center"></div>
+            <div class="relative z-10 space-y-1">
+              <h3 class="text-xl font-bold text-white line-clamp-2">IB Middle Years</h3>
+              <p class="text-red-100 text-sm">Usia 11-16 tahun</p>
+            </div>
+          </div>
+          <div class="p-6">
+            <div class="flex justify-between items-center mb-4">
+              <div>
+                <span class="text-2xl font-bold text-red-600">Rp300.000</span>
+                <span class="text-gray-500 text-sm">/sesi 90 menit</span>
+              </div>
+              <div class="flex items-center text-yellow-400">
+                <i class="fas fa-star"></i>
+                <span class="ml-1 text-gray-700">4.7</span>
+              </div>
+            </div>
+            <ul class="space-y-2 mb-6 text-sm">
+              <li class="flex items-start">
+                <i class="fas fa-check-circle text-green-500 mt-1 mr-2 text-xs"></i>
+                <span>8 Subject Groups</span>
+              </li>
+              <li class="flex items-start">
+                <i class="fas fa-check-circle text-green-500 mt-1 mr-2 text-xs"></i>
+                <span>Community Project</span>
+              </li>
+              <li class="flex items-start">
+                <i class="fas fa-check-circle text-green-500 mt-1 mr-2 text-xs"></i>
+                <span>Approaches to Learning</span>
+              </li>
+            </ul>
+            <div class="flex space-x-3">
+              <a href="https://wa.me/6282147510780?text=Saya%20tertarik%20program%20IB%20Middle%20Years" 
+                 class="flex-1 bg-red-600 hover:bg-red-700 text-white text-center py-2 rounded-lg text-sm font-medium transition transform hover:scale-[1.02] touch-target">
+                Daftar Sekarang
+              </a>
+              <button class="view-detail-btn w-10 h-10 flex items-center justify-center bg-gray-100 hover:bg-gray-200 rounded-lg transition touch-target">
+                <i class="fas fa-chevron-down text-gray-600"></i>
+              </button>
+            </div>
+            <div class="program-detail hidden mt-4 pt-4 border-t border-gray-200">
+              <h4 class="font-bold mb-2 text-sm text-gray-700">Detail Program:</h4>
+              <p class="text-gray-600 text-sm mb-3">Program menengah dengan pendekatan interdisipliner dan projek komunitas.</p>
+              <ul class="space-y-1 text-sm text-gray-600">
+                <li class="flex items-start">
+                  <i class="fas fa-check text-green-500 mr-2 mt-1 text-xs"></i>
+                  <span>Kurikulum IB MYP lengkap</span>
+                </li>
+                <li class="flex items-start">
+                  <i class="fas fa-check text-green-500 mr-2 mt-1 text-xs"></i>
+                  <span>Bimbingan projek komunitas</span>
+                </li>
+                <li class="flex items-start">
+                  <i class="fas fa-check text-green-500 mr-2 mt-1 text-xs"></i>
+                  <span>Pengembangan keterampilan belajar</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <!-- Program 9 - Singapore Science (Baru) -->
+        <div class="program-card group bg-white rounded-2xl shadow-lg border border-gray-100 overflow-hidden transition-all duration-500 hover:shadow-2xl hover:-translate-y-2 hidden" 
+             data-category="internasional" data-subcategory="singapore">
+          <div class="relative h-40 bg-gradient-to-br from-green-600 to-green-700 flex items-end p-5">
+            <div class="absolute inset-0 opacity-20 bg-[url('https://images.unsplash.com/photo-1523050854058-8df90110c9f1?q=80&w=1470&auto=format&fit=crop')] bg-cover bg-center"></div>
+            <div class="relative z-10 space-y-1">
+              <h3 class="text-xl font-bold text-white line-clamp-2">Singapore Science</h3>
+              <p class="text-green-100 text-sm">Usia 12-16 tahun</p>
+            </div>
+          </div>
+          <div class="p-6">
+            <div class="flex justify-between items-center mb-4">
+              <div>
+                <span class="text-2xl font-bold text-green-600">Rp250.000</span>
+                <span class="text-gray-500 text-sm">/sesi 90 menit</span>
+              </div>
+              <div class="flex items-center text-yellow-400">
+                <i class="fas fa-star"></i>
+                <span class="ml-1 text-gray-700">4.8</span>
+              </div>
+            </div>
+            <ul class="space-y-2 mb-6 text-sm">
+              <li class="flex items-start">
+                <i class="fas fa-check-circle text-green-500 mt-1 mr-2 text-xs"></i>
+                <span>Physics/Chemistry/Biology</span>
+              </li>
+              <li class="flex items-start">
+                <i class="fas fa-check-circle text-green-500 mt-1 mr-2 text-xs"></i>
+                <span>Hands-on Experiments</span>
+              </li>
+              <li class="flex items-start">
+                <i class="fas fa-check-circle text-green-500 mt-1 mr-2 text-xs"></i>
+                <span>Data Analysis Skills</span>
+              </li>
+            </ul>
+            <div class="flex space-x-3">
+              <a href="https://wa.me/6282147510780?text=Saya%20tertarik%20program%20Singapore%20Science" 
+                 class="flex-1 bg-green-600 hover:bg-green-700 text-white text-center py-2 rounded-lg text-sm font-medium transition transform hover:scale-[1.02] touch-target">
+                Daftar Sekarang
+              </a>
+              <button class="view-detail-btn w-10 h-10 flex items-center justify-center bg-gray-100 hover:bg-gray-200 rounded-lg transition touch-target">
+                <i class="fas fa-chevron-down text-gray-600"></i>
+              </button>
+            </div>
+            <div class="program-detail hidden mt-4 pt-4 border-t border-gray-200">
+              <h4 class="font-bold mb-2 text-sm text-gray-700">Detail Program:</h4>
+              <p class="text-gray-600 text-sm mb-3">Pembelajaran sains berbasis inquiry dengan pendekatan Singapore MOE syllabus.</p>
+              <ul class="space-y-1 text-sm text-gray-600">
+                <li class="flex items-start">
+                  <i class="fas fa-check text-green-500 mr-2 mt-1 text-xs"></i>
+                  <span>Materi sesuai kurikulum Singapura</span>
+                </li>
+                <li class="flex items-start">
+                  <i class="fas fa-check text-green-500 mr-2 mt-1 text-xs"></i>
+                  <span>Praktikum dan eksperimen virtual</span>
+                </li>
+                <li class="flex items-start">
+                  <i class="fas fa-check text-green-500 mr-2 mt-1 text-xs"></i>
+                  <span>Pengembangan keterampilan analisis data</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <!-- Program 10 - A-Level Intensive (Baru) -->
+        <div class="program-card group bg-white rounded-2xl shadow-lg border border-gray-100 overflow-hidden transition-all duration-500 hover:shadow-2xl hover:-translate-y-2 hidden" 
+             data-category="internasional" data-subcategory="alevel">
+          <div class="relative h-40 bg-gradient-to-br from-blue-700 to-blue-800 flex items-end p-5">
+            <div class="absolute inset-0 opacity-20 bg-[url('https://images.unsplash.com/photo-1523050854058-8df90110c9f1?q=80&w=1470&auto=format&fit=crop')] bg-cover bg-center"></div>
+            <div class="relative z-10 space-y-1">
+              <h3 class="text-xl font-bold text-white line-clamp-2">A-Level Intensive</h3>
+              <p class="text-blue-100 text-sm">Grade 11-12</p>
+            </div>
+          </div>
+          <div class="p-6">
+            <div class="flex justify-between items-center mb-4">
+              <div>
+                <span class="text-2xl font-bold text-blue-600">Rp350.000</span>
+                <span class="text-gray-500 text-sm">/sesi 90 menit</span>
+              </div>
+              <div class="flex items-center text-yellow-400">
+                <i class="fas fa-star"></i>
+                <span class="ml-1 text-gray-700">4.9</span>
+              </div>
+            </div>
+            <ul class="space-y-2 mb-6 text-sm">
+              <li class="flex items-start">
+                <i class="fas fa-check-circle text-green-500 mt-1 mr-2 text-xs"></i>
+                <span>Matematika (9709)</span>
+              </li>
+              <li class="flex items-start">
+                <i class="fas fa-check-circle text-green-500 mt-1 mr-2 text-xs"></i>
+                <span>Fisika/Kimia/Biologi</span>
+              </li>
+              <li class="flex items-start">
+                <i class="fas fa-check-circle text-green-500 mt-1 mr-2 text-xs"></i>
+                <span>Predicted Grade Report</span>
+              </li>
+            </ul>
+            <div class="flex space-x-3">
+              <a href="https://wa.me/6282147510780?text=Saya%20tertarik%20program%20A-Level%20Intensive" 
+                 class="flex-1 bg-blue-600 hover:bg-blue-700 text-white text-center py-2 rounded-lg text-sm font-medium transition transform hover:scale-[1.02] touch-target">
+                Daftar Sekarang
+              </a>
+              <button class="view-detail-btn w-10 h-10 flex items-center justify-center bg-gray-100 hover:bg-gray-200 rounded-lg transition touch-target">
+                <i class="fas fa-chevron-down text-gray-600"></i>
+              </button>
+            </div>
+            <div class="program-detail hidden mt-4 pt-4 border-t border-gray-200">
+              <h4 class="font-bold mb-2 text-sm text-gray-700">Detail Program:</h4>
+              <p class="text-gray-600 text-sm mb-3">Program intensif untuk persiapan ujian A-Level dengan pengajar bersertifikasi Cambridge.</p>
+              <ul class="space-y-1 text-sm text-gray-600">
+                <li class="flex items-start">
+                  <i class="fas fa-check text-green-500 mr-2 mt-1 text-xs"></i>
+                  <span>10+ tahun arsip soal ujian</span>
+                </li>
+                <li class="flex items-start">
+                  <i class="fas fa-check text-green-500 mr-2 mt-1 text-xs"></i>
+                  <span>Pembahasan soal prediktif</span>
+                </li>
+                <li class="flex items-start">
+                  <i class="fas fa-check text-green-500 mr-2 mt-1 text-xs"></i>
+                  <span>Konsultasi pemilihan mata pelajaran</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <!-- Program 11 - IB Primary Years (Baru) -->
+        <div class="program-card group bg-white rounded-2xl shadow-lg border border-gray-100 overflow-hidden transition-all duration-500 hover:shadow-2xl hover:-translate-y-2 hidden" 
+             data-category="internasional" data-subcategory="ib">
+          <div class="relative h-40 bg-gradient-to-br from-red-500 to-red-600 flex items-end p-5">
+            <div class="absolute inset-0 opacity-20 bg-[url('https://images.unsplash.com/photo-1523050854058-8df90110c9f1?q=80&w=1470&auto=format&fit=crop')] bg-cover bg-center"></div>
+            <div class="relative z-10 space-y-1">
+              <h3 class="text-xl font-bold text-white line-clamp-2">IB Primary Years</h3>
+              <p class="text-red-100 text-sm">Usia 3-12 tahun</p>
+            </div>
+          </div>
+          <div class="p-6">
+            <div class="flex justify-between items-center mb-4">
+              <div>
+                <span class="text-2xl font-bold text-red-600">Rp225.000</span>
+                <span class="text-gray-500 text-sm">/sesi 90 menit</span>
+              </div>
+              <div class="flex items-center text-yellow-400">
+                <i class="fas fa-star"></i>
+                <span class="ml-1 text-gray-700">4.7</span>
+              </div>
+            </div>
+            <ul class="space-y-2 mb-6 text-sm">
+              <li class="flex items-start">
+                <i class="fas fa-check-circle text-green-500 mt-1 mr-2 text-xs"></i>
+                <span>Unit of Inquiry</span>
+              </li>
+              <li class="flex items-start">
+                <i class="fas fa-check-circle text-green-500 mt-1 mr-2 text-xs"></i>
+                <span>Multilingual Approach</span>
+              </li>
+              <li class="flex items-start">
+                <i class="fas fa-check-circle text-green-500 mt-1 mr-2 text-xs"></i>
+                <span>Portfolio Development</span>
+              </li>
+            </ul>
+            <div class="flex space-x-3">
+              <a href="https://wa.me/6282147510780?text=Saya%20tertarik%20program%20IB%20Primary%20Years" 
+                 class="flex-1 bg-red-600 hover:bg-red-700 text-white text-center py-2 rounded-lg text-sm font-medium transition transform hover:scale-[1.02] touch-target">
+                Daftar Sekarang
+              </a>
+              <button class="view-detail-btn w-10 h-10 flex items-center justify-center bg-gray-100 hover:bg-gray-200 rounded-lg transition touch-target">
+                <i class="fas fa-chevron-down text-gray-600"></i>
+              </button>
+            </div>
+            <div class="program-detail hidden mt-4 pt-4 border-t border-gray-200">
+              <h4 class="font-bold mb-2 text-sm text-gray-700">Detail Program:</h4>
+              <p class="text-gray-600 text-sm mb-3">Pembelajaran tematik berbasis inquiry untuk mengembangkan keterampilan dasar.</p>
+              <ul class="space-y-1 text-sm text-gray-600">
+                <li class="flex items-start">
+                  <i class="fas fa-check text-green-500 mr-2 mt-1 text-xs"></i>
+                  <span>Kurikulum IB PYP lengkap</span>
+                </li>
+                <li class="flex items-start">
+                  <i class="fas fa-check text-green-500 mr-2 mt-1 text-xs"></i>
+                  <span>Pendekatan multilingual</span>
+                </li>
+                <li class="flex items-start">
+                  <i class="fas fa-check text-green-500 mr-2 mt-1 text-xs"></i>
+                  <span>Pengembangan portofolio belajar</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <!-- Program 12 - IGCSE Preparation (Baru) -->
+        <div class="program-card group bg-white rounded-2xl shadow-lg border border-gray-100 overflow-hidden transition-all duration-500 hover:shadow-2xl hover:-translate-y-2 hidden" 
+             data-category="internasional" data-subcategory="cambridge">
+          <div class="relative h-40 bg-gradient-to-br from-purple-600 to-purple-700 flex items-end p-5">
+            <div class="absolute inset-0 opacity-20 bg-[url('https://images.unsplash.com/photo-1523050854058-8df90110c9f1?q=80&w=1470&auto=format&fit=crop')] bg-cover bg-center"></div>
+            <div class="relative z-10 space-y-1">
+              <h3 class="text-xl font-bold text-white line-clamp-2">IGCSE Preparation</h3>
+              <p class="text-purple-100 text-sm">Grade 9-10</p>
+            </div>
+            <div class="ribbon">TERLARIS</div>
+          </div>
+          <div class="p-6">
+            <div class="flex justify-between items-center mb-4">
+              <div>
+                <span class="text-2xl font-bold text-purple-600">Rp275.000</span>
+                <span class="text-gray-500 text-sm">/sesi 90 menit</span>
+              </div>
+              <div class="flex items-center text-yellow-400">
+                <i class="fas fa-star"></i>
+                <span class="ml-1 text-gray-700">4.8</span>
+              </div>
+            </div>
+            <ul class="space-y-2 mb-6 text-sm">
+              <li class="flex items-start">
+                <i class="fas fa-check-circle text-green-500 mt-1 mr-2 text-xs"></i>
+                <span>Mathematics (0580/0980)</span>
+              </li>
+              <li class="flex items-start">
+                <i class="fas fa-check-circle text-green-500 mt-1 mr-2 text-xs"></i>
+                <span>Combined Science</span>
+              </li>
+              <li class="flex items-start">
+                <i class="fas fa-check-circle text-green-500 mt-1 mr-2 text-xs"></i>
+                <span>10+ Tahun Past Papers</span>
+              </li>
+            </ul>
+            <div class="flex space-x-3">
+              <a href="https://wa.me/6282147510780?text=Saya%20tertarik%20program%20IGCSE%20Preparation" 
+                 class="flex-1 bg-purple-600 hover:bg-purple-700 text-white text-center py-2 rounded-lg text-sm font-medium transition transform hover:scale-[1.02] touch-target">
+                Pilihan Terbaik
+              </a>
+              <button class="view-detail-btn w-10 h-10 flex items-center justify-center bg-gray-100 hover:bg-gray-200 rounded-lg transition touch-target">
+                <i class="fas fa-chevron-down text-gray-600"></i>
+              </button>
+            </div>
+            <div class="program-detail hidden mt-4 pt-4 border-t border-gray-200">
+              <h4 class="font-bold mb-2 text-sm text-gray-700">Detail Program:</h4>
+              <p class="text-gray-600 text-sm mb-3">Persiapan menyeluruh untuk ujian IGCSE dengan pendekatan berbasis soal dan konsep.</p>
+              <ul class="space-y-1 text-sm text-gray-600">
+                <li class="flex items-start">
+                  <i class="fas fa-check text-green-500 mr-2 mt-1 text-xs"></i>
+                  <span>Arsip soal ujian lengkap</span>
+                </li>
+                <li class="flex items-start">
+                  <i class="fas fa-check text-green-500 mr-2 mt-1 text-xs"></i>
+                  <span>Pembahasan strategi menjawab</span>
+                </li>
+                <li class="flex items-start">
+                  <i class="fas fa-check text-green-500 mr-2 mt-1 text-xs"></i>
+                  <span>Prediksi nilai akurat</span>
+                </li>
+              </ul>
+            </div>
           </div>
         </div>
       </div>
-
-      <!-- Program 9 - Singapore Secondary Science -->
-      <div class="program-card group bg-white rounded-2xl shadow-lg border border-gray-100 overflow-hidden transition-all duration-500 hover:shadow-2xl hover:-translate-y-2 animate-section" 
-           style="animation-delay: 0.5s" data-category="internasional">
-        <div class="relative h-48 bg-gradient-to-br from-green-600 to-green-700 flex items-end p-6">
-          <div class="absolute inset-0 opacity-20 bg-[url('https://images.unsplash.com/photo-1523050854058-8df90110c9f1?q=80&w=1470&auto=format&fit=crop')] bg-cover bg-center"></div>
-          <div class="relative z-10">
-            <h3 class="text-2xl font-bold text-white">Singapore Science</h3>
-            <p class="text-green-100 text-sm">Usia 12-16 tahun</p>
-          </div>
-          <div class="absolute top-4 right-4 bg-white text-green-600 px-3 py-1 rounded-full text-xs font-bold shadow-sm">
-            INTERNASIONAL
-          </div>
-        </div>
-        <div class="p-6">
-          <div class="flex justify-between items-center mb-4">
-            <div>
-              <span class="text-2xl font-bold text-green-600">Rp250.000</span>
-              <span class="text-gray-500 text-sm">/sesi 90 menit</span>
-            </div>
-            <div class="flex items-center text-yellow-400">
-              <i class="fas fa-star"></i>
-              <span class="ml-1 text-gray-700">4.8</span>
-            </div>
-          </div>
-          <ul class="space-y-2 mb-6 text-sm">
-            <li class="flex items-start">
-              <i class="fas fa-check-circle text-green-500 mt-1 mr-2 text-xs"></i>
-              <span>Physics/Chemistry/Biology</span>
-            </li>
-            <li class="flex items-start">
-              <i class="fas fa-check-circle text-green-500 mt-1 mr-2 text-xs"></i>
-              <span>Hands-on Experiments</span>
-            </li>
-            <li class="flex items-start">
-              <i class="fas fa-check-circle text-green-500 mt-1 mr-2 text-xs"></i>
-              <span>Data Analysis Skills</span>
-            </li>
-          </ul>
-          <div class="flex space-x-3">
-            <a href="https://wa.me/6282147510780?text=Saya%20tertarik%20program%20Singapore%20Science" 
-               class="flex-1 bg-green-600 hover:bg-green-700 text-white text-center py-2 rounded-lg text-sm font-medium transition transform hover:scale-[1.02] touch-target">
-              Daftar Sekarang
-            </a>
-            <button class="view-detail-btn w-10 h-10 flex items-center justify-center bg-gray-100 hover:bg-gray-200 rounded-lg transition touch-target">
-              <i class="fas fa-chevron-down text-gray-600"></i>
-            </button>
-          </div>
-          <div class="program-detail hidden mt-4 pt-4 border-t border-gray-200">
-            <h4 class="font-bold mb-2 text-sm text-gray-700">Detail Program:</h4>
-            <p class="text-gray-600 text-sm mb-3">Pembelajaran sains berbasis inquiry dengan pendekatan Singapore MOE syllabus.</p>
-            <ul class="space-y-1 text-sm text-gray-600">
-              <li class="flex items-start">
-                <i class="fas fa-check text-green-500 mr-2 mt-1 text-xs"></i>
-                <span>Materi sesuai kurikulum Singapura</span>
-              </li>
-              <li class="flex items-start">
-                <i class="fas fa-check text-green-500 mr-2 mt-1 text-xs"></i>
-                <span>Praktikum dan eksperimen virtual</span>
-              </li>
-              <li class="flex items-start">
-                <i class="fas fa-check text-green-500 mr-2 mt-1 text-xs"></i>
-                <span>Pengembangan keterampilan analisis data</span>
-              </li>
-            </ul>
-          </div>
-        </div>
+      
+      <!-- Toggle untuk lihat lebih banyak -->
+      <div class="text-center mt-10 animate-section" style="animation-delay: 0.6s">
+        <button id="load-more-programs" class="bg-primary hover:bg-primary/90 text-white px-6 py-3 rounded-lg font-bold shadow-lg transition transform hover:scale-105 touch-target">
+          <span>Lihat Program Lainnya (+6)</span>
+          <i class="fas fa-chevron-down ml-2 text-xs"></i>
+        </button>
       </div>
     </div>
-    
-    <!-- Toggle untuk lihat lebih banyak -->
-    <div class="text-center mt-10 animate-section" style="animation-delay: 0.6s">
-      <button id="load-more-programs" class="text-primary font-medium hover:text-primary/80 transition touch-target inline-flex items-center">
-        <span>Lihat Program Lainnya (+10)</span>
-        <i class="fas fa-chevron-down ml-2 text-xs transition-transform transform group-hover:translate-y-1"></i>
-      </button>
-    </div>
-  </div>
-</section>
+  </section>
 
- <!-- Keunggulan Section -->
-<section id="keunggulan" class="py-20 bg-gradient-to-b from-gray-50 to-white">
-  <div class="container mx-auto px-4">
-    <!-- Header Section -->
-    <div class="text-center mb-16 animate-section" style="animation-delay: 0.1s">
-      <span class="inline-block px-4 py-2 bg-blue-100 text-blue-600 rounded-full text-sm font-semibold mb-3">Why Choose Us</span>
-      <h2 class="text-4xl md:text-5xl font-bold mb-4 font-heading bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-indigo-600">
-        Keunggulan Lumos Course
-      </h2>
-      <p class="text-xl text-gray-600 max-w-3xl mx-auto">
-        Platform belajar dengan 50+ guru ahli dari India, Pakistan, Malaysia, Brunei, Singapura & Indonesia
-      </p>
-    </div>
-    
-    <!-- Features Grid -->
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
-      <!-- Card 1 -->
-      <div class="group bg-white p-8 rounded-2xl shadow-lg border border-gray-100 hover:border-blue-200 transition-all duration-300 animate-section hover:shadow-xl hover:-translate-y-2" style="animation-delay: 0.2s">
-        <div class="w-16 h-16 bg-gradient-to-br from-blue-100 to-blue-50 text-blue-600 rounded-xl flex items-center justify-center text-3xl mb-6 group-hover:rotate-6 transition-transform">
-          <i class="fas fa-user-graduate"></i>
-        </div>
-        <h3 class="text-2xl font-bold mb-4 text-gray-800">Guru Internasional</h3>
-        <p class="text-gray-600 mb-6">50+ pengajar bersertifikat dari berbagai negara dengan pengalaman mengajar kurikulum internasional</p>
-        <div class="flex -space-x-3">
-          <img src="https://flagcdn.com/w20/in.png" alt="India" class="w-8 h-8 rounded-full border-2 border-white">
-          <img src="https://flagcdn.com/w20/pk.png" alt="Pakistan" class="w-8 h-8 rounded-full border-2 border-white">
-          <img src="https://flagcdn.com/w20/my.png" alt="Malaysia" class="w-8 h-8 rounded-full border-2 border-white">
-          <img src="https://flagcdn.com/w20/bn.png" alt="Brunei" class="w-8 h-8 rounded-full border-2 border-white">
-          <img src="https://flagcdn.com/w20/sg.png" alt="Singapore" class="w-8 h-8 rounded-full border-2 border-white">
-          <img src="https://flagcdn.com/w20/id.png" alt="Indonesia" class="w-8 h-8 rounded-full border-2 border-white">
+  <!-- Keunggulan Section -->
+  <section id="keunggulan" class="py-20 bg-gradient-to-b from-gray-50 to-white">
+    <div class="container mx-auto px-4">
+      <!-- Header Section -->
+      <div class="text-center mb-16 animate-section" style="animation-delay: 0.1s">
+        <span class="inline-block px-4 py-2 bg-blue-100 text-blue-600 rounded-full text-sm font-semibold mb-3">Why Choose Us</span>
+        <h2 class="text-4xl md:text-5xl font-bold mb-4 font-heading bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-indigo-600">
+          Keunggulan Lumos Course
+        </h2>
+        <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+          Platform belajar dengan 50+ guru ahli dari India, Pakistan, Malaysia, Brunei, Singapura & Indonesia
+        </p>
+      </div>
+      
+      <!-- Features Grid -->
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+        <!-- Card 1 -->
+        <div class="group bg-white p-8 rounded-2xl shadow-lg border border-gray-100 hover:border-blue-200 transition-all duration-300 animate-section hover:shadow-xl hover:-translate-y-2" style="animation-delay: 0.2s">
+          <div class="w-16 h-16 bg-gradient-to-br from-blue-100 to-blue-50 text-blue-600 rounded-xl flex items-center justify-center text-3xl mb-6 group-hover:rotate-6 transition-transform">
+            <i class="fas fa-user-graduate"></i>
+          </div>
+          <h3 class="text-2xl font-bold mb-4 text-gray-800">Guru Internasional</h3>
+          <p class="text-gray-600 mb-6">50+ pengajar bersertifikat dari berbagai negara dengan pengalaman mengajar kurikulum internasional</p>
+          <div class="flex -space-x-3">
+            <img src="https://flagcdn.com/w20/in.png" alt="India" class="w-8 h-8 rounded-full border-2 border-white">
+            <img src="https://flagcdn.com/w20/pk.png" alt="Pakistan" class="w-8 h-8 rounded-full border-2 border-white">
+            <img src="https://flagcdn.com/w20/my.png" alt="Malaysia" class="w-8 h-8 rounded-full border-2 border-white">
+            <img src="https://flagcdn.com/w20/bn.png" alt="Brunei" class="w-8 h-8 rounded-full border-2 border-white">
+            <img src="https://flagcdn.com/w20/sg.png" alt="Singapore" class="w-8 h-8 rounded-full border-2 border-white">
+            <img src="https://flagcdn.com/w20/id.png" alt="Indonesia" class="w-8 h-8 rounded-full border-2 border-white">
         </div>
       </div>
       
