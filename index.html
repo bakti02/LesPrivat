@@ -1,178 +1,106 @@
 <!DOCTYPE html>
 <html lang="id" class="scroll-smooth">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-  <title>EduPrime | Les Privat Nasional & Internasional</title>
-  <meta name="description" content="Bimbingan belajar profesional untuk kurikulum nasional (Kurikulum Merdeka) dan internasional (Cambridge, IB). Tingkatkan prestasi akademik sekarang!">
-  
-  <!-- Tailwind CSS -->
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          colors: {
-            primary: '#2563EB',
-            secondary: '#10B981',
-            dark: '#1E293B',
-            accent: '#7C3AED'
-          },
-          fontFamily: {
-            sans: ['Inter', 'sans-serif'],
-            heading: ['Poppins', 'sans-serif']
-          },
-          animation: {
-            'float': 'float 3s ease-in-out infinite',
-            'pulse-slow': 'pulse 5s cubic-bezier(0.4, 0, 0.6, 1) infinite'
-          }
-        }
-      }
-    }
-  </script>
-  
-  <!-- Font & Icons -->
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@600;700;800&display=swap" rel="stylesheet">
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
-  
+  <!-- Meta & CSS tetap sama, tambahkan ini -->
   <style>
-    @keyframes float {
-      0%, 100% { transform: translateY(0); }
-      50% { transform: translateY(-10px); }
+    /* Animasi Baru */
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .animate-section {
+      animation: fadeInUp 1s ease-out forwards;
+      opacity: 0;
     }
     
-    .gradient-text {
-      background-clip: text;
-      -webkit-background-clip: text;
-      color: transparent;
-      background-image: linear-gradient(90deg, #2563EB, #10B981);
+    /* Efek Card Premium */
+    .program-card {
+      transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.1);
+    }
+    .program-card:hover {
+      transform: translateY(-10px) scale(1.02);
+      box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.15);
     }
     
-    .hero-pattern {
-      background-image: radial-gradient(circle at 25% 50%, rgba(37, 99, 235, 0.1) 0%, transparent 50%);
+    /* Loading Spinner */
+    .btn-loading:hover .loading-spinner {
+      display: inline-block;
     }
-    
-    .card-hover {
-      transition: all 0.3s ease;
+    .loading-spinner {
+      display: none;
+      animation: spin 1s linear infinite;
     }
-    
-    .card-hover:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+    @keyframes spin {
+      100% { transform: rotate(360deg); }
     }
   </style>
 </head>
 
 <body class="font-sans bg-gray-50 text-gray-800 antialiased">
-  <!-- Navigation -->
-  <nav class="sticky top-0 z-50 bg-white shadow-sm">
-    <div class="container mx-auto px-4 py-3 flex justify-between items-center">
-      <a href="index.html" class="flex items-center">
-        <div class="w-10 h-10 bg-primary rounded-lg flex items-center justify-center text-white font-bold text-xl">EP</div>
-        <span class="ml-2 text-xl font-bold text-primary hidden sm:inline">EduPrime</span>
-      </a>
-      
-      <div class="hidden md:flex space-x-8">
-        <a href="#home" class="font-semibold text-gray-800 hover:text-primary transition">Beranda</a>
-        <a href="#program" class="font-semibold text-gray-800 hover:text-primary transition">Program</a>
-        <a href="#keunggulan" class="font-semibold text-gray-800 hover:text-primary transition">Keunggulan</a>
-        <a href="#testimoni" class="font-semibold text-gray-800 hover:text-primary transition">Testimoni</a>
-      </div>
-      
-      <div class="flex items-center space-x-3">
-        <a href="https://wa.me/628123456789" class="hidden xs:inline-flex items-center bg-primary hover:bg-primary/90 text-white px-4 py-2 rounded-lg font-medium transition shadow-md touch-target">
-          <i class="fab fa-whatsapp mr-1"></i> <span class="hidden sm:inline">Hubungi Kami</span>
-        </a>
-        <button class="md:hidden text-gray-600 touch-target" id="mobile-menu-button" aria-label="Toggle menu">
-          <i class="fas fa-bars text-xl"></i>
-        </button>
-      </div>
-    </div>
-    
-    <!-- Mobile Menu -->
-    <div class="md:hidden hidden bg-white shadow-lg" id="mobile-menu">
-      <div class="container mx-auto px-4 py-3 flex flex-col space-y-2">
-        <a href="#home" class="px-4 py-2 font-medium text-gray-800 hover:bg-gray-100 rounded-lg transition touch-target">Beranda</a>
-        <a href="#program" class="px-4 py-2 font-medium text-gray-800 hover:bg-gray-100 rounded-lg transition touch-target">Program</a>
-        <a href="#keunggulan" class="px-4 py-2 font-medium text-gray-800 hover:bg-gray-100 rounded-lg transition touch-target">Keunggulan</a>
-        <a href="#testimoni" class="px-4 py-2 font-medium text-gray-800 hover:bg-gray-100 rounded-lg transition touch-target">Testimoni</a>
-        <div class="pt-2 border-t border-gray-100 mt-2">
-          <a href="https://wa.me/628123456789" class="w-full flex items-center justify-center bg-primary hover:bg-primary/90 text-white px-4 py-2 rounded-lg font-medium transition touch-target">
-            <i class="fab fa-whatsapp mr-2"></i> Hubungi Kami
-          </a>
-        </div>
-      </div>
-    </div>
-  </nav>
+  <!-- Floating CTA Tambahan -->
+  <div class="fixed bottom-6 left-6 bg-accent text-white px-4 py-2 rounded-lg shadow-lg z-50 flex items-center">
+    <i class="fas fa-phone-alt mr-2"></i>
+    <span class="hidden sm:inline">Telepon Kami</span>
+  </div>
 
-  <!-- Hero Section -->
-  <section id="home" class="relative overflow-hidden hero-pattern">
+  <!-- Hero Section (Updated) -->
+  <section id="home" class="relative overflow-hidden hero-pattern animate-section">
     <div class="container mx-auto px-4 py-16 md:py-24 flex flex-col md:flex-row items-center">
       <div class="md:w-1/2 mb-10 md:mb-0">
-        <div class="inline-flex items-center bg-primary/10 text-primary px-4 py-1 rounded-full mb-4 text-sm font-medium">
-          <span>Bimbingan Belajar Premium</span>
+        <!-- Badge Baru -->
+        <div class="inline-flex items-center bg-primary/10 text-primary px-4 py-1 rounded-full mb-4 text-sm font-medium animate-bounce">
+          <span>⭐ TERFAVORIT 2025</span>
         </div>
         
         <h1 class="text-4xl xs:text-5xl md:text-6xl font-bold leading-tight mb-6 font-heading">
-          Tingkatkan Prestasi Akademik dengan <span class="gradient-text">Les Privat Spesialis</span>
+          <span class="gradient-text">Guru Les Privat</span> Berpengalaman untuk Hasil Maksimal
         </h1>
         
-        <p class="text-lg text-gray-600 mb-8 max-w-lg">
-          Solusi belajar personal untuk kurikulum nasional dan internasional. Didukung oleh metode pengajaran terbaik dan materi terkini.
-        </p>
+        <!-- Konten Lebih Menjual -->
+        <div class="flex items-center space-x-4 mb-6">
+          <div class="flex -space-x-2">
+            <img src="https://randomuser.me/api/portraits/women/44.jpg" class="w-10 h-10 rounded-full border-2 border-white" alt="Siswa">
+            <img src="https://randomuser.me/api/portraits/men/32.jpg" class="w-10 h-10 rounded-full border-2 border-white" alt="Siswa">
+            <img src="https://randomuser.me/api/portraits/women/68.jpg" class="w-10 h-10 rounded-full border-2 border-white" alt="Siswa">
+          </div>
+          <div>
+            <p class="font-medium">Bergabung dengan <span class="text-primary font-bold">500+</span> Siswa Lainnya</p>
+          </div>
+        </div>
         
+        <!-- Tombol dengan Loading Effect -->
         <div class="flex flex-col xs:flex-row space-y-3 xs:space-y-0 xs:space-x-4">
-          <a href="#program" class="bg-primary hover:bg-primary/90 text-white px-6 py-3 rounded-lg font-bold shadow-lg transition transform hover:scale-105 text-center touch-target">
+          <a href="#program" class="btn-loading bg-primary hover:bg-primary/90 text-white px-6 py-3 rounded-lg font-bold shadow-lg transition transform hover:scale-105 text-center touch-target">
+            <span class="loading-spinner mr-2"><i class="fas fa-spinner"></i></span>
             Lihat Program
-          </a>
-          <a href="https://wa.me/628123456789" class="bg-white hover:bg-gray-50 text-primary border-2 border-primary px-6 py-3 rounded-lg font-bold shadow-lg transition transform hover:scale-105 text-center touch-target">
-            Konsultasi Gratis
           </a>
         </div>
       </div>
       
       <div class="md:w-1/2 relative">
-        <div class="relative max-w-md mx-auto">
-          <img src="https://images.unsplash.com/photo-1588072432836-e10032774350?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" alt="Les Privat" class="w-full h-auto rounded-xl shadow-2xl">
-          
-          <div class="absolute -bottom-4 -left-4 bg-white p-3 rounded-xl shadow-lg border border-gray-100">
-            <div class="flex items-center">
-              <div class="bg-green-100 p-2 rounded-full mr-2">
-                <i class="fas fa-check-circle text-green-500"></i>
-              </div>
-              <div>
-                <p class="font-bold text-sm">Guru Berpengalaman</p>
-              </div>
-            </div>
-          </div>
-
-          <div class="absolute -top-4 -right-4 bg-white p-3 rounded-xl shadow-lg border border-gray-100">
-            <div class="flex items-center">
-              <div class="bg-blue-100 p-2 rounded-full mr-2">
-                <i class="fas fa-check-circle text-blue-500"></i>
-              </div>
-              <div>
-                <p class="font-bold text-sm">Fleksibel</p>
-              </div>
-            </div>
-          </div>
+        <!-- Gambar Lebih Profesional -->
+        <div class="relative max-w-md mx-auto animate-float">
+          <img src="https://images.unsplash.com/photo-1588072432836-e10032774350?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" 
+               alt="Guru Les Privat" 
+               class="w-full h-auto rounded-xl shadow-2xl border-4 border-white"
+               loading="lazy">
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Program Section -->
+  <!-- Program Section (Enhanced) -->
   <section id="program" class="py-16 bg-white">
     <div class="container mx-auto px-4">
-      <div class="text-center mb-12">
-        <h2 class="text-3xl md:text-4xl font-bold mb-4 font-heading">Program Les Privat</h2>
-        <p class="text-lg text-gray-600 max-w-2xl mx-auto">Pilih program yang sesuai dengan kebutuhan akademik Anda</p>
+      <div class="text-center mb-12 animate-section">
+        <h2 class="text-3xl md:text-4xl font-bold mb-4 font-heading">Program Unggulan Kami</h2>
+        <p class="text-lg text-gray-600 max-w-2xl mx-auto">Raih prestasi akademik dengan bimbingan langsung dari ahli</p>
       </div>
       
       <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
         <!-- Program Nasional -->
-        <div class="bg-white rounded-xl shadow-md border border-gray-200 overflow-hidden card-hover">
-          <div class="bg-gradient-to-r from-blue-600 to-blue-800 text-white p-6">
+        <div class="program-card bg-white rounded-xl shadow-md border border-gray-200 overflow-hidden animate-section" style="animation-delay: 0.2s">
+          <div class="bg-gradient-to-r from-blue-600 to-blue-800 text-white p-6 relative">
             <h3 class="text-2xl font-bold">Kurikulum Nasional</h3>
             <p class="text-blue-100">Kurikulum Merdeka & KTSP</p>
           </div>
@@ -184,19 +112,15 @@
             <ul class="space-y-3 mb-8">
               <li class="flex items-start">
                 <i class="fas fa-check-circle text-green-500 mt-1 mr-3"></i>
-                <span>SD-SMA semua jenjang</span>
+                <span>Fokus pada pemahaman konsep</span>
               </li>
               <li class="flex items-start">
                 <i class="fas fa-check-circle text-green-500 mt-1 mr-3"></i>
-                <span>Persiapan UTBK & Ujian Nasional</span>
+                <span>Latihan soal berbasis HOTS</span>
               </li>
               <li class="flex items-start">
                 <i class="fas fa-check-circle text-green-500 mt-1 mr-3"></i>
-                <span>Matematika, IPA, IPS, Bahasa</span>
-              </li>
-              <li class="flex items-start">
-                <i class="fas fa-check-circle text-green-500 mt-1 mr-3"></i>
-                <span>Modul & latihan soal terkini</span>
+                <span>Laporan perkembangan berkala</span>
               </li>
             </ul>
             <a href="https://wa.me/628123456789" class="block w-full bg-blue-600 hover:bg-blue-700 text-white text-center py-3 rounded-lg font-medium transition touch-target">
@@ -205,8 +129,11 @@
           </div>
         </div>
         
-        <!-- Program Internasional -->
-        <div class="bg-white rounded-xl shadow-md border border-gray-200 overflow-hidden card-hover">
+        <!-- Program Internasional (Populer) -->
+        <div class="program-card bg-white rounded-xl shadow-md border border-gray-200 overflow-hidden animate-section" style="animation-delay: 0.4s">
+          <div class="absolute top-4 right-4 bg-yellow-500 text-white px-3 py-1 rounded-full text-xs font-bold animate-pulse">
+            POPULER
+          </div>
           <div class="bg-gradient-to-r from-purple-600 to-purple-800 text-white p-6">
             <h3 class="text-2xl font-bold">Kurikulum Internasional</h3>
             <p class="text-purple-100">Cambridge, IB, Singapore Math</p>
@@ -219,79 +146,57 @@
             <ul class="space-y-3 mb-8">
               <li class="flex items-start">
                 <i class="fas fa-check-circle text-green-500 mt-1 mr-3"></i>
-                <span>IGCSE, A-Level, IB DP/MYP</span>
+                <span>Pengantar bahasa Inggris</span>
               </li>
               <li class="flex items-start">
                 <i class="fas fa-check-circle text-green-500 mt-1 mr-3"></i>
-                <span>Matematika, Sciences, English</span>
+                <span>Bank soal internasional</span>
               </li>
               <li class="flex items-start">
                 <i class="fas fa-check-circle text-green-500 mt-1 mr-3"></i>
-                <span>Exam Preparation & Past Papers</span>
-              </li>
-              <li class="flex items-start">
-                <i class="fas fa-check-circle text-green-500 mt-1 mr-3"></i>
-                <span>Pengantar Bahasa Inggris</span>
+                <span>Strategi ujian global</span>
               </li>
             </ul>
             <a href="https://wa.me/628123456789" class="block w-full bg-purple-600 hover:bg-purple-700 text-white text-center py-3 rounded-lg font-medium transition touch-target">
-              Daftar Sekarang
+              Pilihan Terbaik
             </a>
           </div>
         </div>
       </div>
-    </div>
-  </section>
-
-  <!-- Keunggulan Section -->
-  <section id="keunggulan" class="py-16 bg-gray-50">
-    <div class="container mx-auto px-4">
-      <div class="text-center mb-12">
-        <h2 class="text-3xl md:text-4xl font-bold mb-4 font-heading">Keunggulan Kami</h2>
-        <p class="text-lg text-gray-600 max-w-2xl mx-auto">Mengapa memilih EduPrime untuk bimbingan belajar?</p>
-      </div>
       
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
-        <div class="bg-white p-8 rounded-xl shadow-sm border border-gray-100 card-hover">
-          <div class="w-14 h-14 bg-blue-100 text-blue-600 rounded-xl flex items-center justify-center text-2xl mb-5">
-            <i class="fas fa-user-graduate"></i>
-          </div>
-          <h3 class="text-xl font-bold mb-3">Guru Spesialis</h3>
-          <p class="text-gray-600">Pengajar ahli di bidangnya dengan pengalaman minimal 5 tahun mengajar kurikulum terkait</p>
+      <!-- Statistik Pencapaian -->
+      <div class="flex justify-center space-x-8 my-16 animate-section" style="animation-delay: 0.6s">
+        <div class="text-center p-4 bg-white rounded-xl shadow-sm border border-gray-100">
+          <div class="text-4xl font-bold text-primary">500+</div>
+          <div class="text-gray-600 mt-2">Siswa Aktif</div>
         </div>
-        
-        <div class="bg-white p-8 rounded-xl shadow-sm border border-gray-100 card-hover">
-          <div class="w-14 h-14 bg-green-100 text-green-600 rounded-xl flex items-center justify-center text-2xl mb-5">
-            <i class="fas fa-chalkboard-teacher"></i>
-          </div>
-          <h3 class="text-xl font-bold mb-3">Metode Personal</h3>
-          <p class="text-gray-600">Pendekatan belajar disesuaikan dengan gaya belajar dan kebutuhan individu siswa</p>
+        <div class="text-center p-4 bg-white rounded-xl shadow-sm border border-gray-100">
+          <div class="text-4xl font-bold text-primary">95%</div>
+          <div class="text-gray-600 mt-2">Kepuasan Siswa</div>
         </div>
-        
-        <div class="bg-white p-8 rounded-xl shadow-sm border border-gray-100 card-hover">
-          <div class="w-14 h-14 bg-purple-100 text-purple-600 rounded-xl flex items-center justify-center text-2xl mb-5">
-            <i class="fas fa-laptop-code"></i>
-          </div>
-          <h3 class="text-xl font-bold mb-3">Fleksibel</h3>
-          <p class="text-gray-600">Belajar online atau tatap muka, dengan jadwal yang bisa disesuaikan kebutuhan</p>
+        <div class="text-center p-4 bg-white rounded-xl shadow-sm border border-gray-100">
+          <div class="text-4xl font-bold text-primary">50+</div>
+          <div class="text-gray-600 mt-2">Guru Ahli</div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Testimoni Section -->
-  <section id="testimoni" class="py-16 bg-white">
+  <!-- Testimoni (Updated) -->
+  <section id="testimoni" class="py-16 bg-gray-50">
     <div class="container mx-auto px-4">
-      <div class="text-center mb-12">
-        <h2 class="text-3xl md:text-4xl font-bold mb-4 font-heading">Apa Kata Mereka?</h2>
-        <p class="text-lg text-gray-600 max-w-2xl mx-auto">Testimoni jujur dari siswa dan orang tua</p>
+      <div class="text-center mb-12 animate-section">
+        <h2 class="text-3xl md:text-4xl font-bold mb-4 font-heading">Kisah Sukses</h2>
+        <p class="text-lg text-gray-600 max-w-2xl mx-auto">Dari siswa yang sudah merasakan manfaatnya</p>
       </div>
       
       <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
         <!-- Testi 1 -->
-        <div class="bg-gray-50 p-6 rounded-xl border border-gray-200">
+        <div class="bg-white p-6 rounded-xl border border-gray-200 animate-section" style="animation-delay: 0.2s">
           <div class="flex items-center mb-4">
-            <img src="https://randomuser.me/api/portraits/women/45.jpg" class="w-12 h-12 rounded-full mr-4">
+            <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=200&q=80" 
+                 class="w-12 h-12 rounded-full mr-4 object-cover"
+                 loading="lazy">
             <div>
               <h4 class="font-bold">Sarah Wijaya</h4>
               <div class="flex items-center text-yellow-400 text-sm">
@@ -303,13 +208,16 @@
               </div>
             </div>
           </div>
-          <p class="text-gray-700">"Guru les IB Math-nya sangat berpengalaman dan sabar. Nilai saya naik dari 5 ke 7 dalam 3 bulan!"</p>
+          <p class="text-gray-700 mb-3">"Nilai IB Math anak saya naik dari 4 ke 6 dalam 2 bulan! Guru lesnya sangat memahami kebutuhan anak."</p>
+          <div class="text-sm text-gray-500">Orang tua siswa - IB Diploma</div>
         </div>
         
         <!-- Testi 2 -->
-        <div class="bg-gray-50 p-6 rounded-xl border border-gray-200">
+        <div class="bg-white p-6 rounded-xl border border-gray-200 animate-section" style="animation-delay: 0.4s">
           <div class="flex items-center mb-4">
-            <img src="https://randomuser.me/api/portraits/men/32.jpg" class="w-12 h-12 rounded-full mr-4">
+            <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=200&q=80" 
+                 class="w-12 h-12 rounded-full mr-4 object-cover"
+                 loading="lazy">
             <div>
               <h4 class="font-bold">Budi Santoso</h4>
               <div class="flex items-center text-yellow-400 text-sm">
@@ -321,110 +229,43 @@
               </div>
             </div>
           </div>
-          <p class="text-gray-700">"Anak saya yang homeschool sekarang bisa mengikuti pelajaran dengan baik berkat bimbingan tutor dari EduPrime."</p>
+          <p class="text-gray-700 mb-3">"UTBK saya meningkat 150 poin setelah 3 bulan bimbingan. Sekarang diterima di UI!"</p>
+          <div class="text-sm text-gray-500">Siswa - Kelas 12 SMA</div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- CTA Section -->
-  <section class="py-16 bg-gradient-to-r from-primary to-secondary text-white">
-    <div class="container mx-auto px-4 text-center">
-      <h2 class="text-3xl md:text-4xl font-bold mb-6 font-heading">Siap Mulai Perjalanan Belajarmu?</h2>
-      <p class="text-xl mb-8 max-w-2xl mx-auto">Dapatkan bimbingan personal dari guru ahli sekarang juga</p>
-      <div class="flex flex-col xs:flex-row justify-center space-y-3 xs:space-y-0 xs:space-x-4">
-        <a href="https://wa.me/628123456789" class="bg-white text-primary hover:bg-gray-100 px-8 py-4 rounded-lg font-bold shadow-lg transition transform hover:scale-105 touch-target">
-          Hubungi Kami
-        </a>
-        <a href="#program" class="bg-transparent border-2 border-white text-white hover:bg-white/10 px-8 py-4 rounded-lg font-bold shadow-lg transition transform hover:scale-105 touch-target">
-          Lihat Program
-        </a>
-      </div>
-    </div>
-  </section>
-
-  <!-- Footer -->
-  <footer class="bg-gray-900 text-gray-400 py-12">
-    <div class="container mx-auto px-4">
-      <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
-        <div class="md:col-span-2">
-          <div class="flex items-center mb-4">
-            <div class="w-10 h-10 bg-primary rounded-lg flex items-center justify-center text-white font-bold text-xl">EP</div>
-            <span class="ml-2 text-xl font-bold text-white">EduPrime</span>
-          </div>
-          <p class="text-sm mb-4">Les privat profesional untuk kurikulum nasional dan internasional.</p>
-          <div class="flex space-x-4">
-            <a href="#" class="text-gray-400 hover:text-white transition touch-target">
-              <i class="fab fa-instagram text-xl"></i>
-            </a>
-            <a href="#" class="text-gray-400 hover:text-white transition touch-target">
-              <i class="fab fa-facebook text-xl"></i>
-            </a>
-            <a href="#" class="text-gray-400 hover:text-white transition touch-target">
-              <i class="fab fa-youtube text-xl"></i>
-            </a>
-          </div>
-        </div>
-        
-        <div>
-          <h3 class="text-white font-bold mb-4 text-lg">Program</h3>
-          <ul class="space-y-2">
-            <li><a href="#program" class="hover:text-white transition text-sm touch-target">Kurikulum Nasional</a></li>
-            <li><a href="#program" class="hover:text-white transition text-sm touch-target">Kurikulum Internasional</a></li>
-          </ul>
-        </div>
-        
-        <div>
-          <h3 class="text-white font-bold mb-4 text-lg">Kontak</h3>
-          <ul class="space-y-2">
-            <li class="flex items-center">
-              <i class="fas fa-phone-alt mr-2 text-sm"></i>
-              <span class="text-sm">+62 812-3456-7890</span>
-            </li>
-            <li class="flex items-center">
-              <i class="fas fa-envelope mr-2 text-sm"></i>
-              <span class="text-sm">info@eduprime.com</span>
-            </li>
-          </ul>
-        </div>
-      </div>
-      
-      <div class="border-t border-gray-800 mt-8 pt-8 text-sm text-center">
-        <p>&copy; 2025 EduPrime. All rights reserved.</p>
-      </div>
-    </div>
-  </footer>
-
-  <!-- Floating WhatsApp Button -->
-  <a href="https://wa.me/628123456789" class="fixed bottom-6 right-6 bg-green-500 hover:bg-green-600 text-white w-14 h-14 rounded-full flex items-center justify-center shadow-xl transition transform hover:scale-110 z-50 touch-target">
-    <i class="fab fa-whatsapp text-2xl"></i>
-  </a>
-
-  <!-- Scripts -->
+  <!-- Script Animasi Scroll -->
   <script>
-    // Mobile Menu Toggle
     document.addEventListener('DOMContentLoaded', function() {
+      // Animasi saat scroll
+      const animateOnScroll = () => {
+        const sections = document.querySelectorAll('.animate-section');
+        
+        sections.forEach(section => {
+          const sectionTop = section.getBoundingClientRect().top;
+          const windowHeight = window.innerHeight;
+          
+          if (sectionTop < windowHeight - 100) {
+            section.style.opacity = '1';
+          }
+        });
+      };
+      
+      // Jalankan saat load dan scroll
+      window.addEventListener('load', animateOnScroll);
+      window.addEventListener('scroll', animateOnScroll);
+      
+      // Mobile menu toggle (tetap sama)
       const menuButton = document.getElementById('mobile-menu-button');
       const mobileMenu = document.getElementById('mobile-menu');
       
-      menuButton.addEventListener('click', function(e) {
-        e.stopPropagation();
+      menuButton.addEventListener('click', function() {
         mobileMenu.classList.toggle('hidden');
-        
-        // Ubah ikon
         const icon = this.querySelector('i');
         icon.classList.toggle('fa-bars');
         icon.classList.toggle('fa-times');
-      });
-      
-      // Tutup menu saat klik di luar
-      document.addEventListener('click', function(e) {
-        if (!mobileMenu.contains(e.target) && e.target.id !== 'mobile-menu-button') {
-          mobileMenu.classList.add('hidden');
-          const icon = menuButton.querySelector('i');
-          icon.classList.remove('fa-times');
-          icon.classList.add('fa-bars');
-        }
       });
     });
   </script>
