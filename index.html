@@ -171,13 +171,21 @@
       100% { transform: rotate(360deg); }
     }
 
+    .language-switcher {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    
     .language-switcher a {
+      padding: 6px 12px;
+      border-radius: 6px;
       transition: all 0.3s ease;
-      font-weight: 500;
+      font-size: 14px;
     }
     
     .language-switcher a.active {
-      background-color: #2563EB;
+      background-color: #2563eb;
       color: white;
     }
     
@@ -196,22 +204,17 @@
         <span class="ml-2 text-xl font-bold text-primary hidden sm:inline">Lumos Course</span>
       </a>
 
-      <div class="language-switcher flex items-center space-x-2">
-        <a href="/LesPrivat/index.html" 
-           class="px-3 py-1 rounded-md bg-primary text-white text-sm">
-          ID
+      <div class="language-switcher">
+        <a href="/LesPrivat/index.html" class="active flex items-center">
+          <img src="https://flagcdn.com/w20/id.png" alt="ID" class="w-4 h-4 mr-1">
+          <span>ID</span>
         </a>
-        <a href="/LesPrivat/en/index.html" 
-           class="px-3 py-1 rounded-md border border-gray-300 text-sm">
-          EN
+        <span class="mx-2 text-gray-300">|</span>
+        <a href="/LesPrivat/en/index.html" class="flex items-center">
+          <img src="https://flagcdn.com/w20/gb.png" alt="EN" class="w-4 h-4 mr-1">
+          <span>EN</span>
         </a>
       </div>
-
-      <!-- Tambahkan bendera kecil -->
-      <a href="/index.html" class="flex items-center">
-        <img src="https://flagcdn.com/w20/id.png" alt="ID" class="w-4 h-4 mr-1">
-        <span>ID</span>
-      </a>
       
       <div class="hidden md:flex space-x-8">
         <a href="#home" class="font-semibold text-gray-800 hover:text-primary transition">Beranda</a>
