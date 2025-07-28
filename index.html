@@ -302,11 +302,11 @@
             <button class="program-tab active px-6 py-3 rounded-xl font-medium bg-primary text-white transition-all transform hover:scale-105 shadow-md flex items-center" data-category="all">
               <i class="fas fa-globe mr-2"></i> Semua
             </button>
-            <button class="program-tab px-6 py-3 rounded-xl font-medium bg-gray-100 hover:bg-gray-200 transition-all transform hover:scale-105 flex items-center" data-category="nasional">
-              <i class="fas fa-flag mr-2 text-blue-600"></i> Nasional
-            </button>
             <button class="program-tab px-6 py-3 rounded-xl font-medium bg-gray-100 hover:bg-gray-200 transition-all transform hover:scale-105 flex items-center" data-category="internasional" id="internasional-btn">
               <i class="fas fa-star mr-2 text-yellow-500"></i> Internasional
+            </button>
+            <button class="program-tab px-6 py-3 rounded-xl font-medium bg-gray-100 hover:bg-gray-200 transition-all transform hover:scale-105 flex items-center" data-category="nasional">
+              <i class="fas fa-flag mr-2 text-blue-600"></i> Nasional
             </button>
             <button class="program-tab px-6 py-3 rounded-xl font-medium bg-gray-100 hover:bg-gray-200 transition-all transform hover:scale-105 flex items-center" data-category="khusus">
               <i class="fas fa-bolt mr-2 text-purple-500"></i> Khusus
@@ -1480,21 +1480,21 @@ document.addEventListener('DOMContentLoaded', function() {
       });
     });
 
-    // Sub-filter Functionality
+    // Sub-filter Functionality - REVISI 3 (Single Selection)
     document.querySelectorAll('.subfilter-btn').forEach(btn => {
       btn.addEventListener('click', function() {
+        // Reset semua subfilter terlebih dahulu
+        currentSubcategories = [];
+        document.querySelectorAll('.subfilter-btn').forEach(b => {
+          b.classList.remove('active');
+        });
+
+        // Aktifkan hanya subfilter yang diklik
         const subcategory = this.dataset.subcategory;
+        currentSubcategories.push(subcategory);
+        this.classList.add('active');
         
-        // Toggle subkategori aktif
-        if (currentSubcategories.includes(subcategory)) {
-          currentSubcategories = currentSubcategories.filter(item => item !== subcategory);
-          this.classList.remove('active');
-        } else {
-          currentSubcategories.push(subcategory);
-          this.classList.add('active');
-        }
-        
-        // Reset visible programs ketika mengganti subfilter
+        // Reset visible programs
         visiblePrograms = 6;
         
         // Terapkan filter
@@ -1502,12 +1502,14 @@ document.addEventListener('DOMContentLoaded', function() {
       });
     });
 
-    // Fungsi untuk menerapkan filter
+    // Fungsi untuk menerapkan filter - REVISI 3
     function applyFilters() {
       let visibleCount = 0;
       let hasVisiblePrograms = false;
       
-      programCards.forEach((card, index) => {
+      programCards.forEach(card => {
+        card.style.display = 'none';
+        
         const programCategory = card.dataset.category;
         const programSubcategory = card.dataset.subcategory || '';
         
@@ -1516,18 +1518,12 @@ document.addEventListener('DOMContentLoaded', function() {
         const subcategoryMatch = currentSubcategories.length === 0 || 
                                (programSubcategory && currentSubcategories.includes(programSubcategory));
         
-        // Tentukan apakah program harus ditampilkan berdasarkan filter
-        const shouldShow = categoryMatch && subcategoryMatch;
-        
-        // Tentukan apakah program dalam range yang terlihat
-        const withinVisibleRange = visibleCount < visiblePrograms;
-        
-        if (shouldShow && withinVisibleRange) {
-          card.style.display = 'block';
-          visibleCount++;
-          hasVisiblePrograms = true;
-        } else {
-          card.style.display = 'none';
+        if (categoryMatch && subcategoryMatch) {
+          if (visibleCount < visiblePrograms) {
+            card.style.display = 'block';
+            visibleCount++;
+            hasVisiblePrograms = true;
+          }
         }
       });
       
