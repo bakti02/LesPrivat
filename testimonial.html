@@ -1,0 +1,693 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>Testimoni Modern | Lumos Course</title>
+  
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: '#2563EB',
+            secondary: '#10B981',
+            dark: '#1E293B',
+            accent: '#7C3AED'
+          },
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+            heading: ['Poppins', 'sans-serif']
+          }
+        }
+      }
+    }
+  </script>
+  
+  <!-- Font & Icons -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@600;700;800&display=swap" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+  
+  <!-- Swiper JS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
+  
+  <style>
+    /* Animations */
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+    }
+    
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+    
+    /* Modern Elements */
+    .glass-card {
+      background: rgba(255, 255, 255, 0.8);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+    }
+    
+    .progress-track {
+      height: 8px;
+      background: #E5E7EB;
+      border-radius: 4px;
+    }
+    
+    .progress-fill {
+      height: 100%;
+      border-radius: 4px;
+      background: linear-gradient(90deg, #2563EB, #10B981);
+      transition: width 1s ease-out;
+    }
+    
+    .social-proof-badge {
+      background: linear-gradient(135deg, #2563EB, #7C3AED);
+      box-shadow: 0 4px 20px rgba(37, 99, 235, 0.3);
+    }
+    
+    .avatar-hover:hover {
+      transform: scale(1.05);
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    }
+    
+    .testimonial-card {
+      transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.1);
+    }
+    
+    .testimonial-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.15);
+    }
+    
+    .video-thumbnail::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(0, 0, 0, 0.3);
+      transition: all 0.3s ease;
+      border-radius: 12px;
+    }
+    
+    .video-thumbnail:hover::after {
+      background: rgba(0, 0, 0, 0.5);
+    }
+    
+    .play-button {
+      transition: all 0.3s ease;
+    }
+    
+    .video-thumbnail:hover .play-button {
+      transform: translate(-50%, -50%) scale(1.1);
+    }
+  </style>
+</head>
+
+<body class="font-sans bg-gray-50 text-gray-800 antialiased">
+  <!-- Navigation -->
+  <nav class="sticky top-0 z-50 bg-white/80 backdrop-blur-md shadow-sm">
+    <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+      <a href="index.html" class="flex items-center">
+        <img src="assets/logo-lumos-course.png" alt="Lumos Course Logo" class="w-10 h-10 object-contain" />
+        <span class="ml-2 text-xl font-bold text-red-500 hidden sm:inline">Lumos Course</span>
+      </a>
+      
+      <div class="hidden md:flex space-x-8">
+        <a href="index.html#home" class="font-semibold text-gray-800 hover:text-primary transition">Beranda</a>
+        <a href="index.html#program" class="font-semibold text-gray-800 hover:text-primary transition">Program</a>
+        <a href="career.html" class="font-semibold text-gray-800 hover:text-primary transition">Career Guru</a>
+        <a href="testimonial.html" class="font-semibold text-primary transition">Testimoni</a>
+      </div>
+      
+      <div class="flex items-center space-x-3">
+        <a href="https://wa.me/6282147510780" class="hidden xs:inline-flex items-center bg-primary hover:bg-primary/90 text-white px-4 py-2 rounded-lg font-medium transition shadow-md hover:shadow-lg touch-target">
+          <i class="fab fa-whatsapp mr-1"></i> <span class="hidden sm:inline">Hubungi Kami</span>
+        </a>
+        <button class="md:hidden text-gray-600 touch-target" id="mobile-menu-button" aria-label="Toggle menu">
+          <i class="fas fa-bars text-xl"></i>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="relative overflow-hidden bg-gradient-to-br from-primary to-indigo-700 text-white py-20">
+    <div class="absolute inset-0 opacity-10" style="background-image: url('https://grainy-gradients.vercel.app/noise.svg')"></div>
+    <div class="container mx-auto px-4 text-center relative z-10">
+      <div class="max-w-4xl mx-auto">
+        <div class="inline-flex items-center bg-white/20 backdrop-blur-sm px-6 py-2 rounded-full mb-6">
+          <div class="rating-stars mr-2">
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+          </div>
+          <span class="font-bold">4.9/5.0 dari 500+ siswa</span>
+        </div>
+        
+        <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 font-heading">
+          <span class="bg-clip-text text-transparent bg-gradient-to-r from-white to-gray-200">Kisah Sukses</span> Siswa Kami
+        </h1>
+        
+        <p class="text-xl md:text-2xl text-gray-200 mb-8 max-w-3xl mx-auto">
+          Dari nilai pas-pasan menjadi juara kelas. Lihat transformasi nyata yang dialami siswa Lumos Course.
+        </p>
+        
+        <div class="flex flex-wrap justify-center gap-4">
+          <a href="#video-testimonials" class="bg-white text-primary hover:bg-gray-100 px-8 py-3 rounded-lg font-bold shadow-lg transition transform hover:scale-105 touch-target">
+            <i class="fas fa-play-circle mr-2"></i> Tonton Video
+          </a>
+          <a href="#story-cards" class="bg-transparent border-2 border-white text-white hover:bg-white/10 px-8 py-3 rounded-lg font-bold shadow-lg transition transform hover:scale-105 touch-target">
+            <i class="fas fa-book-open mr-2"></i> Baca Kisah
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Social Proof Bar -->
+  <div class="bg-gray-900 text-white py-4">
+    <div class="container mx-auto px-4">
+      <div class="flex overflow-hidden items-center">
+        <div class="flex items-center animate-marquee whitespace-nowrap">
+          <div class="mx-8 flex items-center">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/d/d7/Logo_Kompasdotcom.png" alt="Kompas" class="h-6 mr-2">
+            <span class="text-sm">"Lumos Course mengubah cara belajar kurikulum internasional"</span>
+          </div>
+          <div class="mx-8 flex items-center">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/7/7f/Logodetikcom.png" alt="Detik" class="h-6 mr-2">
+            <span class="text-sm">"Platform les privat dengan guru terbaik se-Asia"</span>
+          </div>
+          <div class="mx-8 flex items-center">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/f/fe/Logokumparancom.png" alt="Kumparan" class="h-6 mr-2">
+            <span class="text-sm">"Pilihan utama orang tua untuk les privat premium"</span>
+          </div>
+          <div class="mx-8 flex items-center">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/d/d7/Logo_Kompasdotcom.png" alt="Kompas" class="h-6 mr-2">
+            <span class="text-sm">"Lumos Course mengubah cara belajar kurikulum internasional"</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Story Cards Section -->
+  <section id="story-cards" class="py-16 bg-white">
+    <div class="container mx-auto px-4">
+      <div class="text-center mb-12">
+        <h2 class="text-3xl md:text-4xl font-bold mb-4 font-heading">Transformasi Nyata</h2>
+        <p class="text-lg text-gray-600 max-w-2xl mx-auto">Setiap siswa memiliki kisah unik. Berikut beberapa pencapaian terbaik:</p>
+      </div>
+      
+      <!-- Swiper Container -->
+      <div class="swiper testimonialSwiper">
+        <div class="swiper-wrapper pb-12">
+          <!-- Slide 1 - IB Success -->
+          <div class="swiper-slide">
+            <div class="testimonial-card bg-white rounded-2xl shadow-lg border border-gray-100 overflow-hidden h-full">
+              <div class="relative h-48 bg-gradient-to-br from-red-600 to-red-800 flex items-end p-5">
+                <div class="absolute inset-0 opacity-20 bg-[url('https://images.unsplash.com/photo-1523050854058-8df90110c9f1?q=80&w=1470&auto=format&fit=crop')] bg-cover bg-center"></div>
+                <div class="relative z-10">
+                  <div class="flex items-center">
+                    <img src="https://randomuser.me/api/portraits/women/32.jpg" alt="Sarah Wijaya" class="w-12 h-12 rounded-full border-2 border-white mr-3">
+                    <div>
+                      <h4 class="font-bold text-white">Sarah Wijaya</h4>
+                      <div class="rating-stars text-sm">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="absolute top-4 right-4 bg-white text-red-600 px-3 py-1 rounded-full text-xs font-bold shadow-sm">
+                  IB Diploma
+                </div>
+              </div>
+              <div class="p-6">
+                <div class="mb-6">
+                  <div class="flex justify-between mb-2 text-sm">
+                    <span>Predicted Grade</span>
+                    <span>Final Grade</span>
+                  </div>
+                  <div class="progress-track w-full mb-1">
+                    <div class="progress-fill" style="width: 70%"></div>
+                  </div>
+                  <div class="flex justify-between text-sm font-medium">
+                    <span class="text-red-600">5</span>
+                    <span class="text-green-600">7</span>
+                  </div>
+                </div>
+                <p class="text-gray-600 italic mb-6">"Guru IB Math HL dari India benar-benar mengubah cara saya memahami konsep abstrak. Dalam 4 bulan, nilai prediksi saya naik dari 5 ke 7!"</p>
+                <div class="flex items-center justify-between">
+                  <span class="text-sm bg-gray-100 text-gray-800 px-3 py-1 rounded-full">Jakarta International School</span>
+                  <button class="text-primary text-sm font-medium flex items-center">
+                    <i class="fas fa-book-open mr-1"></i> Full Story
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Slide 2 - A-Level Journey -->
+          <div class="swiper-slide">
+            <div class="testimonial-card bg-white rounded-2xl shadow-lg border border-gray-100 overflow-hidden h-full">
+              <div class="relative h-48 bg-gradient-to-br from-purple-600 to-purple-800 flex items-end p-5">
+                <div class="absolute inset-0 opacity-20 bg-[url('https://images.unsplash.com/photo-1523050854058-8df90110c9f1?q=80&w=1470&auto=format&fit=crop')] bg-cover bg-center"></div>
+                <div class="relative z-10">
+                  <div class="flex items-center">
+                    <img src="https://randomuser.me/api/portraits/men/45.jpg" alt="Kevin Tan" class="w-12 h-12 rounded-full border-2 border-white mr-3">
+                    <div>
+                      <h4 class="font-bold text-white">Kevin Tan</h4>
+                      <div class="rating-stars text-sm">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star-half-alt"></i>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="absolute top-4 right-4 bg-white text-purple-600 px-3 py-1 rounded-full text-xs font-bold shadow-sm">
+                  A-Level
+                </div>
+              </div>
+              <div class="p-6">
+                <div class="mb-6">
+                  <div class="flex justify-between mb-2 text-sm">
+                    <span>Before Lumos</span>
+                    <span>After 6 Months</span>
+                  </div>
+                  <div class="progress-track w-full mb-1">
+                    <div class="progress-fill" style="width: 85%"></div>
+                  </div>
+                  <div class="flex justify-between text-sm font-medium">
+                    <span class="text-red-600">D</span>
+                    <span class="text-green-600">A*</span>
+                  </div>
+                </div>
+                <p class="text-gray-600 italic mb-6">"Tutor Fisika A-Level dari Pakistan menjelaskan dengan analogi kehidupan nyata yang membuat konsep rumit jadi mudah. Nilai ujian naik dari D ke A*!"</p>
+                <div class="flex items-center justify-between">
+                  <span class="text-sm bg-gray-100 text-gray-800 px-3 py-1 rounded-full">Sekolah Pelita Harapan</span>
+                  <button class="text-primary text-sm font-medium flex items-center">
+                    <i class="fas fa-book-open mr-1"></i> Full Story
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Slide 3 - Parent Testimonial -->
+          <div class="swiper-slide">
+            <div class="testimonial-card bg-white rounded-2xl shadow-lg border border-gray-100 overflow-hidden h-full">
+              <div class="relative h-48 bg-gradient-to-br from-blue-600 to-blue-800 flex items-end p-5">
+                <div class="absolute inset-0 opacity-20 bg-[url('https://images.unsplash.com/photo-1523050854058-8df90110c9f1?q=80&w=1470&auto=format&fit=crop')] bg-cover bg-center"></div>
+                <div class="relative z-10">
+                  <div class="flex items-center">
+                    <img src="https://randomuser.me/api/portraits/women/68.jpg" alt="Dewi Anggraeni" class="w-12 h-12 rounded-full border-2 border-white mr-3">
+                    <div>
+                      <h4 class="font-bold text-white">Ibu Dewi</h4>
+                      <div class="rating-stars text-sm">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="absolute top-4 right-4 bg-white text-blue-600 px-3 py-1 rounded-full text-xs font-bold shadow-sm">
+                  Orang Tua
+                </div>
+              </div>
+              <div class="p-6">
+                <div class="mb-6">
+                  <div class="flex justify-between mb-2 text-sm">
+                    <span>Semester 1</span>
+                    <span>Semester 2</span>
+                  </div>
+                  <div class="progress-track w-full mb-1">
+                    <div class="progress-fill" style="width: 60%"></div>
+                  </div>
+                  <div class="flex justify-between text-sm font-medium">
+                    <span class="text-red-600">65%</span>
+                    <span class="text-green-600">92%</span>
+                  </div>
+                </div>
+                <p class="text-gray-600 italic mb-6">"Anak saya yang pemalu sekarang percaya diri menjawab soal di kelas. Nilai matematikanya naik dari 65% ke 92% dalam satu semester!"</p>
+                <div class="flex items-center justify-between">
+                  <span class="text-sm bg-gray-100 text-gray-800 px-3 py-1 rounded-full">Singapore School</span>
+                  <button class="text-primary text-sm font-medium flex items-center">
+                    <i class="fas fa-book-open mr-1"></i> Full Story
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="swiper-pagination"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Video Testimonials -->
+  <section id="video-testimonials" class="py-16 bg-gray-50">
+    <div class="container mx-auto px-4">
+      <div class="text-center mb-12">
+        <h2 class="text-3xl md:text-4xl font-bold mb-4 font-heading">Testimoni Video</h2>
+        <p class="text-lg text-gray-600 max-w-2xl mx-auto">Dengar langsung pengalaman mereka</p>
+      </div>
+      
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <!-- Video 1 -->
+        <div class="video-thumbnail cursor-pointer group relative rounded-xl overflow-hidden" onclick="openVideoModal('https://www.youtube.com/embed/dQw4w9WgXcQ')">
+          <img src="https://images.unsplash.com/photo-1588072432836-e10032774350?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" 
+               alt="Testimoni IB Student" 
+               class="w-full h-64 object-cover">
+          <div class="play-button absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-16 h-16 bg-white rounded-full flex items-center justify-center z-10">
+            <i class="fas fa-play text-primary text-2xl"></i>
+          </div>
+          <div class="absolute bottom-0 left-0 right-0 p-4 text-white z-10">
+            <h3 class="font-bold text-lg">Sarah - IB Diploma</h3>
+            <p class="text-sm opacity-90">Dari nilai 5 ke 7 dalam Math HL</p>
+          </div>
+        </div>
+        
+        <!-- Video 2 -->
+        <div class="video-thumbnail cursor-pointer group relative rounded-xl overflow-hidden" onclick="openVideoModal('https://www.youtube.com/embed/dQw4w9WgXcQ')">
+          <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" 
+               alt="Testimoni A-Level Student" 
+               class="w-full h-64 object-cover">
+          <div class="play-button absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-16 h-16 bg-white rounded-full flex items-center justify-center z-10">
+            <i class="fas fa-play text-primary text-2xl"></i>
+          </div>
+          <div class="absolute bottom-0 left-0 right-0 p-4 text-white z-10">
+            <h3 class="font-bold text-lg">Kevin - A-Level</h3>
+            <p class="text-sm opacity-90">A* untuk Fisika dan Matematika</p>
+          </div>
+        </div>
+        
+        <!-- Video 3 -->
+        <div class="video-thumbnail cursor-pointer group relative rounded-xl overflow-hidden" onclick="openVideoModal('https://www.youtube.com/embed/dQw4w9WgXcQ')">
+          <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" 
+               alt="Testimoni Cambridge Student" 
+               class="w-full h-64 object-cover">
+          <div class="play-button absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-16 h-16 bg-white rounded-full flex items-center justify-center z-10">
+            <i class="fas fa-play text-primary text-2xl"></i>
+          </div>
+          <div class="absolute bottom-0 left-0 right-0 p-4 text-white z-10">
+            <h3 class="font-bold text-lg">Dewi - Cambridge IGCSE</h3>
+            <p class="text-sm opacity-90">Nilai Matematika naik 2 grade</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Instagram Testimonials -->
+  <section class="py-16 bg-white">
+    <div class="container mx-auto px-4">
+      <div class="text-center mb-12">
+        <h2 class="text-3xl md:text-4xl font-bold mb-4 font-heading">Testimoni di Instagram</h2>
+        <p class="text-lg text-gray-600 max-w-2xl mx-auto">Apa kata mereka di media sosial</p>
+      </div>
+      
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <!-- Instagram Post 1 -->
+        <div class="border border-gray-200 rounded-xl overflow-hidden hover:shadow-lg transition">
+          <div class="p-4 flex items-center border-b border-gray-200">
+            <img src="https://randomuser.me/api/portraits/women/32.jpg" alt="Sarah" class="w-10 h-10 rounded-full mr-3">
+            <div>
+              <h4 class="font-bold">sarahwijaya_ib</h4>
+              <p class="text-xs text-gray-500">2 weeks ago</p>
+            </div>
+          </div>
+          <div class="p-4">
+            <p class="mb-4">From predicted 5 to 7 in Math HL! 🎉 Lumos tutors explained complex concepts in ways my school teachers couldn't. So grateful for Ms. Priya's patience!</p>
+            <div class="flex items-center text-sm text-gray-500">
+              <span class="mr-4"><i class="far fa-heart mr-1"></i> 142</span>
+              <span><i class="far fa-comment mr-1"></i> 23</span>
+            </div>
+          </div>
+          <div class="bg-gray-50 p-4 text-sm">
+            <p><span class="font-bold">lumoscourse</span> We're so proud of your achievement, Sarah! Keep shining ✨</p>
+          </div>
+        </div>
+        
+        <!-- Instagram Post 2 -->
+        <div class="border border-gray-200 rounded-xl overflow-hidden hover:shadow-lg transition">
+          <div class="p-4 flex items-center border-b border-gray-200">
+            <img src="https://randomuser.me/api/portraits/men/45.jpg" alt="Kevin" class="w-10 h-10 rounded-full mr-3">
+            <div>
+              <h4 class="font-bold">kevintan_alevel</h4>
+              <p class="text-xs text-gray-500">1 month ago</p>
+            </div>
+          </div>
+          <div class="p-4">
+            <p class="mb-4">Just got my A-Level results! A* in Physics and Math 🚀 Big thanks to Mr. Ahmed from Lumos who made physics actually make sense. Best investment ever!</p>
+            <div class="flex items-center text-sm text-gray-500">
+              <span class="mr-4"><i class="far fa-heart mr-1"></i> 89</span>
+              <span><i class="far fa-comment mr-1"></i> 12</span>
+            </div>
+          </div>
+          <div class="bg-gray-50 p-4 text-sm">
+            <p><span class="font-bold">lumoscourse</span> Congratulations Kevin! Your hard work paid off 💪</p>
+          </div>
+        </div>
+        
+        <!-- Instagram Post 3 -->
+        <div class="border border-gray-200 rounded-xl overflow-hidden hover:shadow-lg transition">
+          <div class="p-4 flex items-center border-b border-gray-200">
+            <img src="https://randomuser.me/api/portraits/women/68.jpg" alt="Dewi" class="w-10 h-10 rounded-full mr-3">
+            <div>
+              <h4 class="font-bold">dewi.anggraeni</h4>
+              <p class="text-xs text-gray-500">3 months ago</p>
+            </div>
+          </div>
+          <div class="p-4">
+            <p class="mb-4">Anak saya yang biasanya takut matematika sekarang malah jadi suka! Nilainya naik drastis setelah ikut Lumos Course. Terima kasih untuk tutor yang sabar!</p>
+            <div class="flex items-center text-sm text-gray-500">
+              <span class="mr-4"><i class="far fa-heart mr-1"></i> 76</span>
+              <span><i class="far fa-comment mr-1"></i> 8</span>
+            </div>
+          </div>
+          <div class="bg-gray-50 p-4 text-sm">
+            <p><span class="font-bold">lumoscourse</span> Senang bisa membantu buah hati Ibu Dewi 😊</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Stats Section -->
+  <section class="py-16 bg-gradient-to-r from-primary to-indigo-700 text-white">
+    <div class="container mx-auto px-4">
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
+        <div class="glass-card p-8 rounded-2xl backdrop-blur-sm">
+          <div class="text-5xl font-bold mb-2 font-heading">500+</div>
+          <div class="text-xl">Siswa Aktif</div>
+          <div class="mt-4 h-1 bg-white/20 rounded-full overflow-hidden">
+            <div class="h-full bg-white" style="width: 100%"></div>
+          </div>
+        </div>
+        <div class="glass-card p-8 rounded-2xl backdrop-blur-sm">
+          <div class="text-5xl font-bold mb-2 font-heading">4.9<span class="text-2xl">/5.0</span></div>
+          <div class="text-xl">Rating Rata-rata</div>
+          <div class="mt-4 h-1 bg-white/20 rounded-full overflow-hidden">
+            <div class="h-full bg-white" style="width: 98%"></div>
+          </div>
+        </div>
+        <div class="glass-card p-8 rounded-2xl backdrop-blur-sm">
+          <div class="text-5xl font-bold mb-2 font-heading">50+</div>
+          <div class="text-xl">Guru Profesional</div>
+          <div class="mt-4 h-1 bg-white/20 rounded-full overflow-hidden">
+            <div class="h-full bg-white" style="width: 100%"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="py-16 bg-white">
+    <div class="container mx-auto px-4 text-center">
+      <div class="max-w-3xl mx-auto bg-gradient-to-r from-primary/5 to-secondary/5 p-8 rounded-2xl">
+        <h2 class="text-3xl md:text-4xl font-bold mb-6 font-heading">Siap Mengubah Perjalanan Belajarmu?</h2>
+        <p class="text-xl mb-8">Bergabunglah dengan 500+ siswa yang telah merasakan perbedaan</p>
+        <div class="flex flex-col xs:flex-row justify-center space-y-3 xs:space-y-0 xs:space-x-4">
+          <a href="https://wa.me/6282147510780" class="bg-primary hover:bg-primary/90 text-white px-8 py-4 rounded-lg font-bold shadow-lg transition transform hover:scale-105 touch-target">
+            Konsultasi Gratis
+          </a>
+          <a href="index.html#program" class="bg-white border-2 border-primary text-primary hover:bg-gray-50 px-8 py-4 rounded-lg font-bold shadow-lg transition transform hover:scale-105 touch-target">
+            Lihat Program
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-gray-900 text-gray-400 py-12">
+    <div class="container mx-auto px-4">
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+        <div class="md:col-span-2">
+          <div class="flex items-center mb-4">
+            <img src="assets/logo-lumos-course.png" alt="Lumos Course Logo" class="w-10 h-10 object-contain" />
+            <span class="ml-2 text-xl font-bold text-white">Lumos Course</span>
+          </div>
+          <p class="text-sm mb-4">Les privat profesional untuk kurikulum internasional.</p>
+          <div class="flex space-x-4">
+            <a href="#" class="text-gray-400 hover:text-white transition touch-target">
+              <i class="fab fa-instagram text-xl"></i>
+            </a>
+            <a href="#" class="text-gray-400 hover:text-white transition touch-target">
+              <i class="fab fa-facebook text-xl"></i>
+            </a>
+            <a href="#" class="text-gray-400 hover:text-white transition touch-target">
+              <i class="fab fa-youtube text-xl"></i>
+            </a>
+          </div>
+        </div>
+        
+        <div>
+          <h3 class="text-white font-bold mb-4 text-lg">Program</h3>
+          <ul class="space-y-2">
+            <li><a href="index.html#program" class="hover:text-white transition text-sm touch-target">Kurikulum Nasional</a></li>
+            <li><a href="index.html#program" class="hover:text-white transition text-sm touch-target">Kurikulum Internasional</a></li>
+          </ul>
+        </div>
+        
+        <div>
+          <h3 class="text-white font-bold mb-4 text-lg">Kontak</h3>
+          <ul class="space-y-2">
+            <li class="flex items-center">
+              <i class="fas fa-phone-alt mr-2 text-sm"></i>
+              <span class="text-sm">+62 821-4751-0780</span>
+            </li>
+            <li class="flex items-center">
+              <i class="fas fa-envelope mr-2 text-sm"></i>
+              <span class="text-sm">info@lumoscourse.com</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+      
+      <div class="border-t border-gray-800 mt-8 pt-8 text-sm text-center">
+        <p>&copy; 2025 Lumos Course. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+  
+  <!-- Floating WhatsApp Button -->
+  <a href="https://wa.me/6282147510780" class="fixed bottom-6 right-6 bg-green-500 hover:bg-green-600 text-white w-14 h-14 rounded-full flex items-center justify-center shadow-xl transition transform hover:scale-110 z-50 touch-target">
+    <i class="fab fa-whatsapp text-2xl"></i>
+  </a>
+
+  <!-- Video Modal -->
+  <div id="video-modal" class="fixed inset-0 bg-black bg-opacity-75 z-50 flex items-center justify-center hidden">
+    <div class="relative w-full max-w-4xl mx-4">
+      <button onclick="closeVideoModal()" class="absolute -top-10 right-0 text-white hover:text-gray-300 text-2xl">
+        <i class="fas fa-times"></i>
+      </button>
+      <div class="aspect-w-16 aspect-h-9">
+        <iframe id="video-iframe" class="w-full h-96 md:h-[32rem]" frameborder="0" allowfullscreen></iframe>
+      </div>
+    </div>
+  </div>
+
+  <!-- Swiper JS -->
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+  
+  <script>
+    // Initialize Swiper
+    const testimonialSwiper = new Swiper('.testimonialSwiper', {
+      slidesPerView: 1,
+      spaceBetween: 20,
+      pagination: {
+        el: '.swiper-pagination',
+        clickable: true,
+      },
+      breakpoints: {
+        640: {
+          slidesPerView: 2,
+        },
+        1024: {
+          slidesPerView: 3,
+        }
+      }
+    });
+    
+    // Mobile Menu Toggle
+    const menuButton = document.getElementById('mobile-menu-button');
+    const mobileMenu = document.getElementById('mobile-menu');
+    
+    menuButton.addEventListener('click', function() {
+      mobileMenu.classList.toggle('hidden');
+      const icon = this.querySelector('i');
+      icon.classList.toggle('fa-bars');
+      icon.classList.toggle('fa-times');
+    });
+    
+    // Video Modal Functions
+    function openVideoModal(videoUrl) {
+      const modal = document.getElementById('video-modal');
+      const iframe = document.getElementById('video-iframe');
+      
+      iframe.src = videoUrl;
+      modal.classList.remove('hidden');
+      document.body.style.overflow = 'hidden';
+    }
+    
+    function closeVideoModal() {
+      const modal = document.getElementById('video-modal');
+      const iframe = document.getElementById('video-iframe');
+      
+      iframe.src = '';
+      modal.classList.add('hidden');
+      document.body.style.overflow = 'auto';
+    }
+    
+    // Close modal when clicking outside
+    document.getElementById('video-modal').addEventListener('click', function(e) {
+      if (e.target === this) {
+        closeVideoModal();
+      }
+    });
+    
+    // Animate progress bars on scroll
+    function animateProgressBars() {
+      const progressBars = document.querySelectorAll('.progress-fill');
+      
+      progressBars.forEach(bar => {
+        const rect = bar.getBoundingClientRect();
+        const isVisible = (rect.top <= window.innerHeight) && (rect.bottom >= 0);
+        
+        if (isVisible) {
+          bar.style.width = bar.style.width; // Trigger animation
+        }
+      });
+    }
+    
+    window.addEventListener('load', animateProgressBars);
+    window.addEventListener('scroll', animateProgressBars);
+    
+    // Marquee animation for social proof
+    const marquee = document.querySelector('.animate-marquee');
+    if (marquee) {
+      marquee.style.animation = 'marquee 30s linear infinite';
+    }
+  </script>
+</body>
+</html>
